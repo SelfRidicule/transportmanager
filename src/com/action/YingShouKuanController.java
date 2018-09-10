@@ -615,6 +615,14 @@ public class YingShouKuanController extends ActionSupport{
 			
 		}
 		
+		sumkaipiaojine = StringTfmDouble( formatDoubleTwo( sumkaipiaojine ) );;			
+		sumshuijin =  StringTfmDouble( formatDoubleTwo( sumshuijin ) );;	
+		sumguanlifei =  StringTfmDouble( formatDoubleTwo( sumguanlifei ) );;	
+		sumshifuyunfei =  StringTfmDouble( formatDoubleTwo( sumshifuyunfei ) );;	
+		sumdaidianfei =  StringTfmDouble( formatDoubleTwo( sumdaidianfei ) );;	
+		sumzuchefei =  StringTfmDouble( formatDoubleTwo( sumzuchefei ) );;	
+		sumyewufei = StringTfmDouble( formatDoubleTwo( sumyewufei ) );;	
+		
 		request.setAttribute("sumkaipiaojine", sumkaipiaojine);
 		request.setAttribute("sumshuijin", sumshuijin);
 		request.setAttribute("sumguanlifei", sumguanlifei);
@@ -859,6 +867,14 @@ public class YingShouKuanController extends ActionSupport{
 			sumyewufei = sumyewufei + yingShouKuanInKaiPiao.getYewufei();
 			
 		}
+		
+		sumkaipiaojine = StringTfmDouble( formatDoubleTwo( sumkaipiaojine ) );;			
+		sumshuijin =  StringTfmDouble( formatDoubleTwo( sumshuijin ) );;	
+		sumguanlifei =  StringTfmDouble( formatDoubleTwo( sumguanlifei ) );;	
+		sumshifuyunfei =  StringTfmDouble( formatDoubleTwo( sumshifuyunfei ) );;	
+		sumdaidianfei =  StringTfmDouble( formatDoubleTwo( sumdaidianfei ) );;	
+		sumzuchefei =  StringTfmDouble( formatDoubleTwo( sumzuchefei ) );;	
+		sumyewufei = StringTfmDouble( formatDoubleTwo( sumyewufei ) );;	
 		
 		request.setAttribute("sumkaipiaojine", sumkaipiaojine);
 		request.setAttribute("sumshuijin", sumshuijin);
