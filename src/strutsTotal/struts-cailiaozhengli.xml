@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	
+	<package name="cailiaozhengli" namespace="/" extends="manager">
+		
+		<action name="jumpCaiLiaoZhengLi" class="com.action.CaiLiaoZhengLiController" method="jumpCaiLiaoZhengLi">
+			<result name="success">/cailiaozhengli.jsp</result>
+		</action>
+		
+		<action name="vagueSearchCaiLiaoZhengLi" class="com.action.CaiLiaoZhengLiController" method="vagueSearchCaiLiaoZhengLi">
+			<result name="success">/cailiaozhengli.jsp</result>
+		</action>
+		
+		<action name="caiLiaoZhengLiJson" class="com.action.CaiLiaoZhengLiController" method="caiLiaoZhengLiJson"></action>
+		
+		<action name="jumpAddCaiLiaoZhengLi" class="com.action.CaiLiaoZhengLiController" method="jumpAddCaiLiaoZhengLi">
+			<result name="success">/addcailiaozhengli.jsp</result>
+		</action>
+		
+		<action name="addCaiLiaoZhengLi" class="com.action.CaiLiaoZhengLiController" method="addCaiLiaoZhengLi">
+			<result name="success">/cailiaozhengli.jsp</result>
+		</action>
+		
+		<action name="jumpUpdateCaiLiaoZhengLi" class="com.action.CaiLiaoZhengLiController" method="jumpUpdateCaiLiaoZhengLi">
+			<result name="success">/updatecailiaozhengli.jsp</result>
+		</action>
+		
+		<action name="updateCaiLiaoZhengLi" class="com.action.CaiLiaoZhengLiController" method="updateCaiLiaoZhengLi">
+			<result name="success">/cailiaozhengli.jsp</result>
+		</action>
+		
+	</package>
+	
+</struts>    

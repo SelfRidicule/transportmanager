@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	
+	<package name="zerenren" namespace="/" extends="manager">
+		
+		<action name="jumpZeRenRen" class="com.action.ZeRenRenController" method="jumpZeRenRen">
+			<result name="success">/zerenren.jsp</result>			
+		</action>
+		
+		<action name="vagueSearchZeRenRen" class="com.action.ZeRenRenController" method="vagueSearchZeRenRen">
+			<result name="success">/zerenren.jsp</result>			
+		</action>
+		
+		<action name="zeRenRenJson" class="com.action.ZeRenRenController" method="zeRenRenJson"></action>
+		
+		<action name="jumpAddZeRenRen" class="com.action.ZeRenRenController" method="jumpAddZeRenRen">
+			<result name="success">/addzerenren.jsp</result>			
+		</action>
+		
+		<action name="addZeRenRen" class="com.action.ZeRenRenController" method="addZeRenRen">
+			<result name="success">/zerenren.jsp</result>			
+		</action>
+		
+		<action name="jumpUpdateZeRenRen" class="com.action.ZeRenRenController" method="jumpUpdateZeRenRen">
+			<result name="success">/updatezerenren.jsp</result>			
+		</action>
+		
+		<action name="updateZeRenRen" class="com.action.ZeRenRenController" method="updateZeRenRen">
+			<result name="success">/zerenren.jsp</result>			
+		</action>
+		
+	</package>
+	
+</struts>    

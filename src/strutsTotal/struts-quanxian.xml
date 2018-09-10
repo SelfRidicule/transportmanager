@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	
+	<package name="quanxian" namespace="/" extends="manager">
+			
+		<action name="jumpQuanXian" class="com.action.QuanXianController" method="jumpQuanXian">
+			<result name="success">/quanxian.jsp</result>
+		</action>	
+		
+		<action name="returnQuanXian" class="com.action.QuanXianController" method="returnQuanXian">
+			<result name="success">/quanxian.jsp</result>
+		</action>
+		
+		<action name="quanXianJson" class="com.action.QuanXianController" method="quanXianJson"></action>	
+		
+		<action name="vagueSearchQuanXian" class="com.action.QuanXianController" method="vagueSearchQuanXian">
+			<result name="success">/quanxian.jsp</result>
+		</action>	
+		
+		<action name="addQuanXian" class="com.action.QuanXianController" method="addQuanXian">
+			<result name="success">/quanxian.jsp</result>
+		</action>	
+		
+		<action name="deleteQuanXian" class="com.action.QuanXianController" method="deleteQuanXian">
+			<result name="success">/quanxian.jsp</result>
+		</action>	
+		
+		<action name="jumpUpdateQuanXian" class="com.action.QuanXianController" method="jumpUpdateQuanXian">
+			<result name="success">/updatequanxian.jsp</result>
+			<result name="err">/quanxian.jsp</result>
+		</action>	
+		
+		<action name="submitUpdateQuanXian" class="com.action.QuanXianController" method="submitUpdateQuanXian">
+			<result name="success">/quanxian.jsp</result>
+		</action>
+		
+	</package>
+	
+</struts>    

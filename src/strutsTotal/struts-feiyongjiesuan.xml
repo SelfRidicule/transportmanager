@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	
+	<package name="feiyongjiesuan" namespace="/" extends="manager">
+		
+		<action name="jumpFeiYongJieSuan" class="com.action.FeiYongJieSuanController" method="jumpFeiYongJieSuan">
+			<result name="success">/feiyongjiesuan.jsp</result>
+		</action>
+		
+		<action name="vagueSearchFeiYongJieSuan" class="com.action.FeiYongJieSuanController" method="vagueSearchFeiYongJieSuan">
+			<result name="success">/feiyongjiesuan.jsp</result>
+		</action>
+		
+		<action name="feiYongJieSuanJson" class="com.action.FeiYongJieSuanController" method="feiYongJieSuanJson"></action>
+		
+		<action name="jumpAddFeiYongJieSuan" class="com.action.FeiYongJieSuanController" method="jumpAddFeiYongJieSuan">
+			<result name="success">/addfeiyongjiesuan.jsp</result>
+		</action>
+		
+		<action name="addFeiYongJieSuan" class="com.action.FeiYongJieSuanController" method="addFeiYongJieSuan">
+			<result name="success">/feiyongjiesuan.jsp</result>
+		</action>
+		
+		<action name="jumpUpdateFeiYongJieSuan" class="com.action.FeiYongJieSuanController" method="jumpUpdateFeiYongJieSuan">
+			<result name="success">/updatefeiyongjiesuan.jsp</result>
+		</action>
+		
+		<action name="updateFeiYongJieSuan" class="com.action.FeiYongJieSuanController" method="updateFeiYongJieSuan">
+			<result name="success">/feiyongjiesuan.jsp</result>
+		</action>
+		
+		
+	</package>
+	
+</struts>    

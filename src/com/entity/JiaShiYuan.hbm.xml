@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.entity">
+	
+	<class name="JiaShiYuan" table="jiashiyuan">
+		
+		<id name="id">
+			<generator class="increment"/>
+		</id>
+	
+		<property name="jiashiyuanxingming"/>
+		<property name="jiashicheliang"/>
+		<property name="jiashiyuanleixing"/>
+		<property name="bumen"/>
+		<property name="chushengriqi"/>
+		<property name="jiguan"/>
+		<property name="shenfenzhenghao"/>
+		<property name="dianhua"/>
+		<property name="dizhi"/>
+		<property name="zhunjiachexing"/>
+		<property name="chucilingzhengriqi"/>
+		<property name="jiashizhengnianshenriqi"/>
+		<property name="danganbianhao"/>
+		<property name="congyezigezhenghao"/>
+		<property name="congyezigeleibie"/>
+		<property name="congyezigejixujiaoyushijian"/>
+		<property name="congyezigechengxinkaoheshijian"/>
+		<property name="zhengjianyouxiaoriqi"/>
+		<property name="beizhu"/>
+		<property name="jiashiyuantupian"/>
+		<property name="jiashizhengtupian"/>
+		<property name="congyezigezhengtupian"/>
+		<property name="shenfenzhengtupian"/>
+		<property name="caozuoyuan"/>
+		<property name="caozuoriqi"/>
+		<property name="shenhezhuangtai"/>
+		<property name="mima"/>
+		
+		<property name="xingbie"/>
+		<property name="jiashizhengbianhao"/>
+		<property name="congyezigeriqi"/>
+		<property name="fazhengjiguan"/>
+		<property name="congyezigejixujiaoyushijianzhi"/>
+		
+	</class>
+	
+</hibernate-mapping>

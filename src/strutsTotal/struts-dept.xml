@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	
+	<package name="dept" namespace="/" extends="manager">
+		
+		<!-- 部门 -->
+		<action name="jumpDept" class="com.action.DeptController" method="jumpDept">
+			<result name="success">/dept.jsp</result>
+		</action>
+		
+		<action name="vagueSearchDept" class="com.action.DeptController" method="vagueSearchDept">
+			<result name="success">/dept.jsp</result>
+		</action>
+		
+		<action name="deptJson"   class="com.action.DeptController" method="deptJson">
+		</action>
+		
+		<action name="deleteDept" class="com.action.DeptController" method="deleteDept">
+			<result name="success">/dept.jsp</result>
+		</action>
+		
+		<action name="addDept" class="com.action.DeptController" method="addDept">
+			<result name="success">/dept.jsp</result>
+		</action>
+		
+		<action name="updateDept" class="com.action.DeptController" method="updateDept">
+			<result name="err">/dept.jsp</result>
+			<result name="success">/updatedept.jsp</result>
+		</action>
+		
+		<action name="submitUpdateDept" class="com.action.DeptController" method="submitUpdateDept">
+			<result name="success">/dept.jsp</result>
+		</action>
+		
+	</package>
+	
+</struts>    

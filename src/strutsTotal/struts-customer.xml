@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	
+	<package name="customer" namespace="/" extends="manager">
+		
+		<!-- 客户 -->
+		<action name="jumpCustomer" class="com.action.CustomerController" method="jumpCustomer">
+			<result name="success">/customer.jsp</result>
+		</action>
+		
+		<action name="vagueSearchCustomer" class="com.action.CustomerController" method="vagueSearchCustomer">
+			<result name="success">/customer.jsp</result>
+		</action>
+		
+		<action name="customerJson" class="com.action.CustomerController" method="customerJson">
+		</action>
+		
+		<action name="deleteCustomer" class="com.action.CustomerController" method="deleteCustomer">
+			<result name="success">/customer.jsp</result>
+		</action>
+		
+		<action name="addCustomer" class="com.action.CustomerController" method="addCustomer">
+			<result name="success">/customer.jsp</result>
+		</action>
+		
+		<action name="updateCustomer" class="com.action.CustomerController" method="updateCustomer">
+			<result name="err">/customer.jsp</result>
+			<result name="success">/updatecustomer.jsp</result>
+		</action>
+		
+		<action name="submitUpdateCustomer" class="com.action.CustomerController" method="submitUpdateCustomer">
+			<result name="success">/customer.jsp</result>
+		</action>
+		
+		<action name="customerDetail" class="com.action.CustomerController" method="customerDetail">
+			<result name="success">/customerdetail.jsp</result>
+		</action>
+		
+	</package>
+	
+</struts>    

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	
+	<package name="baoxianchudan" namespace="/" extends="manager">
+		
+		<action name="jumpBaoXianChuDan" class="com.action.BaoXianChuDanController" method="jumpBaoXianChuDan">
+			<result name="success">/baoxianchudan.jsp</result>
+		</action>
+		
+		<action name="vagueSearchBaoXianChuDan" class="com.action.BaoXianChuDanController" method="vagueSearchBaoXianChuDan">
+			<result name="success">/baoxianchudan.jsp</result>
+		</action>
+
+		<action name="baoXianChuDanJson" class="com.action.BaoXianChuDanController" method="baoXianChuDanJson"></action>
+		
+		<action name="jumpAddBaoXianChuDan" class="com.action.BaoXianChuDanController" method="jumpAddBaoXianChuDan">
+			<result>/addbaoxianchudan.jsp</result>
+		</action>
+		
+		<action name="addBaoXianChuDan" class="com.action.BaoXianChuDanController" method="addBaoXianChuDan">
+			<result>/baoxianchudan.jsp</result>
+		</action>
+		
+		<action name="jumpUpdateBaoXianChuDan" class="com.action.BaoXianChuDanController" method="jumpUpdateBaoXianChuDan">
+			<result>/updatebaoxianchudan.jsp</result>
+		</action>
+		
+		<action name="updateBaoXianChuDan" class="com.action.BaoXianChuDanController" method="updateBaoXianChuDan">
+			<result>/baoxianchudan.jsp</result>
+		</action>
+		
+	</package>
+	
+</struts>    

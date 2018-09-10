@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	
+	<package name="tourushenhe" namespace="/" extends="manager">
+		
+		<action name="jumpTouRuShenHe" class="com.action.TouRuShenHeController" method="jumpTouRuShenHe">
+			<result name="success">/tourushenhe.jsp</result>
+		</action>
+			
+		<action name="vagueSearchTouRuShenHe" class="com.action.TouRuShenHeController" method="vagueSearchTouRuShenHe">
+			<result name="success">/tourushenhe.jsp</result>
+		</action>	
+			
+		<action name="touRuShenHeJson" class="com.action.TouRuShenHeController" method="touRuShenHeJson"></action>	
+		
+		<action name="jumpAddTouRuShenHe" class="com.action.TouRuShenHeController" method="jumpAddTouRuShenHe">
+			<result name="success">/addtourushenhe.jsp</result>
+		</action>
+		
+		<action name="addTouRuShenHe" class="com.action.TouRuShenHeController" method="addTouRuShenHe">
+			<result name="success">/tourushenhe.jsp</result>
+		</action>	
+		
+		<action name="jumpUpdateTouRuShenHe" class="com.action.TouRuShenHeController" method="jumpUpdateTouRuShenHe">
+			<result name="success">/updatetourushenhe.jsp</result>
+		</action>	
+		
+		<action name="updateTouRuShenHe" class="com.action.TouRuShenHeController" method="updateTouRuShenHe">
+			<result name="success">/tourushenhe.jsp</result>
+		</action>
+		
+	</package>
+	
+</struts>    

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	
+	<package name="cheliang" namespace="/" extends="manager">
+		
+		<action name="formatJiaShiYuanXingMing" class="com.action.CheLiangController" method="formatJiaShiYuanXingMing">
+		</action>
+		
+		<action name="jumpCheLiang" class="com.action.CheLiangController" method="jumpCheLiang">
+			<result name="success">/cheliang.jsp</result>
+		</action>
+		
+		<action name="returnCheLiang" class="com.action.CheLiangController" method="returnCheLiang">
+			<result name="success">/cheliang.jsp</result>
+		</action>
+
+		<action name="verificationChePaiHao" class="com.action.CheLiangController" method="verificationChePaiHao">
+		</action>
+		
+		<action name="cheLiangUploadFile" class="com.action.CheLiangController" method="cheLiangUploadFile">
+		</action>
+		
+		<action name="cheLiangDeleteFile" class="com.action.CheLiangController" method="cheLiangDeleteFile">
+		</action>
+		
+		<action name="cheLiangViewAjax" class="com.action.CheLiangController" method="cheLiangViewAjax">
+		</action>
+		
+		<action name="cheLiangCopyViewAjax" class="com.action.CheLiangController" method="cheLiangCopyViewAjax">
+		</action>
+		
+		<action name="addAjaxCheLiangLeiXing" class="com.action.CheLiangController" method="addAjaxCheLiangLeiXing">
+		</action>
+		
+		<action name="vagueSearchCheLiang" class="com.action.CheLiangController" method="vagueSearchCheLiang">
+		</action>
+		
+		<action name="cheLiangJson" class="com.action.CheLiangController" method="cheLiangJson">
+		</action>
+		
+		<action name="cheLiangXiangXi" class="com.action.CheLiangController" method="cheLiangXiangXi">
+			<result name="success">/cheliangxiangxi.jsp</result>
+		</action>
+		
+		<action name="zanCunCheLiangBeiFen" class="com.action.CheLiangController" method="zanCunCheLiangBeiFen">
+			<result name="success">/cheliang.jsp</result>
+		</action>
+		
+		<action name="jumpAddCheLiang" class="com.action.CheLiangController" method="jumpAddCheLiang">
+			<result name="success">/addcheliang.jsp</result>
+		</action>
+		
+		<action name="addCheLiang" class="com.action.CheLiangController" method="addCheLiang">
+			<result name="success">/cheliang.jsp</result>
+		</action>
+		
+		<action name="deleteCheLiang" class="com.action.CheLiangController" method="deleteCheLiang">
+			<result name="err">/cheliang.jsp</result>
+			<result name="success">/cheliang.jsp</result>
+		</action>
+		
+		<action name="updateCheLiang" class="com.action.CheLiangController" method="updateCheLiang">
+			<result name="err">/cheliang.jsp</result>
+			<result name="success">/updatecheliang.jsp</result>
+		</action>
+		
+		<action name="submitUpdateCheLiang" class="com.action.CheLiangController" method="submitUpdateCheLiang">
+			<result name="success">/cheliang.jsp</result>
+		</action>
+		
+		<action name="weiguidengji" class="com.action.CheLiangController" method="weiguidengji">
+			<result name="err">/cheliang.jsp</result>
+			<result name="success">/weiguidengji.jsp</result>
+		</action>
+		
+		<action name="submitweiguidengji" class="com.action.CheLiangController" method="submitweiguidengji">
+			<result name="success">/cheliang.jsp</result>
+		</action>
+		
+		<action name="weiguichexiao" class="com.action.CheLiangController" method="weiguichexiao">
+			<result name="err">/cheliang.jsp</result>
+			<result name="success">/weiguichexiao.jsp</result>
+		</action>
+		
+		<action name="submitweiguichexiao" class="com.action.CheLiangController" method="submitweiguichexiao">
+			<result name="success">/cheliang.jsp</result>
+		</action>
+		
+
+		<!-- 导出excel -->
+		<action name="exportCheLiang" class="com.action.CheLiangController" method="exportCheLiang">
+			<result name="success">/cheliang.jsp</result>
+		</action>
+	
+		
+	</package>
+	
+</struts>    

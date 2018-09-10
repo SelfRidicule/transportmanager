@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	
+	<package name="jiesuandan" namespace="/" extends="manager">
+		
+		
+		<action name="jumpJieSuanDan" class="com.action.JieSuanDanController" method="jumpJieSuanDan">
+			<result name="success">/jiesuandan.jsp</result>
+		</action>
+		
+		<action name="jieSuanDanJson" class="com.action.JieSuanDanController" method="jieSuanDanJson"></action>
+		
+		<action name="vagueSearchJieSuanDan" class="com.action.JieSuanDanController" method="vagueSearchJieSuanDan">
+			<result name="success">/jiesuandan.jsp</result>
+		</action>
+		
+		<action name="jumpJieSuanDanXiangXi" class="com.action.JieSuanDanController" method="jumpJieSuanDanXiangXi">
+			<result name="success">/jiesuandanxiangxi.jsp</result>
+		</action>
+		
+	</package>
+	
+</struts>    

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	
+	<package name="cheliangguanli" namespace="/" extends="manager">
+		
+		<action name="jumpCheLiangGuanLi" class="com.action.CheLiangGuanLiController" method="jumpCheLiangGuanLi">
+			<result name="success">/manager/cheliangguanli/cheliangguanli.jsp</result>
+		</action>
+		
+		<action name="vagueSearchCheLiangGuanLi" class="com.action.CheLiangGuanLiController" method="vagueSearchCheLiangGuanLi">
+			<result name="success">/manager/cheliangguanli/cheliangguanli.jsp</result>
+		</action>
+		
+		<action name="CheLiangGuanLiJson" class="com.action.CheLiangGuanLiController" method="CheLiangGuanLiJson">
+		</action>
+				
+		<action name="jumpAddCheLianGuanLi" class="com.action.CheLiangGuanLiController" method="jumpAddCheLianGuanLi">
+			<result name="success">/manager/cheliangguanli/addcheliangguanli.jsp</result>
+		</action>
+		
+		<action name="addCheLianGuanLi" class="com.action.CheLiangGuanLiController" method="addCheLianGuanLi">
+			<result name="success">/manager/cheliangguanli/cheliangguanli.jsp</result>
+		</action>
+		
+		<action name="deleteCheLiangGuanLi" class="com.action.CheLiangGuanLiController" method="deleteCheLiangGuanLi">
+			<result name="err">/manager/cheliangguanli/cheliangguanli.jsp</result>
+			<result name="success">/manager/cheliangguanli/cheliangguanli.jsp</result>
+		</action>
+		
+		<action name="jumpUpdateCheLiangGuanLi" class="com.action.CheLiangGuanLiController" method="jumpUpdateCheLiangGuanLi">
+			<result name="err">/manager/cheliangguanli/cheliangguanli.jsp</result>
+			<result name="success">/manager/cheliangguanli/updatecheliangguanli.jsp</result>
+		</action>
+		
+		<action name="submitUpdateCheLiangGuanLi" class="com.action.CheLiangGuanLiController" method="submitUpdateCheLiangGuanLi">
+			<result name="success">/manager/cheliangguanli/cheliangguanli.jsp</result>
+		</action>
+		
+	</package>
+	
+</struts>    

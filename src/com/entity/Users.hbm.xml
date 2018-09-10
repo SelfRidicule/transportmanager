@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.entity">
+	
+	<class name="Users" table="users">
+		
+		<id name="usersid">
+			<generator class="increment"/>
+		</id>
+		
+		<property name="account"/>
+		<property name="password"/>
+		<property name="username"/>
+		<property name="sex"/>
+		<property name="email"/>
+		<property name="quanxianmingcheng"/>
+		<property name="comment"/>
+		<property name="deptid"/>
+		
+	</class>
+	
+</hibernate-mapping>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	
+	<!-- 驾驶员 -->
+	<package name="jiashiyuan" namespace="/" extends="manager">
+			
+		<!-- 移动端  -->	
+		<action name="androidJiaShiYuanDianHua" class="com.action.JiaShiYuanController" method="androidJiaShiYuanDianHua"></action>	
+		
+		<action name="androidJiaShiYuanZhuCe" class="com.action.JiaShiYuanController" method="androidJiaShiYuanZhuCe"></action>	
+		
+		<action name="androidJiaShiYuanShanChu" class="com.action.JiaShiYuanController" method="androidJiaShiYuanShanChu"></action>	
+		
+		<!-- 驾驶员 -->	
+		<action name="jumpJiaShiYuan" class="com.action.JiaShiYuanController" method="jumpJiaShiYuan">
+			<result name="success">/jiashiyuan.jsp</result>
+		</action>	
+		
+		<action name="jiaShiYuanExistShenFenZheng" class="com.action.JiaShiYuanController" method="jiaShiYuanExistShenFenZheng"></action>
+		
+		<action name="jiaShiYuanExistDianHua" class="com.action.JiaShiYuanController" method="jiaShiYuanExistDianHua"></action>
+		
+		<action name="jiaShiYuanDengLu" class="com.action.JiaShiYuanController" method="jiaShiYuanDengLu"></action>	
+		
+		<action name="updateJiaShiYuanMiMa" class="com.action.JiaShiYuanController" method="updateJiaShiYuanMiMa"></action>	
+			
+		<action name="vagueSearchJiaShiYuan" class="com.action.JiaShiYuanController" method="vagueSearchJiaShiYuan">
+		</action>
+				
+		<action name="jiaShiYuanJson" class="com.action.JiaShiYuanController" method="jiaShiYuanJson"></action>
+		
+		<action name="jiaShiYuanXiangXi" class="com.action.JiaShiYuanController" method="jiaShiYuanXiangXi">
+			<result name="success">/jiashiyuanxiangxi.jsp</result>
+		</action>
+		
+		<action name="deleteJiaShiYuan" class="com.action.JiaShiYuanController" method="deleteJiaShiYuan">
+			<result name="success">/jiashiyuan.jsp</result>
+		</action>	
+		
+		<action name="jumpAddJiaShiYuan" class="com.action.JiaShiYuanController" method="jumpAddJiaShiYuan">
+			<result name="success">/addjiashiyuan.jsp</result>
+		</action>
+		
+		<action name="addJianShiYuan" class="com.action.JiaShiYuanController" method="addJianShiYuan">
+			<result name="success">/jiashiyuan.jsp</result>
+		</action>
+			
+		<action name="jiashiyuantupianFileUpLoad" class="com.action.JiaShiYuanController" method="jiashiyuantupianFileUpLoad"></action>		
+		
+		<action name="jiashizhengtupianFileUpLoad" class="com.action.JiaShiYuanController" method="jiashizhengtupianFileUpLoad"></action>
+		
+		<action name="congyezigezhengtupianFileUpLoad" class="com.action.JiaShiYuanController" method="congyezigezhengtupianFileUpLoad"></action>
+		
+		<action name="shenfenzhengtupianFileUpLoad" class="com.action.JiaShiYuanController" method="shenfenzhengtupianFileUpLoad"></action>
+		
+		<action name="jumpUpdateJiaShiYuan" class="com.action.JiaShiYuanController" method="jumpUpdateJiaShiYuan">
+			<result name="err">/jiashiyuan.jsp</result>
+			<result name="success">/updatejiashiyuan.jsp</result>
+		</action>
+		
+		<action name="submitUpdateJianShiYuan" class="com.action.JiaShiYuanController" method="submitUpdateJianShiYuan">
+			<result name="success">/jiashiyuan.jsp</result>
+		</action>
+			
+		<action name="jiashiyuantupianAjax" class="com.action.JiaShiYuanController" method="jiashiyuantupianAjax"></action>	
+		<action name="jiashiyuantupianDeleteFile" class="com.action.JiaShiYuanController" method="jiashiyuantupianDeleteFile"></action>
+			
+		<action name="jiashizhengtupianAjax" class="com.action.JiaShiYuanController" method="jiashizhengtupianAjax"></action>	
+		<action name="jiashizhengtupianDeleteFile" class="com.action.JiaShiYuanController" method="jiashizhengtupianDeleteFile"></action>
+	
+		<action name="congyezigezhengtupianAjax" class="com.action.JiaShiYuanController" method="congyezigezhengtupianAjax"></action>
+		<action name="congyezigezhengtupianDeleteFile" class="com.action.JiaShiYuanController" method="congyezigezhengtupianDeleteFile"></action>
+	
+		<action name="shenfenzhengtupianAjax" class="com.action.JiaShiYuanController" method="shenfenzhengtupianAjax"></action>
+		<action name="shenfenzhengtupianDeleteFile" class="com.action.JiaShiYuanController" method="shenfenzhengtupianDeleteFile"></action>
+	
+		
+		<action name="exportJiaShiYuan" class="com.action.JiaShiYuanController" method="exportJiaShiYuan"></action>
+		
+		<!-- 驾驶员审核 -->
+		
+		<action name="jumpJiaShiYuanShenHe" class="com.action.JiaShiYuanController" method="jumpJiaShiYuanShenHe">
+			<result name="success">/jiashiyuanshenhe.jsp</result>
+		</action>
+		
+		<action name="vagueSearchJiaShiYuanShenHe" class="com.action.JiaShiYuanController" method="vagueSearchJiaShiYuanShenHe">
+			<result name="success">/jiashiyuanshenhe.jsp</result>
+		</action>
+		
+		<action name="jiaShiYuanShenHeJson" class="com.action.JiaShiYuanController" method="jiaShiYuanShenHeJson"></action>
+		
+		<action name="jiaShiYuanShenHeXiangXi" class="com.action.JiaShiYuanController" method="jiaShiYuanShenHeXiangXi">
+			<result name="success">/jiashiyuanshenhexiangxi.jsp</result>
+		</action>		
+		
+		<action name="jumpUpdateJiaShiYuanShenHe" class="com.action.JiaShiYuanController" method="jumpUpdateJiaShiYuanShenHe">
+			<result name="err">/jiashiyuanshenhe.jsp</result>
+			<result name="success">/updatejiashiyuanshenhe.jsp</result>
+		</action>
+		
+		<action name="submitUpdateJiaShiYuanShenHe" class="com.action.JiaShiYuanController" method="submitUpdateJiaShiYuanShenHe">
+			<result name="success">/jiashiyuanshenhe.jsp</result>
+		</action>
+		
+		<action name="exportJiaShiYuanShenHe" class="com.action.JiaShiYuanController" method="exportJiaShiYuanShenHe"></action>
+		
+		
+		<!-- 驾驶员年审 -->
+		
+		<action name="jumpJiaShiYuanNianShen" class="com.action.JiaShiYuanController" method="jumpJiaShiYuanNianShen">
+			<result name="success">/jiashiyuannianshen.jsp</result>
+		</action>
+		
+		<action name="JiaShiYuanNianShenJson" class="com.action.JiaShiYuanController" method="JiaShiYuanNianShenJson"></action>
+		
+		<action name="vagueSearchJiaShiYuanNianShen" class="com.action.JiaShiYuanController" method="vagueSearchJiaShiYuanNianShen">
+			<result name="success">/jiashiyuannianshen.jsp</result>
+		</action>
+		
+		<action name="jumpUpdateJiaShiYuanNianShen" class="com.action.JiaShiYuanController" method="jumpUpdateJiaShiYuanNianShen">
+			<result name="success">/updatejiashiyuannianshen.jsp</result>
+			<result name="err">/jiashiyuannianshen.jsp</result>
+		</action>
+		
+		<action name="updateJiaShiYuanNianShen" class="com.action.JiaShiYuanController" method="updateJiaShiYuanNianShen">
+			<result name="success">/jiashiyuannianshen.jsp</result>
+		</action>
+		
+		<action name="jiaShiYuanNianShenXiangXi" class="com.action.JiaShiYuanController" method="jiaShiYuanNianShenXiangXi">
+			<result name="success">/jiashiyuannianshenxiangxi.jsp</result>
+		</action>
+		
+		<action name="exportJiaShiYuanNianShen" class="com.action.JiaShiYuanController" method="exportJiaShiYuanNianShen"></action>
+		
+	</package>
+	
+</struts>    

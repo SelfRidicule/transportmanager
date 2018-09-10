@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	
+	<package name="yingshoukuan" namespace="/" extends="manager">
+	
+		<action name="jumpYingShouKuan" class="com.action.YingShouKuanController" method="jumpYingShouKuan">
+			<result name="success">/yingshoukuan.jsp</result>		
+		</action>
+		
+		<action name="vagueSearchYingShouKuan" class="com.action.YingShouKuanController" method="vagueSearchYingShouKuan">
+		</action>
+		
+		<action name="yingShouKuanJson" class="com.action.YingShouKuanController" method="yingShouKuanJson"></action>
+		
+		<action name="jumpAddYingShouKuan" class="com.action.YingShouKuanController" method="jumpAddYingShouKuan">
+			<result name="success">/addyingshoukuan.jsp</result>		
+			<result name="err">/yingshoukuan.jsp</result>		
+		</action>
+		
+		<action name="addYingShouKuan" class="com.action.YingShouKuanController" method="addYingShouKuan">
+			<result name="success">/yingshoukuan.jsp</result>		
+		</action>
+		
+		<action name="yingShouKuanXiangXi" class="com.action.YingShouKuanController" method="yingShouKuanXiangXi">
+			<result name="success">/yingshoukuanxiangxi.jsp</result>		
+		</action>
+		
+		<action name="exportExcelYingShouKuan" class="com.action.YingShouKuanController" method="exportExcelYingShouKuan"></action>
+		
+		<action name="importExcelYingShouKuan" class="com.action.YingShouKuanController" method="importExcelYingShouKuan">
+			<result name="success">/yingshoukuan.jsp</result>		
+		</action>
+		
+		<action name="importSonExcelYingShouKuan" class="com.action.YingShouKuanController" method="importSonExcelYingShouKuan">
+			<result name="success">/yingshoukuan.jsp</result>		
+		</action>
+		
+		<!-- 营收款全部 -->
+		
+		<action name="jumpYingShouKuanAll" class="com.action.YingShouKuanController" method="jumpYingShouKuanAll">
+			<result name="success">/yingshoukuanall.jsp</result>		
+		</action>
+		
+		<action name="yingShouKuanJsonAll" class="com.action.YingShouKuanController" method="yingShouKuanJsonAll"></action>
+		
+		<action name="vagueSearchYingShouKuanAll" class="com.action.YingShouKuanController" method="vagueSearchYingShouKuanAll">
+			<result name="success">/yingshoukuanall.jsp</result>		
+		</action>
+		
+		<action name="ajaxUpdateYingShouKuan" class="com.action.YingShouKuanController" method="ajaxUpdateYingShouKuan"></action>	
+		
+		
+		<!-- 开票申请 -->
+		
+		<action name="jumpKaiPiaoShenQing" class="com.action.YingShouKuanController" method="jumpKaiPiaoShenQing">
+			<result name="success">/view/kaipiaoshenqing.jsp</result>		
+		</action>
+		
+		<action name="vagueSearchKaiPiaoShenQing" class="com.action.YingShouKuanController" method="vagueSearchKaiPiaoShenQing">
+			<result name="success">/view/kaipiaoshenqing.jsp</result>		
+		</action>
+		
+		<action name="kaiPiaoShenQingJson" class="com.action.YingShouKuanController" method="kaiPiaoShenQingJson">
+		</action>
+		
+		<action name="jumpUpdateKaiPiaoShenQing" class="com.action.YingShouKuanController" method="jumpUpdateKaiPiaoShenQing">
+			<result name="success">/view/kaipiaoshenqing.jsp</result>		
+		</action>
+		
+		<action name="kaiPiaoShenQingXiangXi" class="com.action.YingShouKuanController" method="kaiPiaoShenQingXiangXi">
+			<result name="success">/view/kaipiaoshenqingxiangxi.jsp</result>		
+		</action>
+		
+		<!-- 开票审核(分管负责人) -->
+		
+		<action name="jumpFenGuanKaiPiaoShenHe" class="com.action.YingShouKuanController" method="jumpFenGuanKaiPiaoShenHe">
+			<result name="success">/view/fenguankaipiaoshenhe.jsp</result>		
+		</action>
+		
+		<action name="fenGuanKaiPiaoShenHeJson" class="com.action.YingShouKuanController" method="fenGuanKaiPiaoShenHeJson">
+		</action>
+		
+		<action name="vagueSearchFenGuanKaiPiaoShenHe" class="com.action.YingShouKuanController" method="vagueSearchFenGuanKaiPiaoShenHe">
+			<result name="success">/view/fenguankaipiaoshenhe.jsp</result>		
+		</action>
+		
+		<action name="jumpUpdateFenGuanKaiPiaoShenHe" class="com.action.YingShouKuanController" method="jumpUpdateFenGuanKaiPiaoShenHe">
+			<result name="err">/view/fenguankaipiaoshenhe.jsp</result>	
+			<result name="success">/view/updatefenguankaipiaoshenhe.jsp</result>		
+		</action>
+		
+		<action name="updateFenGuanKaiPiaoShenHe" class="com.action.YingShouKuanController" method="updateFenGuanKaiPiaoShenHe">
+			<result name="success">/view/fenguankaipiaoshenhe.jsp</result>		
+		</action>
+		
+		<action name="kaiPiaoShenHeYesAll" class="com.action.YingShouKuanController" method="kaiPiaoShenHeYesAll">
+			<result name="success">/view/fenguankaipiaoshenhe.jsp</result>		
+		</action>
+		
+		<action name="kaiPiaoShenHeNoAll" class="com.action.YingShouKuanController" method="kaiPiaoShenHeNoAll">
+			<result name="success">/view/fenguankaipiaoshenhe.jsp</result>		
+		</action>
+		
+		<action name="fenGuanKaiPiaoShenHeXiangXi" class="com.action.YingShouKuanController" method="fenGuanKaiPiaoShenHeXiangXi">
+			<result name="success">/view/fenguankaipiaoshenhexiangxi.jsp</result>		
+		</action>
+		
+		<!-- 开票审核 (总经理) -->
+		
+		<action name="jumpZongJingLiKaiPiaoShenHe" class="com.action.YingShouKuanController" method="jumpZongJingLiKaiPiaoShenHe">
+			<result name="success">/view/zongjinglikaipiaoshenhe.jsp</result>		
+		</action>
+		
+		<action name="vagueSearchZongJingLiKaiPiaoShenHe" class="com.action.YingShouKuanController" method="vagueSearchZongJingLiKaiPiaoShenHe">
+			<result name="success">/view/zongjinglikaipiaoshenhe.jsp</result>		
+		</action>
+		
+		<action name="zongJingLiKaiPiaoShenHeJson" class="com.action.YingShouKuanController" method="zongJingLiKaiPiaoShenHeJson">
+		</action>
+		
+		<action name="jumpUpdateZongJingLiKaiPiaoShenHe" class="com.action.YingShouKuanController" method="jumpUpdateZongJingLiKaiPiaoShenHe">
+			<result name="err">/view/zongjinglikaipiaoshenhe.jsp</result>
+			<result name="success">/view/updatezongjinglikaipiaoshenhe.jsp</result>		
+		</action>
+		
+		<action name="updateZongJingLiKaiPiaoShenHe" class="com.action.YingShouKuanController" method="updateZongJingLiKaiPiaoShenHe">
+			<result name="success">/view/zongjinglikaipiaoshenhe.jsp</result>		
+		</action>
+		
+		<action name="kaiPiaoShenHeZongJingLiYesAll" class="com.action.YingShouKuanController" method="kaiPiaoShenHeZongJingLiYesAll">
+			<result name="success">/view/zongjinglikaipiaoshenhe.jsp</result>		
+		</action>
+		
+		<action name="kaiPiaoShenHeZongJingLiNoAll" class="com.action.YingShouKuanController" method="kaiPiaoShenHeZongJingLiNoAll">
+			<result name="success">/view/zongjinglikaipiaoshenhe.jsp</result>		
+		</action>
+		
+		<action name="zongJingLiKaiPiaoShenHeXiangXi" class="com.action.YingShouKuanController" method="zongJingLiKaiPiaoShenHeXiangXi">
+			<result name="success">/view/zongjinglikaipiaoshenhexiangxi.jsp</result>		
+		</action>
+		
+		<!-- 开票 -->
+		<action name="jumpYingShouKuanKaiPiao" class="com.action.YingShouKuanController" method="jumpYingShouKuanKaiPiao">
+			<result name="success">/view/kaipiao.jsp</result>		
+		</action>
+		
+		<action name="vagueSearchYingShouKuanKaiPiao" class="com.action.YingShouKuanController" method="vagueSearchYingShouKuanKaiPiao">
+			<result name="success">/view/kaipiao.jsp</result>		
+		</action>
+		
+		<action name="yingShouKuanKaiPiaoJson" class="com.action.YingShouKuanController" method="yingShouKuanKaiPiaoJson">
+		</action>
+		
+		<action name="jumpYingShouKuanInKaiPiao" class="com.action.YingShouKuanController" method="jumpYingShouKuanInKaiPiao">
+			<result name="err">/view/kaipiao.jsp</result>		
+			<result name="success">/addyingshoukuaninkaipiao.jsp</result>		
+		</action>
+		
+		<action name="jumpSuperYingShouKuanInKaiPiao" class="com.action.YingShouKuanController" method="jumpSuperYingShouKuanInKaiPiao">
+			<result name="err">/view/kaipiao.jsp</result>		
+			<result name="success">/addyingshoukuaninkaipiao.jsp</result>		
+		</action>
+		
+		<action name="submitYingShouKuanInkaiPiao" class="com.action.YingShouKuanController" method="submitYingShouKuanInkaiPiao">
+			<result name="success">/view/kaipiao.jsp</result>		
+		</action>
+		
+		<action name="yingShouKuanKaiPiaoXiangXi" class="com.action.YingShouKuanController" method="yingShouKuanKaiPiaoXiangXi">
+			<result name="success">/view/kaipiaoxiangxi.jsp</result>		
+		</action>
+		
+		
+		<!-- 结算申请 -->
+		
+		<action name="jumpJieSuanShenQing" class="com.action.YingShouKuanController" method="jumpJieSuanShenQing">
+			<result name="success">/view/jiesuanshenqing.jsp</result>		
+		</action>
+		
+		<action name="vagueSearchJieSuanShenQing" class="com.action.YingShouKuanController" method="vagueSearchJieSuanShenQing">
+			<result name="success">/view/jiesuanshenqing.jsp</result>		
+		</action>
+		
+		<action name="jieSuanShenQingJson" class="com.action.YingShouKuanController" method="jieSuanShenQingJson">
+		</action>
+		
+		<action name="jumpUpdateJieSuanShenQing" class="com.action.YingShouKuanController" method="jumpUpdateJieSuanShenQing">
+			<result name="success">/view/jiesuanshenqing.jsp</result>		
+		</action>
+		
+		<action name="jieSuanShenQingXiangXi" class="com.action.YingShouKuanController" method="jieSuanShenQingXiangXi">
+			<result name="success">/view/jiesuanshenqingxiangxi.jsp</result>		
+		</action>
+		
+		<!-- 结算审核(总经理) -->
+		
+		<action name="jumpZongJingLiJieSuanShenHe" class="com.action.YingShouKuanController" method="jumpZongJingLiJieSuanShenHe">
+			<result name="success">/view/zongjinglijiesuanshenhe.jsp</result>		
+		</action>
+		
+		<action name="vagueSearchZongJingLiJieSuanShenHe" class="com.action.YingShouKuanController" method="vagueSearchZongJingLiJieSuanShenHe">
+			<result name="success">/view/zongjinglijiesuanshenhe.jsp</result>		
+		</action>
+		
+		<action name="zongJingLiJieSuanShenHeJson" class="com.action.YingShouKuanController" method="zongJingLiJieSuanShenHeJson">
+		</action>
+		
+		<action name="jumpUpdateZongJingLiJieSuanShenHe" class="com.action.YingShouKuanController" method="jumpUpdateZongJingLiJieSuanShenHe">
+			<result name="err">/view/zongjinglijiesuanshenhe.jsp</result>	
+			<result name="success">/view/updatezongjinglijiesuanshenhe.jsp</result>		
+		</action>
+		
+		<action name="updateZongJingLiJieSuanShenHe" class="com.action.YingShouKuanController" method="updateZongJingLiJieSuanShenHe">
+			<result name="success">/view/zongjinglijiesuanshenhe.jsp</result>		
+		</action>
+		
+		<action name="jieSuanShenHeZongJingLiYesAll" class="com.action.YingShouKuanController" method="jieSuanShenHeZongJingLiYesAll">
+			<result name="success">/view/zongjinglijiesuanshenhe.jsp</result>		
+		</action>
+		
+		<action name="jieSuanShenHeZongJingLiNoAll" class="com.action.YingShouKuanController" method="jieSuanShenHeZongJingLiNoAll">
+			<result name="success">/view/zongjinglijiesuanshenhe.jsp</result>		
+		</action>
+		
+		<action name="zongJingLiJieSuanShenHeXiangXi" class="com.action.YingShouKuanController" method="zongJingLiJieSuanShenHeXiangXi">
+			<result name="success">/view/zongjinglijiesuanshenhexiangxi.jsp</result>		
+		</action>
+		
+		<!-- 结算审核(董事长) -->
+		
+		<action name="jumpDongShiZhangJieSuanShenHe" class="com.action.YingShouKuanController" method="jumpDongShiZhangJieSuanShenHe">
+			<result name="success">/view/dongshizhangjiesuanshenhe.jsp</result>		
+		</action>
+		
+		<action name="vagueSearchDongShiZhangJieSuanShenHe" class="com.action.YingShouKuanController" method="vagueSearchDongShiZhangJieSuanShenHe">
+			<result name="success">/view/dongshizhangjiesuanshenhe.jsp</result>		
+		</action>
+		
+		<action name="dongShiZhangJieSuanShenHeJson" class="com.action.YingShouKuanController" method="dongShiZhangJieSuanShenHeJson">
+		</action>
+		
+		<action name="jumpUpdateDongShiZhangJieSuanShenHe" class="com.action.YingShouKuanController" method="jumpUpdateDongShiZhangJieSuanShenHe">
+			<result name="err">/view/dongshizhangjiesuanshenhe.jsp</result>		
+			<result name="success">/view/updatedongshizhangjiesuanshenhe.jsp</result>		
+		</action>
+		
+		<action name="updateDongShiZhangJieSuanShenHe" class="com.action.YingShouKuanController" method="updateDongShiZhangJieSuanShenHe">
+			<result name="success">/view/dongshizhangjiesuanshenhe.jsp</result>		
+		</action>
+		
+		<action name="jieSuanShenHeDongShiZhangYesAll" class="com.action.YingShouKuanController" method="jieSuanShenHeDongShiZhangYesAll">
+			<result name="success">/view/dongshizhangjiesuanshenhe.jsp</result>		
+		</action>
+		
+		<action name="jieSuanShenHeDongShiZhangNoAll" class="com.action.YingShouKuanController" method="jieSuanShenHeDongShiZhangNoAll">
+			<result name="success">/view/dongshizhangjiesuanshenhe.jsp</result>		
+		</action>
+		
+		<action name="dongShiZhangJieSuanShenHeXiangXi" class="com.action.YingShouKuanController" method="dongShiZhangJieSuanShenHeXiangXi">
+			<result name="success">/view/dongshizhangjiesuanshenhexiangxi.jsp</result>		
+		</action>
+		
+		<!-- 结算 -->
+		
+		<action name="jumpYingShouKuanJieSuan" class="com.action.YingShouKuanController" method="jumpYingShouKuanJieSuan">
+			<result name="success">/view/jiesuan.jsp</result>		
+		</action>
+		
+		<action name="vagueSearchYingShouKuanJieSuan" class="com.action.YingShouKuanController" method="vagueSearchYingShouKuanJieSuan">
+			<result name="success">/view/jiesuan.jsp</result>		
+		</action>
+		
+		<action name="yingShouKuanJieSuanJson" class="com.action.YingShouKuanController" method="yingShouKuanJieSuanJson">
+		</action>
+		
+		<action name="submitJieSuanDan" class="com.action.YingShouKuanController" method="submitJieSuanDan">
+			<result name="success">/view/jiesuan.jsp</result>	
+		</action>
+		
+		<action name="jumpZhuanZhangJieSuanDan" class="com.action.YingShouKuanController" method="jumpZhuanZhangJieSuanDan">
+			<result name="success">/view/zhuanzhang.jsp</result>
+			<result name="err">/yingshoukuan.jsp</result>	
+		</action>
+		
+		<action name="zhuanZhangJieSuanDan" class="com.action.YingShouKuanController" method="zhuanZhangJieSuanDan">
+			<result name="success">/yingshoukuan.jsp</result>	
+		</action>
+		
+		<action name="yingShouKuanJieSuanXiangXi" class="com.action.YingShouKuanController" method="yingShouKuanJieSuanXiangXi">
+			<result name="success">/view/jiesuanxiangxi.jsp</result>		
+		</action>
+		
+	</package>
+	
+</struts>    

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	
+	<package name="weixianpin" namespace="/" extends="manager">
+		
+		<action name="jumpWeiXianPin" class="com.action.WeiXianPinController" method="jumpWeiXianPin">
+			<result name="success">/weixianpin.jsp</result>
+		</action>
+		
+		<action name="vagueSearchWeiXianPin" class="com.action.WeiXianPinController" method="vagueSearchWeiXianPin">
+			<result name="success">/weixianpin.jsp</result>
+		</action>
+		
+		<action name="weiXianPinJson" class="com.action.WeiXianPinController" method="weiXianPinJson"></action>
+		
+		<action name="addWeiXianPin" class="com.action.WeiXianPinController" method="addWeiXianPin">
+			<result name="success">/weixianpin.jsp</result>
+		</action>
+		
+		<action name="deleteWeiXianPin" class="com.action.WeiXianPinController" method="deleteWeiXianPin">
+			<result name="success">/weixianpin.jsp</result>
+		</action>
+		
+		<action name="jumpUpdateWeiXianPin" class="com.action.WeiXianPinController" method="jumpUpdateWeiXianPin">
+			<result name="success">/updateweixianpin.jsp</result>
+		</action>
+		
+		<action name="updateWeiXianPin" class="com.action.WeiXianPinController" method="updateWeiXianPin">
+			<result name="success">/weixianpin.jsp</result>
+		</action>
+		
+		<action name="weiXianPinXiangXi" class="com.action.WeiXianPinController" method="weiXianPinXiangXi">
+			<result name="success">/weixianpinxiangxi.jsp</result>
+		</action>
+		
+		<action name="getWeiXianPinHuoWuMingCheng" class="com.action.WeiXianPinController" method="getWeiXianPinHuoWuMingCheng"></action>
+		
+	</package>
+	
+</struts>    

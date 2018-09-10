@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	
+	<package name="xinche" namespace="/" extends="manager">
+		
+		<action name="jumpXinChe" class="com.action.XinCheController" method="jumpXinChe">
+			<result name="success">/xinche.jsp</result>
+		</action>
+		
+		<action name="existBianHao" class="com.action.XinCheController" method="existBianHao"></action>
+	
+		<action name="existChePaiHao" class="com.action.XinCheController" method="existChePaiHao"></action>
+		
+		<action name="xinCheJson" class="com.action.XinCheController" method="xinCheJson"></action>
+			
+		<action name="vagueSearchXinChe" class="com.action.XinCheController" method="vagueSearchXinChe">
+			<result name="success">/xinche.jsp</result>
+		</action>
+			
+		<action name="jumpAddXinChe" class="com.action.XinCheController" method="jumpAddXinChe">
+			<result name="success">/addxinche.jsp</result>
+		</action>	
+		
+		<action name="addXinChe" class="com.action.XinCheController" method="addXinChe">
+			<result name="success">/xinche.jsp</result>
+		</action>
+			
+		<action name="deleteXinChe" class="com.action.XinCheController" method="deleteXinChe">
+			<result name="success">/xinche.jsp</result>
+		</action>	
+			
+		<action name="xinCheXiangXi" class="com.action.XinCheController" method="xinCheXiangXi">
+			<result name="success">/xinchexiangxi.jsp</result>
+		</action>	
+		
+		<action name="jumpUpdateXinChe" class="com.action.XinCheController" method="jumpUpdateXinChe">
+			<result name="success">/updatexinche.jsp</result>
+		</action>
+		
+		<action name="updateXinChe" class="com.action.XinCheController" method="updateXinChe">
+			<result name="success">/xinche.jsp</result>
+		</action>
+			
+	</package>
+	
+</struts>    

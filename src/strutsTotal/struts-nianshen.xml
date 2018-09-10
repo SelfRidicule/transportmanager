@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	
+	<!-- 年审 -->
+	<package name="nianshen" namespace="/" extends="manager">
+			
+		<action name="jumpNianShen" class="com.action.NianShenController" method="jumpNianShen">
+			<result name="success">/nianshen.jsp</result>
+		</action>			
+		
+		<action name="vagueSearchNianShen" class="com.action.NianShenController" method="vagueSearchNianShen">
+			<result name="success">/nianshen.jsp</result>
+		</action>	
+		
+		<action name="nianShenJson" class="com.action.NianShenController" method="nianShenJson"></action>
+		
+		<action name="nianShenXiangXi" class="com.action.NianShenController" method="nianShenXiangXi">
+			<result name="success">/nianshenxiangxi.jsp</result>
+		</action>
+		
+		<action name="jumpUpdateNianShen" class="com.action.NianShenController" method="jumpUpdateNianShen">
+			<result name="err">/nianshen.jsp</result>
+			<result name="success">/updatenianshen.jsp</result>
+		</action>
+		
+		<action name="submitUpdateNianShen" class="com.action.NianShenController" method="submitUpdateNianShen">
+			<result name="success">/nianshen.jsp</result>
+		</action>
+			
+		<action name="exportNianShen" class="com.action.NianShenController" method="exportNianShen"></action>	
+			
+	</package>
+	
+</struts>    

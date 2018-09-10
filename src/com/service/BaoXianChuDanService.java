@@ -1,0 +1,144 @@
+package com.service;
+
+import java.util.List;
+
+import org.hibernate.Query;
+
+import com.dao.BaoXianChuDanDao;
+import com.entity.BaoXianChuDan;
+import com.entity.YingYunZheng;
+
+/**
+ *  保险出单 业务层
+ */
+public class BaoXianChuDanService {
+	/**
+	 * 构造方法
+	 */
+	public BaoXianChuDanService() {
+		super();
+	}
+
+	/**
+	 * 属性
+	 */
+	private BaoXianChuDanDao baoXianChuDanDao;	//保险出单dao对象
+
+	
+	/**
+	 *  查询所有保险出单
+	 */
+	public List<BaoXianChuDan> queryBaoXianChuDanList(){
+		return baoXianChuDanDao.queryBaoXianChuDanList();
+	}
+	
+	/**
+	 *  查询所有未办理的保险出单
+	 */
+	public List<BaoXianChuDan> queryBaoXianChuDanWeiBanLi(){
+		return baoXianChuDanDao.queryBaoXianChuDanWeiBanLi();
+	}
+	
+	/**
+	 *  查询所有未办理的保险出单数量
+	 */
+	public int getBaoXianChuDanJinDu(){
+		return baoXianChuDanDao.getBaoXianChuDanJinDu();
+	}
+	
+	/**
+	 *  查询指定车牌号的保险出单
+	 */
+	public BaoXianChuDan queryBaoXianChuDanChePaiHao(String chepaihao){
+		return baoXianChuDanDao.queryBaoXianChuDanChePaiHao(chepaihao);
+	}
+	
+	/**
+	 *  查询指定id的保险出单
+	 */
+	public BaoXianChuDan queryBaoXianChuDanId(Integer id){
+		return baoXianChuDanDao.findById(id);
+	}
+	
+	/**
+	 *  模糊查询
+	 */
+	public List<BaoXianChuDan> vagueSearchBaoXianChuDan(String bianhao, String chepaihao, String banlizhuangtai){
+//		创建客户查询语句
+		StringBuffer hql = new StringBuffer("from BaoXianChuDan where id is not null ");
+//		判断值是否为空
+		if(bianhao==null || "".equals(bianhao)){
+		}else{
+			hql.append(" and bianhao like :bianhao");
+		}
+		if(chepaihao==null || "".equals(chepaihao)){
+		}else{
+			hql.append(" and chepaihao like :chepaihao");
+		}
+		if(banlizhuangtai==null || "".equals(banlizhuangtai)){
+		}else{
+			hql.append(" and banlizhuangtai like :banlizhuangtai");
+		}
+		
+//		创建query对象
+		Query query = baoXianChuDanDao.getSessionFactory().getCurrentSession().createQuery(hql.toString());
+		
+//		判断值是否赋值
+		if(bianhao==null || "".equals(bianhao)){
+		}else{
+			query.setString("bianhao","%"+bianhao+"%" );
+		}
+		if(chepaihao==null || "".equals(chepaihao)){
+		}else{
+			query.setString("chepaihao", chepaihao);
+		}
+		if(banlizhuangtai==null || "".equals(banlizhuangtai)){
+		}else{
+			query.setString("banlizhuangtai", banlizhuangtai);
+		}
+		
+		return query.list();
+	}
+	
+	/**
+	 *  添加保险出单
+	 */
+	public void addBaoXianChuDan(BaoXianChuDan baoxianchudan){
+		baoXianChuDanDao.save(baoxianchudan);
+	}
+	
+	/**
+	 *  删除保险出单
+	 */
+	public void deleteBaoXianChuDan(Integer id){
+		BaoXianChuDan baoxianchudan = new BaoXianChuDan();
+		baoxianchudan.setId(id);
+		baoXianChuDanDao.delete(baoxianchudan);
+	}
+	
+	/**
+	 *  修改保险出单
+	 */
+	public void updateBaoXianChuDan(BaoXianChuDan baoxianchudan){
+		baoXianChuDanDao.update(baoxianchudan);
+	}
+	
+	/**
+	 *  删除指定车牌号的保险出单
+	 */
+	public void deleteBaoXianChuDanChePaiHao(String chepaihao){
+		baoXianChuDanDao.deleteBaoXianChuDanChePaiHao(chepaihao);
+	}
+	
+	/**
+	 *   get set
+	 */
+	public BaoXianChuDanDao getBaoXianChuDanDao() {
+		return baoXianChuDanDao;
+	}
+
+	public void setBaoXianChuDanDao(BaoXianChuDanDao baoXianChuDanDao) {
+		this.baoXianChuDanDao = baoXianChuDanDao;
+	}
+	
+}

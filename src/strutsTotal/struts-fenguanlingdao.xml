@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	
+	<package name="fenguanlingdao" namespace="/" extends="manager">
+	
+		<action name="jumpFenGuanLingDao" class="com.action.FenGuanLingDaoController" method="jumpFenGuanLingDao">
+			<result name="success">/fenguanlingdao.jsp</result>
+		</action>
+
+		<action name="vagueSearchFenGuanLingDao" class="com.action.FenGuanLingDaoController" method="vagueSearchFenGuanLingDao">
+			<result name="success">/fenguanlingdao.jsp</result>
+		</action>
+		
+		<action name="fenGuanLingDaoJson" class="com.action.FenGuanLingDaoController" method="fenGuanLingDaoJson"></action>
+		
+		<action name="jumpAddFenGuanLingDao" class="com.action.FenGuanLingDaoController" method="jumpAddFenGuanLingDao">
+			<result name="success">/addfenguanlingdao.jsp</result>
+		</action>
+
+		<action name="addFenGuanLingDao" class="com.action.FenGuanLingDaoController" method="addFenGuanLingDao">
+			<result name="success">/fenguanlingdao.jsp</result>
+		</action>
+		
+		<action name="jumpUpdateFenGuanLingDao" class="com.action.FenGuanLingDaoController" method="jumpUpdateFenGuanLingDao">
+			<result name="success">/updatefenguanlingdao.jsp</result>
+		</action>
+		
+		<action name="updateFenGuanLingDao" class="com.action.FenGuanLingDaoController" method="updateFenGuanLingDao">
+			<result name="success">/fenguanlingdao.jsp</result>
+		</action>
+		
+	</package>
+	
+</struts>    

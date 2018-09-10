@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	
+	<package name="gongzuomenhu" namespace="/" extends="manager">
+		
+		<action name="jumpGongZuoMenHu" class="com.action.GongZuoMenHuController" method="jumpGongZuoMenHu">
+			<result name="success">/gongzuomenhu.jsp</result>
+		</action>
+		
+		<action name="zhengJianMenHuJson" class="com.action.GongZuoMenHuController" method="zhengJianMenHuJson"></action>
+		
+		<action name="yunDanMenHuJson" class="com.action.GongZuoMenHuController" method="yunDanMenHuJson"></action>
+		
+		<action name="jiaShiYuanMenHuJson" class="com.action.GongZuoMenHuController" method="jiaShiYuanMenHuJson"></action>
+		
+		<action name="baoXianMenHuJson" class="com.action.GongZuoMenHuController" method="baoXianMenHuJson"></action>
+		
+		<action name="nianShenGuanLiMenHuJson" class="com.action.GongZuoMenHuController" method="nianShenGuanLiMenHuJson"></action>
+		
+		<action name="jiaShiYuanNianShenMenHuJson" class="com.action.GongZuoMenHuController" method="jiaShiYuanNianShenMenHuJson"></action>
+		
+		<action name="xinCheMenHuJson" class="com.action.GongZuoMenHuController" method="xinCheMenHuJson"></action>
+		
+		<action name="tourushenheMenHuJson" class="com.action.GongZuoMenHuController" method="tourushenheMenHuJson"></action>
+		
+		<action name="fenGuanLingDaoMenHuJson" class="com.action.GongZuoMenHuController" method="fenGuanLingDaoMenHuJson"></action>
+		
+		<action name="kaiPiaoShenHeFenGuanMenHuJson" class="com.action.GongZuoMenHuController" method="kaiPiaoShenHeFenGuanMenHuJson"></action>
+		
+		<action name="kaiPiaoShenHeZongJingLiMenHuJson" class="com.action.GongZuoMenHuController" method="kaiPiaoShenHeZongJingLiMenHuJson"></action>
+		
+		<action name="jieSuanShenHeZongJingLiMenHuJson" class="com.action.GongZuoMenHuController" method="jieSuanShenHeZongJingLiMenHuJson"></action>
+		
+		<action name="jieSuanShenHeDongShiZhangMenHuJson" class="com.action.GongZuoMenHuController" method="jieSuanShenHeDongShiZhangMenHuJson"></action>
+		
+	</package>
+	
+</struts>    

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	
+	<!-- 运单 -->
+	<package name="yundan" namespace="/" extends="manager">
+		
+		<!-- 移动端 -->
+		<action name="androidYunDan" class="com.action.YunDanController" method="androidYunDan"></action>		
+		
+		<action name="androidYunDanYiJieDan" class="com.action.YunDanController" method="androidYunDanYiJieDan"></action>		
+			
+		<!-- <action name="androidYunShuZhong" class="com.action.YunDanController" method="androidYunShuZhong"></action>	 -->	
+			
+		<action name="androidYunShuJieShu" class="com.action.YunDanController" method="androidYunShuJieShu"></action>		
+		
+		<action name="androidQueryYunShuJieShu" class="com.action.YunDanController" method="androidQueryYunShuJieShu"></action>		
+		
+		<action name="androidYunDanWanCheng" class="com.action.YunDanController" method="androidYunDanWanCheng"></action>		
+		
+		<action name="androidYunDanLiShi" class="com.action.YunDanController" method="androidYunDanLiShi"></action>		
+		
+		<action name="yunDanJieShou" class="com.action.YunDanController" method="yunDanJieShou"></action>		
+		
+		<!-- 运单 -->	
+		<action name="existYunDanDingDaoHao" class="com.action.YunDanController" method="existYunDanDingDaoHao"></action>
+		
+		<action name="jumpYunDan" class="com.action.YunDanController" method="jumpYunDan">
+			<result name="success">/yundan.jsp</result>
+		</action>	
+		
+		<action name="vagueSearchYunDan" class="com.action.YunDanController" method="vagueSearchYunDan">
+		</action>	
+		
+		<action name="yunDanJson" class="com.action.YunDanController" method="yunDanJson"></action>	
+		
+		<action name="jumpAddYunDan" class="com.action.YunDanController" method="jumpAddYunDan">
+			<result name="success">/addyundan.jsp</result>
+		</action>
+		
+		<action name="addYunDan" class="com.action.YunDanController" method="addYunDan">
+			<result name="success">/yundan.jsp</result>
+		</action>
+		
+		<action name="deleteYunDan" class="com.action.YunDanController" method="deleteYunDan">
+			<result name="success">/yundan.jsp</result>
+		</action>
+		
+		<action name="jumpYunDanDiaoDu" class="com.action.YunDanController" method="jumpYunDanDiaoDu">
+			<result name="err">/yundan.jsp</result>
+			<result name="success">/updateyundandiaodu.jsp</result>
+		</action>
+		
+		<action name="submitYunDanDiaoDu" class="com.action.YunDanController" method="submitYunDanDiaoDu">
+			<result name="success">/yundan.jsp</result>
+		</action>
+		
+		<action name="jumpUpdateYunDan" class="com.action.YunDanController" method="jumpUpdateYunDan">
+			<result name="err">/yundan.jsp</result>
+			<result name="success">/updateyundan.jsp</result>
+		</action>
+		
+		<action name="submitUpdateYunDan" class="com.action.YunDanController" method="submitUpdateYunDan">
+			<result name="success">/yundan.jsp</result>
+		</action>
+		
+		<action name="jumpYunDanDiaoHuan" class="com.action.YunDanController" method="jumpYunDanDiaoHuan">
+			<result name="err">/yundan.jsp</result>
+			<result name="success">/updateyundandiaohuan.jsp</result>
+		</action>
+		
+		<action name="yunDanDiaoHuan" class="com.action.YunDanController" method="yunDanDiaoHuan">
+			<result name="success">/yundan.jsp</result>
+		</action>
+		
+		<action name="yunDanXiangXi" class="com.action.YunDanController" method="yunDanXiangXi">
+			<result name="success">/yundanxiangxi.jsp</result>
+		</action>
+		
+		<action name="againSubmit" class="com.action.YunDanController" method="againSubmit">
+			<result name="success">/yundan.jsp</result>
+		</action>
+		 
+		 <action name="printAnQuanKa" class="com.action.YunDanController" method="printAnQuanKa">
+		 	<result name="err">/yundan.jsp</result>
+		 	<result name="success">/anquankadayin.jsp</result>
+		 </action>
+		 
+<!-- 运单审核 -->
+		
+		<action name="jumpYunDanShenHe" class="com.action.YunDanController" method="jumpYunDanShenHe">
+			<result name="success">/yundanshenhe.jsp</result>
+		</action>		 
+		 
+		 <action name="vagueSearchYunDanShenHe" class="com.action.YunDanController" method="vagueSearchYunDanShenHe">
+		 </action>
+		 
+		 <action name="YunDanShenHeJson" class="com.action.YunDanController" method="YunDanShenHeJson"></action>
+		 
+		 <action name="yunDanShenHeXiangXi" class="com.action.YunDanController" method="yunDanShenHeXiangXi">
+		 	<result name="success">/yundanshenhexiangxi.jsp</result>
+		 </action>
+		 
+		 <action name="updateYunDanShenHe" class="com.action.YunDanController" method="updateYunDanShenHe">
+		 	<result name="err">/yundanshenhe.jsp</result>
+		 	<result name="success">/updateyundanshenhe.jsp</result>
+		 </action>
+		 
+		 <action name="submitUpdateYunDanShenHe" class="com.action.YunDanController" method="submitUpdateYunDanShenHe">
+		 	<result name="success">/yundanshenhe.jsp</result>
+		 </action>
+		 
+	</package>
+	
+</struts>    

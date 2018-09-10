@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	
+	<package name="cheliangguanxi" namespace="/" extends="manager">
+	
+		<action name="jumpCheLiangGuanXi" class="com.action.CheLiangGuanXiController" method="jumpCheLiangGuanXi">
+			<result name="success">/cheliangguanxi.jsp</result>
+		</action>
+			
+		<action name="vagueSearchCheLiangGuanXi" class="com.action.CheLiangGuanXiController" method="vagueSearchCheLiangGuanXi">
+			<result name="success">/cheliangguanxi.jsp</result>
+		</action>	
+		
+		<action name="cheLiangGuanXiJson" class="com.action.CheLiangGuanXiController" method="cheLiangGuanXiJson">
+		</action>	
+		
+		<action name="cheLiangGuanXiXiangXi" class="com.action.CheLiangGuanXiController" method="cheLiangGuanXiXiangXi">
+			<result name="success">/cheliangguanxixiangxi.jsp</result>
+		</action>
+		
+		<action name="deleteCheLiangGuanXi" class="com.action.CheLiangGuanXiController" method="deleteCheLiangGuanXi">
+			<result name="success">/cheliangguanxi.jsp</result>
+		</action>	
+			
+		<action name="jumpAddCheLiangGuanXi" class="com.action.CheLiangGuanXiController" method="jumpAddCheLiangGuanXi">
+			<result name="success">/addcheliangguanxi.jsp</result>
+		</action>	
+		
+		<action name="addCheLiangGuanXi" class="com.action.CheLiangGuanXiController" method="addCheLiangGuanXi">
+			<result name="success">/cheliangguanxi.jsp</result>
+		</action>
+		
+		<action name="jumpUpdateCheLiangGuanXi" class="com.action.CheLiangGuanXiController" method="jumpUpdateCheLiangGuanXi">
+			<result name="err">/cheliangguanxi.jsp</result>
+			<result name="success">/updatecheliangguanxi.jsp</result>
+		</action>
+		
+		<action name="submitUpdateCheLiangGuanXi" class="com.action.CheLiangGuanXiController" method="submitUpdateCheLiangGuanXi">
+			<result name="success">/cheliangguanxi.jsp</result>
+		</action>	
+			
+	</package>
+	
+</struts>    

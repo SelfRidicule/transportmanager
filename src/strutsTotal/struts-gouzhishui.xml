@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	
+	<package name="gouzhishui" namespace="/" extends="manager">
+	
+		
+		<action name="jumpGouZhiShui" class="com.action.GouZhiShuiController" method="jumpGouZhiShui">
+			<result name="success">/gouzhishui.jsp</result>
+		</action>
+		
+		<action name="vagueSearchGouZhiShui" class="com.action.GouZhiShuiController" method="vagueSearchGouZhiShui">
+			<result name="success">/gouzhishui.jsp</result>
+		</action>
+		
+		<action name="gouZhiShuiJson" class="com.action.GouZhiShuiController" method="gouZhiShuiJson"></action>
+		
+		<action name="jumpAddGouZhiShui" class="com.action.GouZhiShuiController" method="jumpAddGouZhiShui">
+			<result name="success">/addgouzhishui.jsp</result>
+		</action>
+		
+		<action name="addGouZhiShui" class="com.action.GouZhiShuiController" method="addGouZhiShui">
+			<result name="success">/gouzhishui.jsp</result>
+		</action>
+		
+		<action name="jumpUpdateGouZhiShui" class="com.action.GouZhiShuiController" method="jumpUpdateGouZhiShui">
+			<result name="success">/updategouzhishui.jsp</result>
+		</action>
+		
+		<action name="updateGouZhiShui" class="com.action.GouZhiShuiController" method="updateGouZhiShui">
+			<result name="success">/gouzhishui.jsp</result>
+		</action>
+		
+	</package>
+	
+</struts>    

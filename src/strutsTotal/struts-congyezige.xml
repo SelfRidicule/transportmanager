@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	
+	<package name="congyezige" namespace="/" extends="manager">
+		
+		<action name="jumpCongYeZiGe" class="com.action.CongYeZiGeController" method="jumpCongYeZiGe">
+			<result name="success">/manager/congyezige/congyezige.jsp</result>
+		</action>
+		
+		<action name="vagueSearchCongYeZiGe" class="com.action.CongYeZiGeController" method="vagueSearchCongYeZiGe">
+			<result name="success">/manager/congyezige/congyezige.jsp</result>
+		</action>
+		
+		<action name="congYeZiGeJson" class="com.action.CongYeZiGeController" method="congYeZiGeJson"></action>
+		
+		<action name="jumpAddCongYeZiGe" class="com.action.CongYeZiGeController" method="jumpAddCongYeZiGe">
+			<result name="success">/manager/congyezige/addcongyezige.jsp</result>
+		</action>
+		
+		<action name="addCongYeZiGe" class="com.action.CongYeZiGeController" method="addCongYeZiGe">
+			<result name="success">/manager/congyezige/congyezige.jsp</result>
+		</action>
+		
+		<action name="deleteCongYeZiGe" class="com.action.CongYeZiGeController" method="deleteCongYeZiGe">
+			<result name="success">/manager/congyezige/congyezige.jsp</result>
+		</action>
+		
+		<action name="jumpUpdateCongYeZiGe" class="com.action.CongYeZiGeController" method="jumpUpdateCongYeZiGe">
+			<result name="err">/manager/congyezige/congyezige.jsp</result>
+			<result name="success">/manager/congyezige/updatecongyezige.jsp</result>
+		</action>
+		
+		<action name="updateCongYeZiGe" class="com.action.CongYeZiGeController" method="updateCongYeZiGe">
+			<result name="success">/manager/congyezige/congyezige.jsp</result>
+		</action>
+		
+	</package>
+	
+</struts>    

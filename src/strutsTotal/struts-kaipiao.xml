@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	
+	<package name="kaipiao" namespace="/" extends="manager">
+		
+		<action name="jumpKaiPiao" class="com.action.KaiPiaoController" method="jumpKaiPiao">
+			<result name="success">/kaipiao.jsp</result>
+		</action>
+			
+		<action name="kaiPiaoJson" class="com.action.KaiPiaoController" method="kaiPiaoJson"></action>
+			
+		<action name="vagueSearchKaiPiao" class="com.action.KaiPiaoController" method="vagueSearchKaiPiao">
+			<result name="success">/kaipiao.jsp</result>
+		</action>
+			
+		<action name="jumpKaiPiaoXiangXi" class="com.action.KaiPiaoController" method="jumpKaiPiaoXiangXi">
+			<result name="success">/kaipiaoxiangxi.jsp</result>
+		</action>
+		
+		<action name="kaiPiaoDelete" class="com.action.KaiPiaoController" method="kaiPiaoDelete">
+			<result name="success">/kaipiao.jsp</result>
+		</action>
+		
+		
+	</package>
+	
+</struts>    

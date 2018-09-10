@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	
+	<package name="baoxian" namespace="/" extends="manager">
+		
+		
+		<!-- 保险 -->
+		<action name="jumpBaoXian" class="com.action.BaoXianController" method="jumpBaoXian">
+			<result name="success">/baoxian.jsp</result>
+		</action>
+		
+		<action name="vagueSearchBaoXian" class="com.action.BaoXianController" method="vagueSearchBaoXian">
+			<result name="success">/baoxian.jsp</result>
+		</action>		
+		
+		<action name="baoXianShengXu" class="com.action.BaoXianController" method="baoXianShengXu">
+			<result name="success">/baoxian.jsp</result>
+		</action>		
+		
+		<action name="baoxianJson" class="com.action.BaoXianController" method="baoxianJson">
+		</action>
+		
+		<action name="baoXianXiangXi" class="com.action.BaoXianController" method="baoXianXiangXi">
+			<result name="success">/baoxianxiangxi.jsp</result>
+		</action>
+		
+		<action name="deleteBaoXian" class="com.action.BaoXianController" method="deleteBaoXian">
+			<result name="success">/baoxian.jsp</result>
+		</action>
+		
+		<action name="jumpAddBaoXian" class="com.action.BaoXianController" method="jumpAddBaoXian">
+			<result name="success">/addbaoxian.jsp</result>
+		</action>
+		
+		<action name="addBaoXian" class="com.action.BaoXianController" method="addBaoXian">
+			<result name="success">/baoxian.jsp</result>
+		</action>
+		
+		<action name="updateBaoXianChuLi" class="com.action.BaoXianController" method="updateBaoXianChuLi">
+			<result name="err">/baoxian.jsp</result>
+			<result name="success">/updatebaoxianchuli.jsp</result>
+		</action>
+		
+		<action name="submitUpdateBaoXianChuLi" class="com.action.BaoXianController" method="submitUpdateBaoXianChuLi">
+			<result name="success">/baoxian.jsp</result>
+		</action>
+		
+		<action name="updateBaoXian" class="com.action.BaoXianController" method="updateBaoXian">
+			<result name="err">/baoxian.jsp</result>
+			<result name="success">/updatebaoxian.jsp</result>
+		</action>
+		
+		<action name="submitUpdateBaoXian" class="com.action.BaoXianController" method="submitUpdateBaoXian">
+			<result name="success">/baoxian.jsp</result>
+		</action>
+		
+		<action name="exportBaoXian" class="com.action.BaoXianController" method="exportBaoXian"></action>
+	
+	</package>
+	
+</struts>    

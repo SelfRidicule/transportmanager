@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
+
+
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName"
+			value="com.microsoft.sqlserver.jdbc.SQLServerDriver">
+		</property>
+		<property name="url"
+			value="jdbc:sqlserver://localhost:1433;DatabaseName=mydatabase">
+		</property>
+		<property name="username" value="sa"></property>
+		<property name="password" value="123"></property>
+		<property name="maxActive" value="100" ></property>
+		<property name="maxIdle" value="30" ></property>
+		<property name="maxWait" value="10000" ></property>
+	</bean>
+	
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.SQLServerDialect
+				</prop>
+				<prop key="hibernate.show_sql">
+					false
+				</prop>
+				<prop key="hibernate.hibernate.hbm2ddl.auto">
+					validate
+				</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>com/entity/Users.hbm.xml</value>
+				<value>com/entity/Dept.hbm.xml</value>
+				<value>com/entity/QuanXian.hbm.xml</value>
+				<value>com/entity/Customer.hbm.xml</value>
+				<value>com/entity/BaoXian.hbm.xml</value>
+				<value>com/entity/CheLiang.hbm.xml</value>
+				<value>com/entity/CheLiangBeiFen.hbm.xml</value>
+				<value>com/entity/CheLiangGuanLi.hbm.xml</value>
+				<value>com/entity/ZhengJian.hbm.xml</value>
+				<value>com/entity/CheLiangGuanXi.hbm.xml</value>
+				<value>com/entity/NianShen.hbm.xml</value>
+				<value>com/entity/JiaShiYuan.hbm.xml</value>
+				<value>com/entity/YunDan.hbm.xml</value>
+				<value>com/entity/XinChe.hbm.xml</value>
+				<value>com/entity/JinDu.hbm.xml</value>
+				<value>com/entity/TouRuShenHe.hbm.xml</value>
+				<value>com/entity/GouZhiShui.hbm.xml</value>
+				<value>com/entity/YingYunZheng.hbm.xml</value>
+				<value>com/entity/BaoXianChuDan.hbm.xml</value>
+				<value>com/entity/CaiLiaoZhengLi.hbm.xml</value>
+				<value>com/entity/FeiYongJieSuan.hbm.xml</value>
+				<value>com/entity/ZeRenRen.hbm.xml</value>
+				<value>com/entity/FenGuanLingDao.hbm.xml</value>
+				<value>com/entity/WeiXianPin.hbm.xml</value>
+				<value>com/entity/YingShouKuan.hbm.xml</value>
+				<value>com/entity/KaiPiao.hbm.xml</value>
+				<value>com/entity/GeRenGuanLi.hbm.xml</value>
+				<value>com/entity/CongYeZiGe.hbm.xml</value>
+				<value>com/entity/JieSuanDan.hbm.xml</value>
+				<value>com/entity/FeiYongShouQu.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+	
+	
+	<!-- 建议使用spring的声明式事务管理 -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<tx:advice id="txAdivce" transaction-manager="transactionManager">
+		<!-- 配置详细的事务规则 -->
+		<tx:attributes>
+			<tx:method name="*" propagation="REQUIRED"/>
+		</tx:attributes>
+	</tx:advice>
+	<!-- aop相关配置 -->
+	<aop:config>
+		<!-- 指定切入点 -->
+		<aop:pointcut expression="execution(* com.service.*.*(..))" id="myPoinctCut"/>
+		<!-- 给指定切入点织入增强处理 -->
+		<aop:advisor advice-ref="txAdivce" pointcut-ref="myPoinctCut"/>
+	</aop:config>
+	
+	<!-- Users 用户 -->
+	<bean id="usersDao" class="com.dao.UsersDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>	
+	</bean>
+	<bean id="usersService" class="com.service.UsersService">
+		<property name="usersDao" ref="usersDao"></property>
+	</bean>
+	<bean id="usersController" class="com.action.UsersController" scope="prototype">
+		<property name="usersService" ref="usersService"></property>
+		<property name="deptService" ref="deptService"></property>
+		<property name="geRenGuanLiService" ref="geRenGuanLiService"></property>
+		<property name="quanXianService" ref="quanXianService"></property>
+	</bean>
+	
+	<!-- Dept 部门 -->
+	<bean id="deptDao" class="com.dao.DeptDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="deptService" class="com.service.DeptService">
+		<property name="deptDao" ref="deptDao"></property>
+	</bean>
+	<bean id="deptController" class="com.action.DeptController" scope="prototype">
+		<property name="usersService" ref="usersService"></property>
+		<property name="deptService" ref="deptService"></property>
+	</bean>
+	
+	<!-- QuanXian 权限 -->
+	<bean id="quanXianDao" class="com.dao.QuanXianDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="quanXianService" class="com.service.QuanXianService">
+		<property name="quanXianDao" ref="quanXianDao"></property>
+	</bean>
+	<bean id="quanXianController" class="com.action.QuanXianController" scope="prototype">
+		<property name="usersService" ref="usersService"></property>
+		<property name="quanXianService" ref="quanXianService"></property>
+	</bean>
+	
+	<!-- 客户 Customer -->
+	<bean id="customerDao" class="com.dao.CustomerDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="customerService" class="com.service.CustomerService">
+		<property name="customerDao" ref="customerDao"></property>
+	</bean>
+	<bean id="customerController" class="com.action.CustomerController" scope="prototype">
+		<property name="customerService" ref="customerService"></property>
+	</bean>
+	
+	<!-- 车辆 cheliang -->
+	<bean id="cheLiangDao" class="com.dao.CheLiangDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="cheLiangService" class="com.service.CheLiangService">
+		<property name="cheLiangDao" ref="cheLiangDao"></property>
+	</bean>
+	<bean id="cheLiangController" class="com.action.CheLiangController" scope="prototype">
+		<property name="cheLiangService" ref="cheLiangService"></property>
+		<property name="jiaShiYuanService" ref="jiaShiYuanService"></property>
+		<property name="usersService" ref="usersService"></property>
+		<property name="cheLiangGuanLiService" ref="cheLiangGuanLiService"></property>
+		<property name="cheLiangGuanXiService" ref="cheLiangGuanXiService"></property>
+		<property name="cheLiangBeiFenService" ref="cheLiangBeiFenService"></property>
+		<property name="baoXianService" ref="baoXianService"></property>
+		<property name="nianShenService" ref="nianShenService"></property>
+		<property name="zhengJianService" ref="zhengJianService"></property>
+		<property name="feiYongShouQuService" ref="feiYongShouQuService"></property>
+		<property name="yingShouKuanService" ref="yingShouKuanService"></property>
+		<property name="yunDanService" ref="yunDanService"></property>
+	</bean>
+	
+	<!-- 车辆备份 cheliangbenfen -->
+	<bean id="cheLiangBeiFenDao" class="com.dao.CheLiangBeiFenDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="cheLiangBeiFenService" class="com.service.CheLiangBeiFenService">
+		<property name="cheLiangBeiFenDao" ref="cheLiangBeiFenDao"></property>
+	</bean>
+	
+	
+	<!-- 车辆管理 cheliangguanli -->
+	<bean id="cheLiangGuanLiDao" class="com.dao.CheLiangGuanLiDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="cheLiangGuanLiService" class="com.service.CheLiangGuanLiService">
+		<property name="cheLiangGuanLiDao" ref="cheLiangGuanLiDao"></property>
+	</bean>	
+	<bean id="cheLiangGuanLiController" class="com.action.CheLiangGuanLiController" scope="prototype">
+		<property name="cheLiangGuanLiService" ref="cheLiangGuanLiService"></property>
+	</bean>
+	
+	<!-- 保险 baoxian -->
+	<bean id="baoXianDao" class="com.dao.BaoXianDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="baoXianService" class="com.service.BaoXianService">
+		<property name="baoXianDao" ref="baoXianDao"></property>
+	</bean>
+	<bean id="baoXianController" class="com.action.BaoXianController" scope="prototype">
+		<property name="baoXianService" ref="baoXianService"></property>
+		<property name="cheLiangService" ref="cheLiangService"></property>
+		<property name="cheLiangGuanLiService" ref="cheLiangGuanLiService"></property>
+		<property name="feiYongShouQuService" ref="feiYongShouQuService"></property>
+		<property name="yingShouKuanService" ref="yingShouKuanService"></property>
+		<property name="yunDanService" ref="yunDanService"></property>
+	</bean>
+	
+	<!-- 证件 zhengjian -->
+	<bean id="zhengJianDao" class="com.dao.ZhengJianDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="zhengJianService" class="com.service.ZhengJianService">
+		<property name="zhengJianDao" ref="zhengJianDao"></property>
+	</bean>
+	<bean id="zhengJianController" class="com.action.ZhengJianController" scope="prototype">
+		<property name="cheLiangService" ref="cheLiangService"></property>
+		<property name="zhengJianService" ref="zhengJianService"></property>
+	</bean>
+	
+	<!-- 车辆关系 cheliangguanxi -->
+	<bean id="cheLiangGuanXiDao" class="com.dao.CheLiangGuanXiDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="cheLiangGuanXiService" class="com.service.CheLiangGuanXiService">
+		<property name="cheLiangGuanXiDao" ref="cheLiangGuanXiDao"></property>
+	</bean>
+	<bean id="cheLiangGuanXiController" class="com.action.CheLiangGuanXiController" scope="prototype">
+		<property name="cheLiangGuanXiService" ref="cheLiangGuanXiService"></property>
+		<property name="cheLiangGuanLiService" ref="cheLiangGuanLiService"></property>
+		<property name="cheLiangService" ref="cheLiangService"></property>
+	</bean>
+	
+	<!-- 年审 nianshen -->
+	<bean id="nianShenDao" class="com.dao.NianShenDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="nianShenService" class="com.service.NianShenService">
+		<property name="nianShenDao" ref="nianShenDao"></property>
+	</bean>
+	<bean id="nianShenController" class="com.action.NianShenController" scope="prototype">
+		<property name="cheLiangService" ref="cheLiangService"></property>
+		<property name="nianShenService" ref="nianShenService"></property>
+		<property name="usersService" ref="usersService"></property>
+	</bean>
+	
+	<!-- 驾驶员 jiashiyuan -->
+	<bean id="jiaShiYuanDao" class="com.dao.JiaShiYuanDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="jiaShiYuanService" class="com.service.JiaShiYuanService">
+		<property name="jiaShiYuanDao" ref="jiaShiYuanDao"></property>
+	</bean>
+	<bean id="jiaShiYuanController" class="com.action.JiaShiYuanController" scope="prototype">
+		<property name="cheLiangService" ref="cheLiangService"></property>
+		<property name="jiaShiYuanService" ref="jiaShiYuanService"></property>
+		<property name="deptService" ref="deptService"></property>
+		<property name="congYeZiGeService" ref="congYeZiGeService"></property>
+		<property name="yunDanService" ref="yunDanService"></property>	
+		<property name="usersService" ref="usersService"></property>	
+	</bean>
+	
+	<!-- 运单 yundan -->
+	<bean id="yunDanDao" class="com.dao.YunDanDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="yunDanService" class="com.service.YunDanService">
+		<property name="yunDanDao" ref="yunDanDao"></property>
+	</bean>
+	<bean id="yunDanController" class="com.action.YunDanController" scope="prototype">
+		<property name="cheLiangService" ref="cheLiangService"></property>	
+		<property name="customerService" ref="customerService"></property>	
+		<property name="yunDanService" ref="yunDanService"></property>	
+		<property name="yingShouKuanService" ref="yingShouKuanService"></property>	
+		<property name="weiXianPinService" ref="weiXianPinService"></property>	
+		<property name="usersService" ref="usersService"></property>	
+		<property name="jiaShiYuanService" ref="jiaShiYuanService"></property>		
+		<property name="feiYongShouQuService" ref="feiYongShouQuService"></property>
+		<property name="baoXianService" ref="baoXianService"></property>
+	</bean>
+	
+	<!-- 进度 jindu -->
+	<bean id="jinDuDao" class="com.dao.JinDuDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="jinDuService" class="com.service.JinDuService">
+		<property name="jinDuDao" ref="jinDuDao"></property>
+	</bean>
+	<bean id="jinDuController" class="com.action.JinDuController" scope="prototype">
+		<property name="jinDuService" ref="jinDuService"></property>	
+	</bean>
+	
+	<!-- 新车 xinche -->
+	<bean id="xinCheDao" class="com.dao.XinCheDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="xinCheService" class="com.service.XinCheService">
+		<property name="xinCheDao" ref="xinCheDao"></property>
+	</bean>
+	<bean id="xinCheController" class="com.action.XinCheController" scope="prototype">
+		<property name="cheLiangGuanLiService" ref="cheLiangGuanLiService"></property>	
+		<property name="xinCheService" ref="xinCheService"></property>	
+		<property name="jinDuService" ref="jinDuService"></property>	
+		<property name="touRuShenHeService" ref="touRuShenHeService"></property>	
+		<property name="gouZhiShuiService" ref="gouZhiShuiService"></property>	
+		<property name="yingYunZhengService" ref="yingYunZhengService"></property>	
+		<property name="baoXianChuDanService" ref="baoXianChuDanService"></property>	
+		<property name="caiLiaoZhengLiService" ref="caiLiaoZhengLiService"></property>	
+		<property name="feiYongJieSuanService" ref="feiYongJieSuanService"></property>	
+		<property name="zeRenRenService" ref="zeRenRenService"></property>	
+		<property name="fenGuanLingDaoService" ref="fenGuanLingDaoService"></property>		
+	</bean>
+	
+	<!-- 投入审核 tourushenhe -->
+	<bean id="touRuShenHeDao" class="com.dao.TouRuShenHeDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="touRuShenHeService" class="com.service.TouRuShenHeService">
+		<property name="touRuShenHeDao" ref="touRuShenHeDao"></property>
+	</bean>
+	<bean id="touRuShenHeController" class="com.action.TouRuShenHeController" scope="prototype">
+		<property name="xinCheService" ref="xinCheService"></property>	
+		<property name="touRuShenHeService" ref="touRuShenHeService"></property>
+		<property name="jinDuService" ref="jinDuService"></property>
+		<property name="gouZhiShuiService" ref="gouZhiShuiService"></property>
+		<property name="yingYunZhengService" ref="yingYunZhengService"></property>				
+		<property name="baoXianChuDanService" ref="baoXianChuDanService"></property>				
+		<property name="caiLiaoZhengLiService" ref="caiLiaoZhengLiService"></property>								
+	</bean>
+	
+	<!-- 购置税 gouzhishui -->
+	<bean id="gouZhiShuiDao" class="com.dao.GouZhiShuiDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="gouZhiShuiService" class="com.service.GouZhiShuiService">
+		<property name="gouZhiShuiDao" ref="gouZhiShuiDao"></property>
+	</bean>
+	<bean id="gouZhiShuiController" class="com.action.GouZhiShuiController" scope="prototype">
+		<property name="xinCheService" ref="xinCheService"></property>
+		<property name="gouZhiShuiService" ref="gouZhiShuiService"></property>
+		<property name="jinDuService" ref="jinDuService"></property>
+		<property name="touRuShenHeService" ref="touRuShenHeService"></property>
+		<property name="yingYunZhengService" ref="yingYunZhengService"></property>
+		<property name="baoXianChuDanService" ref="baoXianChuDanService"></property>
+		<property name="caiLiaoZhengLiService" ref="caiLiaoZhengLiService"></property>
+		<property name="feiYongJieSuanService" ref="feiYongJieSuanService"></property>
+		<property name="zeRenRenService" ref="zeRenRenService"></property>
+		<property name="fenGuanLingDaoService" ref="fenGuanLingDaoService"></property>
+	</bean>
+	 
+	 <!-- 营运证 yingyunzheng -->
+	<bean id="yingYunZhengDao" class="com.dao.YingYunZhengDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="yingYunZhengService" class="com.service.YingYunZhengService">
+		<property name="yingYunZhengDao" ref="yingYunZhengDao"></property>
+	</bean>
+	<bean id="yingYunZhengController" class="com.action.YingYunZhengController" scope="prototype">
+		<property name="xinCheService" ref="xinCheService"></property>
+		<property name="yingYunZhengService" ref="yingYunZhengService"></property>
+		<property name="jinDuService" ref="jinDuService"></property>
+		<property name="gouZhiShuiService" ref="gouZhiShuiService"></property>
+		<property name="baoXianChuDanService" ref="baoXianChuDanService"></property>
+		<property name="caiLiaoZhengLiService" ref="caiLiaoZhengLiService"></property>
+		<property name="feiYongJieSuanService" ref="feiYongJieSuanService"></property>	
+	</bean>
+	
+	<!-- 保险出单 baoxianchudan -->
+	<bean id="baoXianChuDanDao" class="com.dao.BaoXianChuDanDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="baoXianChuDanService" class="com.service.BaoXianChuDanService">
+		<property name="baoXianChuDanDao" ref="baoXianChuDanDao"></property>
+	</bean>
+	<bean id="baoXianChuDanController" class="com.action.BaoXianChuDanController" scope="prototype">
+		<property name="cheLiangService" ref="cheLiangService"></property>	
+		<property name="baoXianChuDanService" ref="baoXianChuDanService"></property>	
+		<property name="jinDuService" ref="jinDuService"></property>	
+		<property name="gouZhiShuiService" ref="gouZhiShuiService"></property>	
+		<property name="caiLiaoZhengLiService" ref="caiLiaoZhengLiService"></property>	
+		<property name="yingYunZhengService" ref="yingYunZhengService"></property>	
+		<property name="feiYongJieSuanService" ref="feiYongJieSuanService"></property>	
+	</bean>
+	
+	<!-- 材料整理  cailiaozhengli -->
+	<bean id="caiLiaoZhengLiDao" class="com.dao.CaiLiaoZhengLiDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="caiLiaoZhengLiService" class="com.service.CaiLiaoZhengLiService">
+		<property name="caiLiaoZhengLiDao" ref="caiLiaoZhengLiDao"></property>
+	</bean>
+	<bean id="caiLiaoZhengLiController" class="com.action.CaiLiaoZhengLiController" scope="prototype">
+		<property name="xinCheService" ref="xinCheService"></property>
+		<property name="caiLiaoZhengLiService" ref="caiLiaoZhengLiService"></property>
+		<property name="jinDuService" ref="jinDuService"></property>
+		<property name="gouZhiShuiService" ref="gouZhiShuiService"></property>
+		<property name="yingYunZhengService" ref="yingYunZhengService"></property>
+		<property name="baoXianChuDanService" ref="baoXianChuDanService"></property>
+		<property name="feiYongJieSuanService" ref="feiYongJieSuanService"></property>
+	</bean>
+	
+	<!-- 费用结算  feiyongjiesuan -->
+	<bean id="feiYongJieSuanDao" class="com.dao.FeiYongJieSuanDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="feiYongJieSuanService" class="com.service.FeiYongJieSuanService">
+		<property name="feiYongJieSuanDao" ref="feiYongJieSuanDao"></property>
+	</bean>
+	<bean id="feiYongJieSuanController" class="com.action.FeiYongJieSuanController" scope="prototype">		
+		<property name="xinCheService" ref="xinCheService"></property>
+		<property name="feiYongJieSuanService" ref="feiYongJieSuanService"></property>
+		<property name="jinDuService" ref="jinDuService"></property>
+		<property name="zeRenRenService" ref="zeRenRenService"></property>
+	</bean>
+	
+	<!-- 责任人  zerenren  （责任人签名） -->
+	<bean id="zeRenRenDao" class="com.dao.ZeRenRenDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="zeRenRenService" class="com.service.ZeRenRenService">
+		<property name="zeRenRenDao" ref="zeRenRenDao"></property>
+	</bean>
+	<bean id="zeRenRenController" class="com.action.ZeRenRenController" scope="prototype">
+		<property name="xinCheService" ref="xinCheService"></property>
+		<property name="zeRenRenService" ref="zeRenRenService"></property>
+		<property name="jinDuService" ref="jinDuService"></property>
+		<property name="fenGuanLingDaoService" ref="fenGuanLingDaoService"></property>
+	</bean>
+	
+	<!-- 分管领导  fenguanlingdao（分管领导意见） -->
+	<bean id="fenGuanLingDaoDao" class="com.dao.FenGuanLingDaoDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="fenGuanLingDaoService" class="com.service.FenGuanLingDaoService">
+		<property name="fenGuanLingDaoDao" ref="fenGuanLingDaoDao"></property>
+	</bean>
+	<bean id="fenGuanLingDaoController" class="com.action.FenGuanLingDaoController" scope="prototype">
+		<property name="xinCheService" ref="xinCheService"></property>
+		<property name="fenGuanLingDaoService" ref="fenGuanLingDaoService"></property>
+		<property name="jinDuService" ref="jinDuService"></property>
+		<property name="cheLiangService" ref="cheLiangService"></property>
+	</bean>
+	
+	<!-- 危险品 weixianpin -->
+	<bean id="weiXianPinDao" class="com.dao.WeiXianPinDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="weiXianPinService" class="com.service.WeiXianPinService">
+		<property name="weiXianPinDao" ref="weiXianPinDao"></property>
+	</bean>
+	<bean id="weiXianPinController" class="com.action.WeiXianPinController" scope="prototype">
+		<property name="weiXianPinService" ref="weiXianPinService"></property>
+	</bean>
+	
+	<!-- 营收款 yingshoukuan -->
+	<bean id="yingShouKuanDao" class="com.dao.YingShouKuanDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="yingShouKuanService" class="com.service.YingShouKuanService">
+		<property name="yingShouKuanDao" ref="yingShouKuanDao"></property>
+	</bean>
+	<bean id="yingShouKuanController" class="com.action.YingShouKuanController" scope="prototype">
+		<property name="cheLiangService" ref="cheLiangService"></property>
+		<property name="yingShouKuanService" ref="yingShouKuanService"></property>
+		<property name="yunDanService" ref="yunDanService"></property>
+		<property name="customerService" ref="customerService"></property>
+		<property name="kaiPiaoService" ref="kaiPiaoService"></property>
+		<property name="feiYongShouQuService" ref="feiYongShouQuService"></property>
+		<property name="jieSuanDanService" ref="jieSuanDanService"></property>
+		<property name="baoXianService" ref="baoXianService"></property>
+	</bean>
+	
+	<!-- 开票 kaipiao -->
+	<bean id="kaiPiaoDao" class="com.dao.KaiPiaoDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="kaiPiaoService" class="com.service.KaiPiaoService">
+		<property name="kaiPiaoDao" ref="kaiPiaoDao"></property>
+	</bean>
+	<bean id="kaiPiaoController" class="com.action.KaiPiaoController" scope="prototype">
+		<property name="kaiPiaoService" ref="kaiPiaoService"></property>
+	</bean>
+	
+	<!-- 个人管理 gerenguanli -->
+	<bean id="geRenGuanLiDao" class="com.dao.GeRenGuanLiDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="geRenGuanLiService" class="com.service.GeRenGuanLiService">
+		<property name="geRenGuanLiDao" ref="geRenGuanLiDao"></property>
+	</bean>
+	<bean id="geRenGuanLiController" class="com.action.GeRenGuanLiController" scope="prototype">
+		<property name="geRenGuanLiService" ref="geRenGuanLiService"></property>
+	</bean>
+	
+	<!-- 从业资格 congyezige -->
+	<bean id="congYeZiGeDao" class="com.dao.CongYeZiGeDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="congYeZiGeService" class="com.service.CongYeZiGeService">
+		<property name="congYeZiGeDao" ref="congYeZiGeDao"></property>
+	</bean>
+	<bean id="congYeZiGeController" class="com.action.CongYeZiGeController" scope="prototype">
+		<property name="congYeZiGeService" ref="congYeZiGeService"></property>
+	</bean>
+	
+	<!-- 结算单 jiesuandan -->
+	<bean id="jieSuanDanDao" class="com.dao.JieSuanDanDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="jieSuanDanService" class="com.service.JieSuanDanService">
+		<property name="jieSuanDanDao" ref="jieSuanDanDao"></property>
+	</bean>
+	<bean id="jieSuanDanController" class="com.action.JieSuanDanController" scope="prototype">
+		<property name="jieSuanDanService" ref="jieSuanDanService"></property>
+	</bean>
+	
+	<!-- 费用收取 feiyongshouqu -->
+	<bean id="feiYongShouQuDao" class="com.dao.FeiYongShouQuDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="feiYongShouQuService" class="com.service.FeiYongShouQuService">
+		<property name="feiYongShouQuDao" ref="feiYongShouQuDao"></property>
+	</bean>
+	<bean id="feiYongShouQuController" class="com.action.FeiYongShouQuController" scope="prototype">
+		<property name="feiYongShouQuService" ref="feiYongShouQuService"></property>
+	</bean>
+	
+	
+	<!-- 工作门户 -->
+	<bean id="gongZuoMenHuController" class="com.action.GongZuoMenHuController" scope="prototype">
+		<property name="touRuShenHeService" ref="touRuShenHeService"></property>
+		<property name="gouZhiShuiService" ref="gouZhiShuiService"></property>
+		<property name="yingYunZhengService" ref="yingYunZhengService"></property>
+		<property name="baoXianChuDanService" ref="baoXianChuDanService"></property>
+		<property name="caiLiaoZhengLiService" ref="caiLiaoZhengLiService"></property>
+		<property name="feiYongJieSuanService" ref="feiYongJieSuanService"></property>
+		<property name="zeRenRenService" ref="zeRenRenService"></property>
+		<property name="fenGuanLingDaoService" ref="fenGuanLingDaoService"></property>
+		<property name="zhengJianService" ref="zhengJianService"></property>
+		<property name="yunDanService" ref="yunDanService"></property>
+		<property name="jiaShiYuanService" ref="jiaShiYuanService"></property>
+		<property name="baoXianService" ref="baoXianService"></property>
+		<property name="nianShenService" ref="nianShenService"></property>
+		<property name="xinCheService" ref="xinCheService"></property>
+		<property name="yingShouKuanService" ref="yingShouKuanService"></property>
+		<property name="customerService" ref="customerService"></property>
+	</bean>
+	
+</beans>

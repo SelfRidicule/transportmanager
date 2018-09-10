@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	
+	<package name="feiyongshouqu" namespace="/" extends="manager">
+		
+		
+		<!-- 费用收取 -->
+		
+		<action name="jumpFeiYongShouQu" class="com.action.FeiYongShouQuController" method="jumpFeiYongShouQu">
+			<result name="success">/view/feiyongshouqu.jsp</result>
+		</action>
+		
+		<action name="vagueSearchFeiYongShouQu" class="com.action.FeiYongShouQuController" method="vagueSearchFeiYongShouQu">
+			<result name="success">/view/feiyongshouqu.jsp</result>
+		</action>
+		
+		<action name="feiYongShouQuJson" class="com.action.FeiYongShouQuController" method="feiYongShouQuJson">
+		</action>
+	
+		<action name="jumpUpdateFeiYongShouQu" class="com.action.FeiYongShouQuController" method="jumpUpdateFeiYongShouQu">
+			<result name="err">/view/feiyongshouqu.jsp</result>
+			<result name="success">/view/updatefeiyongshouqu.jsp</result>
+		</action>
+	
+		<action name="updateFeiYongShouQu" class="com.action.FeiYongShouQuController" method="updateFeiYongShouQu">
+			<result name="success">/view/feiyongshouqu.jsp</result>
+		</action>
+	
+		<action name="deleteFeiYongShouQu" class="com.action.FeiYongShouQuController" method="deleteFeiYongShouQu">
+			<result name="success">/view/feiyongshouqu.jsp</result>
+		</action>
+	
+	</package>
+	
+</struts>    

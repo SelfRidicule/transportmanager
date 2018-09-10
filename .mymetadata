@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="transportmanager"
+  id="myeclipse.1490836880568"
+  context-root="/transportmanager"
+  j2ee-spec="6.0"
+  archive="transportmanager.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

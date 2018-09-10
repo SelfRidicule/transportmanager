@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	
+	<package name="zhengjian" namespace="/" extends="manager">
+		
+		<!-- 证件 -->
+		<action name="jumpZhengJian" class="com.action.ZhengJianController" method="jumpZhengJian">
+			<result name="">/zhengjian.jsp</result>
+		</action>
+		
+		<action name="vagueSearchZhengJian" class="com.action.ZhengJianController" method="vagueSearchZhengJian">
+			<result name="success">/zhengjian.jsp</result>
+		</action>
+		
+		<action name="zhengJianJson" class="com.action.ZhengJianController" method="zhengJianJson">
+		</action>
+		
+		<action name="zhengJianXiangXi" class="com.action.ZhengJianController" method="zhengJianXiangXi">
+			<result name="success">/zhengjianxiangxi.jsp</result>
+		</action>
+		
+		<action name="jumpAddZhengJian" class="com.action.ZhengJianController" method="jumpAddZhengJian">
+			<result name="success">/addzhengjian.jsp</result>
+		</action>
+		
+		<action name="addZhengJian" class="com.action.ZhengJianController" method="addZhengJian">
+			<result name="err">/addzhengjian.jsp</result>
+			<result name="success">/zhengjian.jsp</result>
+		</action>
+		
+		
+		<action name="deleteZhengJian" class="com.action.ZhengJianController" method="deleteZhengJian">
+			<result name="success">/zhengjian.jsp</result>
+		</action>
+		
+		<action name="updateZhengJian" class="com.action.ZhengJianController" method="updateZhengJian">
+			<result name="err">/zhengjian.jsp</result>
+			<result name="success">/updatezhengjian.jsp</result>
+		</action>
+		
+		<action name="submitUpdateZhengJian" class="com.action.ZhengJianController" method="submitUpdateZhengJian">
+			<result name="success">/zhengjian.jsp</result>
+		</action>
+		
+		<action name="zhengJianUploadFile" class="com.action.ZhengJianController" method="zhengJianUploadFile">
+		</action>
+		
+		<action name="zhengJianDeleteFile" class="com.action.ZhengJianController" method="zhengJianDeleteFile">
+		</action>
+		
+		<action name="zhengJianAjax" class="com.action.ZhengJianController" method="zhengJianAjax">
+		</action>
+		
+	</package>
+	
+</struts>    

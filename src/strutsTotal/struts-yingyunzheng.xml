@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	
+	<package name="yingyunzheng" namespace="/" extends="manager">
+		
+		<action name="jumpYingYunZheng" class="com.action.YingYunZhengController" method="jumpYingYunZheng">
+			<result name="success">/yingyunzheng.jsp</result>
+		</action>
+		
+		<action name="vagueSearchYingYunZheng" class="com.action.YingYunZhengController" method="vagueSearchYingYunZheng">
+			<result name="success">/yingyunzheng.jsp</result>
+		</action>
+		
+		<action name="yingYunZhengJson" class="com.action.YingYunZhengController" method="yingYunZhengJson"></action>
+		
+		<action name="jumpAddYingYunZheng" class="com.action.YingYunZhengController" method="jumpAddYingYunZheng">
+			<result name="success">/addyingyunzheng.jsp</result>
+		</action>
+		
+		<action name="addYingYunZheng" class="com.action.YingYunZhengController" method="addYingYunZheng">
+			<result name="success">/yingyunzheng.jsp</result>
+		</action>
+		
+		<action name="jumpUpdateYingYunZheng" class="com.action.YingYunZhengController" method="jumpUpdateYingYunZheng">
+			<result name="success">/updateyingyunzheng.jsp</result>
+		</action>
+		
+		<action name="updateYingYunZheng" class="com.action.YingYunZhengController" method="updateYingYunZheng">
+			<result name="success">/yingyunzheng.jsp</result>
+		</action>
+		
+	</package>
+	
+</struts>    

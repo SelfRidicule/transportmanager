@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	
+	<!-- 设置文件上传大小 -->
+	<constant name="struts.multipart.maxSize" value="1073741824" /> <!-- 1024*1024*1024 = 1G -->
+	
+	<package name="manager" namespace="/" extends="struts-default">
+		
+		<global-results>
+			<result name="returnLogin">/jumplogin.jsp</result>
+		</global-results>
+		
+		
+	</package>
+	
+	
+	
+	<!-- 用户   -->
+	<include file="strutsTotal/struts-user.xml"></include>
+	
+	<!-- 部门 -->
+	<include file="strutsTotal/struts-dept.xml"></include>
+	
+	<!-- 客户 -->
+	<include file="strutsTotal/struts-customer.xml"></include>
+	
+	<!-- 保险 -->
+	<include file="strutsTotal/struts-baoxian.xml"></include>
+	
+	<!-- 证件 -->
+	<include file="strutsTotal/struts-zhengjian.xml"></include>
+	
+	<!-- 车辆 -->
+	<include file="strutsTotal/struts-cheliang.xml"></include>
+	
+	<!-- 车辆管理 -->
+	<include file="strutsTotal/struts-cheliangguanli.xml"></include>
+	
+	<!-- 车辆关系 -->
+	<include file="strutsTotal/struts-cheliangguanxi.xml"></include>
+	
+	<!-- 年审 -->
+	<include file="strutsTotal/struts-nianshen.xml"></include>
+	
+	<!-- 驾驶员 -->
+	<include file="strutsTotal/struts-jiashiyuan.xml"></include>
+	
+	<!-- 运单 -->
+	<include file="strutsTotal/struts-yundan.xml"></include>
+	
+	<!-- 新车入户 -->
+	<include file="strutsTotal/struts-xinche.xml"></include>
+	
+	<!-- 进度 -->
+	<include file="strutsTotal/struts-jindu.xml"></include>
+	
+	<!-- 投入审核 -->
+	<include file="strutsTotal/struts-tourushenhe.xml"></include>
+	
+	<!-- 购置税（车管业务） -->
+	<include file="strutsTotal/struts-gouzhishui.xml"></include>
+	
+	<!-- 营运证 (运管业务) -->
+	<include file="strutsTotal/struts-yingyunzheng.xml"></include>
+	
+	<!-- 保险出单 -->
+	<include file="strutsTotal/struts-baoxianchudan.xml"></include>
+	
+	<!-- 材料整理 （材料整理、档案建立） -->
+	<include file="strutsTotal/struts-cailiaozhengli.xml"></include>
+	
+	<!-- 费用结算-->
+	<include file="strutsTotal/struts-feiyongjiesuan.xml"></include>
+	
+	<!-- 责任人 签名 -->
+	<include file="strutsTotal/struts-zerenren.xml"></include>
+	
+	<!-- 分管领导 -->
+	<include file="strutsTotal/struts-fenguanlingdao.xml"></include>
+	
+	<!-- 危险品 -->
+	<include file="strutsTotal/struts-weixianpin.xml"></include>
+	
+	<!-- 营收款 -->
+	<include file="strutsTotal/struts-yingshoukuan.xml"></include>
+	
+	<!-- 开票 -->
+	<include file="strutsTotal/struts-kaipiao.xml"></include>
+	
+	<!-- 结算单 -->
+	<include file="strutsTotal/struts-jiesuandan.xml"></include>
+	
+	<!-- 权限 -->
+	<include file="strutsTotal/struts-quanxian.xml"></include>
+	
+	<!-- 工作门户 -->
+	<include file="strutsTotal/struts-gongzuomenhu.xml"></include>
+	
+	<!-- 个人管理 -->
+	<include file="strutsTotal/struts-gerenguanli.xml"></include>
+	
+	<!-- 从业资格 -->
+	<include file="strutsTotal/struts-congyezige.xml"></include>
+	
+	<!-- 费用收取 -->
+	<include file="strutsTotal/struts-feiyongshouqu.xml"></include>
+	
+</struts>    

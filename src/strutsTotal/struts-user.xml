@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	
+	<package name="user" namespace="/" extends="manager">
+	
+		<interceptors>
+			<interceptor-stack name="countstack">
+				<interceptor-ref name="myInterceptor"></interceptor-ref>
+ 			</interceptor-stack>
+ 			
+ 			<interceptor name="myInterceptor" class="com.action.MyInterceptor"></interceptor>
+		</interceptors>
+		
+		<global-results>
+			<result name="returnLogin">/jumplogin.jsp</result>
+		</global-results>
+		
+		<!-- 用户   -->
+		<action name="jumpUsers" class="com.action.UsersController" method="jumpUsers">
+			<interceptor-ref name="countstack"></interceptor-ref>	
+			<result name="success">/users.jsp</result>
+		</action>
+		
+		<action name="returnUsers" class="com.action.UsersController" method="returnUsers">
+			<interceptor-ref name="countstack"></interceptor-ref>	
+			<result name="success">/users.jsp</result>
+		</action>
+		
+		<action name="login" class="com.action.UsersController" method="login">
+			<result name="success">/index.jsp</result>
+			<result name="err">/login.jsp</result>
+		</action>
+					
+		<action name="usersJson" class="com.action.UsersController" method="usersJson">
+			<result name="success">/index.jsp</result>			
+		</action>
+		
+		<action name="usersVagueSearch" class="com.action.UsersController" method="usersVagueSearch">
+			<interceptor-ref name="countstack"></interceptor-ref>	
+			<result name="success">/users.jsp</result>
+		</action>
+		
+		<action name="deleteUsers" class="com.action.UsersController" method="deleteUsers">
+			<interceptor-ref name="countstack"></interceptor-ref>	
+			<result name="success">/users.jsp</result>
+		</action>
+		
+		<action name="jumpAddUsers" class="com.action.UsersController" method="jumpAddUsers">
+			<interceptor-ref name="countstack"></interceptor-ref>	
+			<result name="success">/addusers.jsp</result>
+		</action>
+		
+		<action name="addUsers" class="com.action.UsersController" method="addUsers">
+			<interceptor-ref name="countstack"></interceptor-ref>	
+			<result name="success">/users.jsp</result>
+		</action>
+		
+		<action name="updateUsers" class="com.action.UsersController" method="updateUsers">
+			<interceptor-ref name="countstack"></interceptor-ref>	
+			<result name="success">/updateusers.jsp</result>
+			<result name="err">/users.jsp</result>
+		</action>
+		
+		<action name="submitUpdateUsers" class="com.action.UsersController" method="submitUpdateUsers">
+			<interceptor-ref name="countstack"></interceptor-ref>	
+			<result name="success">/users.jsp</result>
+		</action>
+		
+		<action name="updatePassword" class="com.action.UsersController" method="updatePassword">
+			<interceptor-ref name="countstack"></interceptor-ref>	
+			<result name="success">/jumpupdateuserslogin.jsp</result>
+		</action>
+		
+	</package>
+	
+</struts>    
