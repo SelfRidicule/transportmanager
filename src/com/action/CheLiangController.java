@@ -283,6 +283,9 @@ public class CheLiangController extends ActionSupport{
 //		发送驾驶员集合对象
 		JiaShiYuanController.sendJiaShiYuan(jiaShiYuanService);
 		
+//		发送用户集合对象
+		UsersController.sendUsers(usersService);
+		
 		return "success";
 	}
 	
@@ -307,6 +310,9 @@ public class CheLiangController extends ActionSupport{
 		
 //		发送驾驶员集合对象
 		JiaShiYuanController.sendJiaShiYuan(jiaShiYuanService);
+		
+//		发送用户集合对象
+		UsersController.sendUsers(usersService);
 		
 		return "success";
 	}
@@ -1750,6 +1756,9 @@ public class CheLiangController extends ActionSupport{
 		
 //		发送驾驶员集合对象
 		JiaShiYuanController.sendJiaShiYuan(jiaShiYuanService);
+		
+//		发送用户集合对象
+		UsersController.sendUsers(usersService);
 		
 		return "success";
 	}

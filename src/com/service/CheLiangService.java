@@ -80,7 +80,7 @@ public class CheLiangService {
 		}
 		if(caozuoyuan==null || "".equals(caozuoyuan)){
 		}else{
-			hql.append(" and caozuoyuan like :caozuoyuan");
+			hql.append(" and caozuoyuan = :caozuoyuan");
 		}
 		
 		hql.append(" order by id desc ");
@@ -109,7 +109,7 @@ public class CheLiangService {
 		}
 		if(caozuoyuan==null || "".equals(caozuoyuan)){
 		}else{
-			query.setString("caozuoyuan", "%"+caozuoyuan+"%");
+			query.setString("caozuoyuan",  caozuoyuan );
 		}
 		
 		Integer Number = Integer.valueOf(pageNumber) ;

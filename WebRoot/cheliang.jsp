@@ -95,7 +95,12 @@
 								<option value="禁用">禁用</option>
 							</select>
 							
-							<input class="form-control" placeholder="操作员" name="caozuoyuan"  value="" style="width: 200px; margin-left: 10px; margin-top: 15px; float: left;">
+							<select class="form-control" name="caozuoyuan" style="width: 200px; margin-left: 10px; margin-top: 15px; float: left;">
+								<option value="">操作员</option>
+								<c:forEach items="${userslist}" var="users">
+									<option value="${users.usersid}">${users.username}</option>
+						        </c:forEach>
+							</select>
 							
 							<div style="clear: both;"></div>
 							
@@ -208,7 +213,8 @@
 	                        cheliangleixing : $("[name='cheliangleixing'] option:selected").val(),
 	                        pingpaixinghao : $("[name='pingpaixinghao'] option:selected").val(),
 	                        zhuangtai : $("[name='zhuangtai'] option:selected").val(),
-	                        caozuoyuan : $("input[name='caozuoyuan']").val()
+	                        caozuoyuan : $("[name='caozuoyuan'] option:selected").val()
+	                        
 	                    };
 	                    return temp;
 	                },

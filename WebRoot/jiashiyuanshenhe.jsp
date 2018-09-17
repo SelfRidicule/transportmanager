@@ -91,9 +91,18 @@
 							
 							<select class="form-control" name="zhunjiachexing" style="width: 200px; margin-left: 10px; margin-top: 15px; float: left;">
 								<option value="">准驾车型</option>
-								<option value="大车">大车</option>
-								<option value="小车">小车</option>
+								<option value="A1" >A1</option>
+								<option value="A2" >A2</option>
+								<option value="A3" >A3</option>
+								<option value="B1" >B1</option>
+								<option value="B2" >B2</option>
+								<option value="C1" >C1</option>
+								<option value="C2" >C2</option>
+								<option value="D" >D</option>
+								<option value="E" >E</option>
 							</select>
+							
+							
 							
 							<select class="form-control" name="shenhezhuangtai" style="width: 200px; margin-left: 10px; margin-top: 15px; float: left;">
 								<option value="">审核状态</option>

@@ -471,6 +471,24 @@ public class UsersController extends ActionSupport{
 			return true;
 		}
 	}
+	
+	/**
+	 * send userslist
+	 */
+	public static void sendUsers(UsersService usersService) {
+//		得到请求对象 
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpServletResponse response = ServletActionContext.getResponse();
+		HttpSession session = request.getSession();
+//		设置字符格式
+		FontFormat.setFontFormat(response);	
+		
+		List<Users> userslist = usersService.queryUsersAll();
+		request.setAttribute("userslist", userslist);
+		
+	}
+	
+	
 	/**
 	 *  get set
 	 */
