@@ -83,11 +83,11 @@ public class YunDanController extends ActionSupport{
 	
 	
 //	单一对象
-	private static YunDan singleyundan;
+	private  YunDan singleyundan;
 	
 //	集合对象
 //	单一对象
-	private static YunDan singleyundanshenhe;
+	private  YunDan singleyundanshenhe;
 	
 	/**
 	 * 属性
@@ -944,6 +944,9 @@ public class YunDanController extends ActionSupport{
 		 singleyundan = yunDanService.queryYunDanId(Integer.valueOf(id[0]));
 		
 		request.setAttribute("singleyundan", singleyundan);
+		
+		session.setAttribute("singleyundan", singleyundan);
+		
 		CheLiangController.sendCheLiang(cheLiangService);
 		
 		return "success";
@@ -966,6 +969,8 @@ public class YunDanController extends ActionSupport{
 //		得到运单业务对象
 			
 		Users users = (Users) session.getAttribute("users");
+		
+		singleyundan = (YunDan) session.getAttribute("singleyundan");
 		
 //		判断车牌号的值是否为null
 		if("未分配".equals(chepaihao)){
@@ -999,6 +1004,8 @@ public class YunDanController extends ActionSupport{
 		
 		CheLiangController.sendCheLiang(cheLiangService);
 		
+		session.removeAttribute("singleyundan");
+		
 		return "success";
 	}
 	
@@ -1031,6 +1038,8 @@ public class YunDanController extends ActionSupport{
 		
 		request.setAttribute("singleyundan", singleyundan);
 		
+		session.setAttribute("singleyundan", singleyundan);
+		
 		CheLiangController.sendCheLiang(cheLiangService);
 		
 		CustomerController.sendCustomer(customerService);
@@ -1058,6 +1067,8 @@ public class YunDanController extends ActionSupport{
 			
 //		得到用户对象
 		Users users =  (Users) session.getAttribute("users");
+		
+		singleyundan = (YunDan) session.getAttribute("singleyundan");
 		
 //		先把自身运单状态得到
 		yundanzhuangtai = singleyundan.getYundanzhuangtai();
@@ -1093,6 +1104,8 @@ public class YunDanController extends ActionSupport{
 		
 		
 		CheLiangController.sendCheLiang(cheLiangService);
+		
+		session.removeAttribute("singleyundan");
 		
 		return "success";
 	}
@@ -1177,6 +1190,7 @@ public class YunDanController extends ActionSupport{
 		}
 		 
 		request.setAttribute("singleyundan", singleyundan);
+		session.setAttribute("singleyundan", singleyundan);
 		
 		CheLiangController.sendCheLiang(cheLiangService);
 		
@@ -1205,6 +1219,8 @@ public class YunDanController extends ActionSupport{
 			
 //		得到用户对象
 		Users users =  (Users) session.getAttribute("users");
+		
+		singleyundan = (YunDan) session.getAttribute("singleyundan");
 		
 //		先把自身运单状态得到
 		yundanzhuangtai = singleyundan.getYundanzhuangtai();
@@ -1240,6 +1256,8 @@ public class YunDanController extends ActionSupport{
 		
 		
 		CheLiangController.sendCheLiang(cheLiangService);
+		
+		session.removeAttribute("singleyundan");
 		
 		return "success";
 	}
@@ -1447,6 +1465,8 @@ public class YunDanController extends ActionSupport{
 		
 		
 		request.setAttribute("singleyundanshenhe", singleyundanshenhe);
+		session.setAttribute("singleyundanshenhe", singleyundanshenhe);
+		
 		request.setAttribute("jiashiyuanxingming", jiashiyuanxingming);
 		
 		CheLiangController.sendCheLiang(cheLiangService);
@@ -1469,7 +1489,8 @@ public class YunDanController extends ActionSupport{
 //		设置字符格式
 		FontFormat.setFontFormat(response);				
 //		得到运单业务对象
-			
+		
+		singleyundanshenhe = (YunDan) session.getAttribute("singleyundanshenhe");
 
 		Users users = (Users) session.getAttribute("users");
 		
@@ -1483,6 +1504,8 @@ public class YunDanController extends ActionSupport{
 		
 		
 		CheLiangController.sendCheLiang(cheLiangService);
+		
+		session.removeAttribute("singleyundanshenhe");
 		
 		return "success";
 	}

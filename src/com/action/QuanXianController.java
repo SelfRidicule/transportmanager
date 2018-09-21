@@ -42,7 +42,7 @@ public class QuanXianController extends ActionSupport{
 //	权限集合对象
 	private static List<String> quanxianlist ;
 //	权限名称
-	private static String singlequanxianmingcheng ;
+	private  String singlequanxianmingcheng ;
 	
 	
 	private QuanXianService quanXianService ;
@@ -695,6 +695,7 @@ public class QuanXianController extends ActionSupport{
 //		权限名称
 		 singlequanxianmingcheng = quanxianmingcheng[0];
 		 request.setAttribute("singlequanxianmingcheng", singlequanxianmingcheng);
+		 session.setAttribute("singlequanxianmingcheng", singlequanxianmingcheng);
 		
 		request.setAttribute("singlemenhu", singlemenhu);
 		request.setAttribute("singleyonghu", singleyonghu);
@@ -760,7 +761,7 @@ public class QuanXianController extends ActionSupport{
 //		设置字符格式
 		FontFormat.setFontFormat(response);		
 
-
+		singlequanxianmingcheng = (String) session.getAttribute("singlequanxianmingcheng");
 
 		
 //		工作门户
@@ -1085,6 +1086,8 @@ public class QuanXianController extends ActionSupport{
 		quanXianService.saveAndUpdateQuanXian(singlejiesuan);	//结算
 		
 		quanxianlist = quanXianService.queryQuanXianMingCheng();
+		
+		session.removeAttribute("singlequanxianmingcheng");
 		
 		return "success";
 	}

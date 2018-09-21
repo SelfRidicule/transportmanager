@@ -69,7 +69,7 @@ public class CaiLiaoZhengLiController extends ActionSupport{
 //	集合对象
 	private static List<CaiLiaoZhengLi> cailiaozhenglilist;
 //	单一对象
-	private static CaiLiaoZhengLi singlecailiaozhengli;
+	private  CaiLiaoZhengLi singlecailiaozhengli;
 	
 	/**
 	 * 属性
@@ -180,6 +180,7 @@ public class CaiLiaoZhengLiController extends ActionSupport{
 		
 		 singlecailiaozhengli = caiLiaoZhengLiService.queryCaiLiaoZhengLiChePaiHao(chepaihao);
 		request.setAttribute("singlecailiaozhengli", singlecailiaozhengli);
+		session.setAttribute("singlecailiaozhengli", singlecailiaozhengli);
 		
 		return "success";
 	}
@@ -205,6 +206,8 @@ public class CaiLiaoZhengLiController extends ActionSupport{
 		
 //		得到session传递的参数
 		Users users = (Users) session.getAttribute("users");
+		
+		singlecailiaozhengli = (CaiLiaoZhengLi) session.getAttribute("singlecailiaozhengli");
 		
 //		初始化必须值
 		String chepaihao = singlecailiaozhengli.getChepaihao();
@@ -252,6 +255,8 @@ public class CaiLiaoZhengLiController extends ActionSupport{
 		
 		XinCheController.sendXinChe(xinCheService);
 		
+		session.removeAttribute("singlecailiaozhengli");
+		
 		return "success";
 	}
 	
@@ -274,6 +279,7 @@ public class CaiLiaoZhengLiController extends ActionSupport{
 		
 		 singlecailiaozhengli = caiLiaoZhengLiService.queryCaiLiaoZhengLiChePaiHao(chepaihao);
 		request.setAttribute("singlecailiaozhengli", singlecailiaozhengli);
+		session.setAttribute("singlecailiaozhengli", singlecailiaozhengli);
 		
 		return "success";
 	}
@@ -297,6 +303,8 @@ public class CaiLiaoZhengLiController extends ActionSupport{
 //		得到session传递的参数
 		Users users = (Users) session.getAttribute("users");
 		
+		singlecailiaozhengli = (CaiLiaoZhengLi) session.getAttribute("singlecailiaozhengli");
+		
 //		初始化
 		String caozuoyuan = users.getUsername();
 		Date   caozuoriqi = new Date();
@@ -310,6 +318,8 @@ public class CaiLiaoZhengLiController extends ActionSupport{
 		request.setAttribute("cailiaozhenglilist", cailiaozhenglilist);
 		
 		XinCheController.sendXinChe(xinCheService);
+		
+		session.removeAttribute("singlecailiaozhengli");
 		
 		return "success";
 	}

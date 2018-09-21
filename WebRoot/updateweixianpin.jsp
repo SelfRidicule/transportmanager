@@ -61,7 +61,7 @@
 					<div style="clear: both;"></div>
 					<br/>
 					
-					<button type="submit" class="btn btn-primary" style="float: left; margin-left: 30px">添加</button>
+					<button type="submit" class="btn btn-primary" style="float: left; margin-left: 30px">修改</button>
 					<a href="${pageContext.request.contextPath}/weixianpin.jsp"> <button type="button"  class="btn btn-info" style="float: left; margin-left: 10px">返回</button></a>
 					<br/>
 				</form>	

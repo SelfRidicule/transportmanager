@@ -51,7 +51,7 @@ public class UsersController extends ActionSupport{
 	
 	
 	
-	private static Users singleusers ;
+	private  Users singleusers ;
 	
 	/**
 	 * 属性
@@ -369,6 +369,8 @@ public class UsersController extends ActionSupport{
 		singleusers = usersService.getSingleUsers(id);
 		request.setAttribute("singleusers", singleusers);
 		
+		session.setAttribute("singleusers", singleusers);
+		
 		DeptController.sendDeptList(deptService);
 		 
 		QuanXianController.sendQuanXianMingCheng(quanXianService);
@@ -391,6 +393,7 @@ public class UsersController extends ActionSupport{
 //		设置字符格式
 		FontFormat.setFontFormat(response);
 
+		singleusers = (Users) session.getAttribute("singleusers");
 		
 		 account = request.getParameter("account");
 		 username = request.getParameter("username");
@@ -419,6 +422,8 @@ public class UsersController extends ActionSupport{
 		DeptController.sendDeptList(deptService);
 		 
 		QuanXianController.sendQuanXianMingCheng(quanXianService);
+		
+		session.removeAttribute("singleusers");
 		
 		return "success";
 	}

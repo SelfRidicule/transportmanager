@@ -57,7 +57,7 @@ public class NianShenController extends ActionSupport{
 //	集合对象
 	private static List<NianShen> nianshenlist;
 //	单一
-	private static NianShen singlenianshen;
+	private  NianShen singlenianshen;
 	
 	/**
 	 * 属性
@@ -698,6 +698,7 @@ public class NianShenController extends ActionSupport{
 		
 		singlenianshen = nianShenService.queryNianShenId(Integer.valueOf(id[0]));
 		request.setAttribute("singlenianshen", singlenianshen);
+		session.setAttribute("singlenianshen", singlenianshen);
 		
 		return "success";
 	}
@@ -718,7 +719,7 @@ public class NianShenController extends ActionSupport{
 //		设置字符格式
 		FontFormat.setFontFormat(response);
 	
-		
+		singlenianshen = (NianShen) session.getAttribute("singlenianshen");
 		
 		singlenianshen.setNianshenriqi(nianshenriqi);
 		singlenianshen.setDaoqiriqi(daoqiriqi);
@@ -737,6 +738,8 @@ public class NianShenController extends ActionSupport{
 		request.setAttribute("nianshenlist", nianshenlist);
 		
 		CheLiangController.sendCheLiang(cheLiangService);
+		
+		session.removeAttribute("singlenianshen");
 		
 		return "success";
 	}

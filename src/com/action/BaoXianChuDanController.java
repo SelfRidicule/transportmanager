@@ -70,7 +70,7 @@ public class BaoXianChuDanController extends ActionSupport{
 //	集合对象
 	private static List<BaoXianChuDan> baoxianchudanlist;
 //	单一对象
-	private static BaoXianChuDan singlebaoxianchudan;
+	private  BaoXianChuDan singlebaoxianchudan;
 	
 	/**
 	 * 属性
@@ -188,6 +188,8 @@ public class BaoXianChuDanController extends ActionSupport{
 		
 		
 		singlebaoxianchudan =  baoXianChuDanService.queryBaoXianChuDanChePaiHao(chepaihao);
+		
+		session.setAttribute("singlebaoxianchudan", singlebaoxianchudan);
 		request.setAttribute("singlebaoxianchudan", singlebaoxianchudan);
 		
 		return "success";
@@ -212,6 +214,7 @@ public class BaoXianChuDanController extends ActionSupport{
 		
 		
 		Users users = (Users) session.getAttribute("users");
+		singlebaoxianchudan = (BaoXianChuDan) session.getAttribute("singlebaoxianchudan");
 		
 //		获得必须值
 		String chepaihao = singlebaoxianchudan.getChepaihao();
@@ -275,6 +278,8 @@ public class BaoXianChuDanController extends ActionSupport{
 		
 		CheLiangController.sendCheLiang(cheLiangService);
 		
+		session.removeAttribute("singlebaoxianchudan");
+		
 		return "success";
 	}
 	
@@ -296,6 +301,8 @@ public class BaoXianChuDanController extends ActionSupport{
 		
 		
 		 singlebaoxianchudan = baoXianChuDanService.queryBaoXianChuDanChePaiHao(chepaihao);
+		 
+		 session.setAttribute("singlebaoxianchudan", singlebaoxianchudan);
 		request.setAttribute("singlebaoxianchudan", singlebaoxianchudan);
 		
 		return "success";
@@ -319,6 +326,7 @@ public class BaoXianChuDanController extends ActionSupport{
 		
 		
 		Users users = (Users) session.getAttribute("users");
+		singlebaoxianchudan = (BaoXianChuDan) session.getAttribute("singlebaoxianchudan");
 		
 		String caozuoyuan = users.getUsername();
 		Date   caozuoriqi = new Date();
@@ -365,6 +373,8 @@ public class BaoXianChuDanController extends ActionSupport{
 		request.setAttribute("baoxianchudanlist", baoxianchudanlist);
 		
 		CheLiangController.sendCheLiang(cheLiangService);
+		
+		session.removeAttribute("singlebaoxianchudan");
 		
 		return "success";
 	}

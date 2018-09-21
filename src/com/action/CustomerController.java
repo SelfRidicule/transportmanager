@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 
@@ -36,12 +37,12 @@ public class CustomerController extends ActionSupport{
 //	得到请求对象 
 	private HttpServletRequest request = ServletActionContext.getRequest();
 	private HttpServletResponse response = ServletActionContext.getResponse();
-	
+	private HttpSession session = request.getSession();
 
 //	集合对象
 	private static List<Customer> customerlist;
 //	单一对象
-	private static Customer singlecustomer;
+	private  Customer singlecustomer;
 	
 	
 	private CustomerService customerService;
@@ -249,6 +250,8 @@ public class CustomerController extends ActionSupport{
 		
 		request.setAttribute("singlecustomer", singlecustomer);
 		
+		session.setAttribute("singlecustomer", singlecustomer);
+		
 		return "success";
 	}
 	
@@ -268,6 +271,7 @@ public class CustomerController extends ActionSupport{
 		FontFormat.setFontFormat(response);				
 //		得到CustomerService对象		
 		
+		singlecustomer = (Customer) session.getAttribute("singlecustomer");
 		
 		singlecustomer.setCustomer(customername, shortname, identifynumber, bankaccount, account, contactperson, contactnumber, phonenumber, contactaddress, comment);
 		singlecustomer.setKehudanwei(kehudanwei);
@@ -276,6 +280,8 @@ public class CustomerController extends ActionSupport{
 		
 		customerlist = customerService.queryCustomerList();
 		request.setAttribute("customerlist", customerlist);
+		
+		session.removeAttribute("singlecustomer");
 		
 		return "success";
 	}

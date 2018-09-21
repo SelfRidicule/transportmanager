@@ -165,7 +165,7 @@ public class YingShouKuanController extends ActionSupport{
 	private static List<YingShouKuan> jiesuanlist;
 	
 //	单一对象
-	private static YingShouKuan singleyingshoukuan;
+	private  YingShouKuan singleyingshoukuan;
 	
 	private static Customer singlecustomer;
 	
@@ -312,6 +312,7 @@ public class YingShouKuanController extends ActionSupport{
 		request.setAttribute("danjiastr", danjiastr);
 		
 		request.setAttribute("singleyingshoukuan", singleyingshoukuan);
+		session.setAttribute("singleyingshoukuan", singleyingshoukuan);
 		
 		return "success";
 	}
@@ -331,7 +332,7 @@ public class YingShouKuanController extends ActionSupport{
 //		设置字符格式
 		FontFormat.setFontFormat(response);		
 
-		
+		singleyingshoukuan = (YingShouKuan) session.getAttribute("singleyingshoukuan");
 		
 		Users users =(Users) session.getAttribute("users");
 		
@@ -351,6 +352,8 @@ public class YingShouKuanController extends ActionSupport{
 		
 		
 		CheLiangController.sendCheLiang(cheLiangService);
+		
+		session.removeAttribute("singleyingshoukuan");
 		
 		return "success";
 	}
@@ -2051,6 +2054,7 @@ public class YingShouKuanController extends ActionSupport{
 		
 		singleyingshoukuan = yingShouKuanService.queryYingShouKuanId(Integer.valueOf( id[0] ));
 		request.setAttribute("singleyingshoukuan", singleyingshoukuan);
+		session.setAttribute("singleyingshoukuan", singleyingshoukuan);
 		
 //		车辆业务对象
 			
@@ -2078,7 +2082,7 @@ public class YingShouKuanController extends ActionSupport{
 		
 		
 //		营收款 业务对象
-			
+		singleyingshoukuan = (YingShouKuan) session.getAttribute("singleyingshoukuan");	
 		
 		singleyingshoukuan.setZhenshichezhu(zhenshichezhu);
 		singleyingshoukuan.setZhuanzhangzhuangtai("已转账");
@@ -2090,6 +2094,8 @@ public class YingShouKuanController extends ActionSupport{
 		
 		
 		CheLiangController.sendCheLiang(cheLiangService);
+		
+		session.removeAttribute("singleyingshoukuan");
 		
 		return "success";
 	}
@@ -2453,6 +2459,8 @@ public class YingShouKuanController extends ActionSupport{
 		
 //		传递参数
 		request.setAttribute("singleyingshoukuan",singleyingshoukuan);
+		session.setAttribute("singleyingshoukuan",singleyingshoukuan);
+		
 		request.setAttribute("singleyundan", singleyundan);
 		request.setAttribute("singlecheliang", singlecheliang);
 		return "success";

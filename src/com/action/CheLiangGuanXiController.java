@@ -58,7 +58,7 @@ public class CheLiangGuanXiController extends ActionSupport{
 	private static List<CheLiangGuanXi> cheliangguanxilist;
 
 //	单一对象
-	private static CheLiangGuanXi singlecheliangguanxi;
+	private  CheLiangGuanXi singlecheliangguanxi;
 	
 	/**
 	 * 属性
@@ -413,7 +413,9 @@ public class CheLiangGuanXiController extends ActionSupport{
 //		车辆关系对象
 			
 //		得到用户对象
-		Users users = (Users) session.getAttribute("users");		
+		Users users = (Users) session.getAttribute("users");	
+		
+		singlecheliangguanxi = (CheLiangGuanXi) session.getAttribute("singlecheliangguanxi");
 		
 		singlecheliangguanxi.setCheLiangGuanXi(qianyinche, guache, users.getUsername(), new Date(), beizhu);
 		
@@ -421,6 +423,8 @@ public class CheLiangGuanXiController extends ActionSupport{
 		
 		cheliangguanxilist = cheLiangGuanXiService.queryCheLiangGuanXi();
 		request.setAttribute("cheliangguanxilist", cheliangguanxilist);
+		
+		session.removeAttribute("singlecheliangguanxi");
 		
 		return "success";
 		

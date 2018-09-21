@@ -90,7 +90,7 @@ public class XinCheController extends ActionSupport{
 //	集合对象
 	private static List<XinChe> xinchelist;
 //	单一对象
-	private static XinChe singlexinche;
+	private  XinChe singlexinche;
 	
 	/**
 	 * 属性
@@ -541,6 +541,7 @@ public class XinCheController extends ActionSupport{
 		
 		 singlexinche = xinCheService.queryXinCheChePaiHao(chepaihao);
 		request.setAttribute("singlexinche", singlexinche);
+		session.setAttribute("singlexinche", singlexinche);
 		
 		CheLiangGuanLiController.sendCheLiangGuanLi(cheLiangGuanLiService);
 		
@@ -563,6 +564,9 @@ public class XinCheController extends ActionSupport{
 		
 //		得到传递的对象
 		Users users = (Users) session.getAttribute("users");
+		
+		singlexinche = (XinChe) session.getAttribute("singlexinche");
+		
 //		初始化
 		String caozuoyuan = users.getUsername();
 		Date   caozuoriqi = new Date();
@@ -657,6 +661,9 @@ public class XinCheController extends ActionSupport{
 		
 		 xinchelist = xinCheService.queryXinCheList();
 		request.setAttribute("xinchelist", xinchelist);
+		
+		session.removeAttribute("singlexinche");
+		
 		
 		return "success";
 	}

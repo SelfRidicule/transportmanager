@@ -51,7 +51,7 @@ public class CongYeZiGeController extends ActionSupport{
 //	集合对象
 	private static  List<CongYeZiGe> congyezigelist;
 //	单一对象
-	private static CongYeZiGe singlecongyezige;
+	private  CongYeZiGe singlecongyezige;
 	
 	/**
 	 *  发送-从业资格
@@ -264,6 +264,8 @@ public class CongYeZiGeController extends ActionSupport{
 		
 		request.setAttribute("singlecongyezige", singlecongyezige);
 		
+		session.setAttribute("singlecongyezige", singlecongyezige);
+		
 		return "success";
 	}
 	
@@ -284,6 +286,7 @@ public class CongYeZiGeController extends ActionSupport{
 		
 //		对象
 		
+		singlecongyezige = (CongYeZiGe) session.getAttribute("singlecongyezige");
 				
 		singlecongyezige.setLeibiemingcheng(leibiemingcheng);
 		congYeZiGeService.updateCongYeZiGe(singlecongyezige);
@@ -291,6 +294,8 @@ public class CongYeZiGeController extends ActionSupport{
 //		发送
 		congyezigelist = congYeZiGeService.queryCongYeZiGeList();
 		request.setAttribute("congyezigelist", congyezigelist);
+		
+		session.removeAttribute("singlecongyezige");
 		
 		return "success";
 	}

@@ -6,7 +6,9 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import org.apache.catalina.Session;
 import org.apache.struts2.ServletActionContext;
 
 import com.entity.CheLiang;
@@ -44,7 +46,7 @@ public class FeiYongShouQuController extends ActionSupport{
 //	得到请求对象 
 	private HttpServletRequest request = ServletActionContext.getRequest();
 	private HttpServletResponse response = ServletActionContext.getResponse();
-
+	private HttpSession session = request.getSession();
 	
 	private FeiYongShouQuService feiYongShouQuService;
 	
@@ -72,7 +74,7 @@ public class FeiYongShouQuController extends ActionSupport{
 	
 	
 //	单一
-	private static FeiYongShouQu singlefeiyongshouqu;
+	private  FeiYongShouQu singlefeiyongshouqu;
 	
 //	集合
 	private static List<FeiYongShouQu> feiyongshouqulist;
@@ -180,6 +182,8 @@ public class FeiYongShouQuController extends ActionSupport{
 		 
 		request.setAttribute("singlefeiyongshouqu", singlefeiyongshouqu);
 		
+		session.setAttribute("singlefeiyongshouqu", singlefeiyongshouqu);
+		
 		return "success";
 	}
 	
@@ -197,6 +201,7 @@ public class FeiYongShouQuController extends ActionSupport{
         }
 //		------------end
         
+        singlefeiyongshouqu = (FeiYongShouQu) session.getAttribute("singlefeiyongshouqu");
         
         
         singlefeiyongshouqu.setValueFeiYongShouQu( gouchefei,  luntaifei,  weixiufei,

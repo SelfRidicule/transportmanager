@@ -73,7 +73,7 @@ public class TouRuShenHeController extends  ActionSupport{
 //	集合对象
 	private static List<TouRuShenHe> tourushenhelist;
 //	单一对象
-	private static TouRuShenHe singletourushenhe;
+	private  TouRuShenHe singletourushenhe;
 	
 	/**
 	 * 属性
@@ -185,6 +185,7 @@ public class TouRuShenHeController extends  ActionSupport{
 
 		 singletourushenhe = touRuShenHeService.queryTouRuShenHeChePaiHao(chepaihao);
 		request.setAttribute("singletourushenhe", singletourushenhe);
+		session.setAttribute("singletourushenhe", singletourushenhe);
 		
 		return "success";
 	}
@@ -205,7 +206,7 @@ public class TouRuShenHeController extends  ActionSupport{
 		FontFormat.setFontFormat(response);		
 
 
-		
+		singletourushenhe = (TouRuShenHe) session.getAttribute("singletourushenhe");
 		
 		
 		TouRuShenHe tourushenhe = singletourushenhe;
@@ -263,6 +264,8 @@ public class TouRuShenHeController extends  ActionSupport{
 		
 		XinCheController.sendXinChe(xinCheService);
 		
+		session.removeAttribute("singletourushenhe");
+		
 		return "success";
 	}
 	
@@ -285,6 +288,7 @@ public class TouRuShenHeController extends  ActionSupport{
 
 		 singletourushenhe = touRuShenHeService.queryTouRuShenHeChePaiHao(chepaihao);
 		request.setAttribute("singletourushenhe", singletourushenhe);
+		session.setAttribute("singletourushenhe", singletourushenhe);
 		
 		return "success";
 	}
@@ -304,7 +308,7 @@ public class TouRuShenHeController extends  ActionSupport{
 //		设置字符格式
 		FontFormat.setFontFormat(response);		
 		
-		
+		singletourushenhe = (TouRuShenHe) session.getAttribute("singletourushenhe");
 	
 		Users users =  (Users) session.getAttribute("users");
 		

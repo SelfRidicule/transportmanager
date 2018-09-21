@@ -28,7 +28,6 @@
 			$("#riqi1,#riqi2,#riqi3,#riqi4,#riqi5,#riqi6").jeDate({
 			    ishmsVal:false,
 			    minDate: '1200-12-12',
-				
 			    format:"YYYY-MM-DD",
 			    zIndex:3000,
 			});
@@ -86,6 +85,8 @@
 				return false;
 			}
 			
+			
+			return true;
 		}
 		
 		function autoShenFen(){
@@ -95,13 +96,13 @@
 
 			if(shenfenzhenghao.length == 18){
 				
-				var value = shenfenzhenghao.substring(6,14);
+				/* var value = shenfenzhenghao.substring(6,14);
 				
 				var nian = value.substring(0,4);
 				var yue = value.substring(4,6);
 				var ri  = value.substring(6,8);
 				
-				document.getElementsByName("chushengriqi")[0].value = nian + "-" + yue + "-" + ri;
+				document.getElementsByName("chushengriqi")[0].value = nian + "-" + yue + "-" + ri; */
 				
 				$.ajax({
 			

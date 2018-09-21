@@ -96,13 +96,13 @@
 
 			if(shenfenzhenghao.length == 18){
 				
-				var value = shenfenzhenghao.substring(6,14);
+				/* var value = shenfenzhenghao.substring(6,14);
 				
 				var nian = value.substring(0,4);
 				var yue = value.substring(4,6);
 				var ri  = value.substring(6,8);
 				
-				document.getElementsByName("chushengriqi")[0].value = nian + "-" + yue + "-" + ri;
+				document.getElementsByName("chushengriqi")[0].value = nian + "-" + yue + "-" + ri; */
 				
 				$.ajax({
 			

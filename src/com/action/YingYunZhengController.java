@@ -69,7 +69,7 @@ public class YingYunZhengController extends ActionSupport{
 //	集合对象
 	private static List<YingYunZheng> yingyunzhenglist;
 //	单一对象
-	private static YingYunZheng singleyingyunzheng;
+	private  YingYunZheng singleyingyunzheng;
 	
 	/**
 	 *  属性
@@ -229,6 +229,7 @@ public class YingYunZhengController extends ActionSupport{
 		
 		 singleyingyunzheng = yingYunZhengService.queryYingYunZhengChePaiHao(chepaihao);
 		request.setAttribute("singleyingyunzheng", singleyingyunzheng);
+		session.setAttribute("singleyingyunzheng", singleyingyunzheng);
 		
 		return "success";
 	}
@@ -250,7 +251,7 @@ public class YingYunZhengController extends ActionSupport{
 	
 		
 	
-		
+		singleyingyunzheng = (YingYunZheng) session.getAttribute("singleyingyunzheng");
 		
 		Users users = (Users) session.getAttribute("users");
 		
@@ -354,6 +355,8 @@ public class YingYunZhengController extends ActionSupport{
 		
 		XinCheController.sendXinChe(xinCheService);
 		
+		session.removeAttribute("singleyingyunzheng");
+		
 		return "success";
 	}
 	
@@ -376,6 +379,7 @@ public class YingYunZhengController extends ActionSupport{
 		
 		singleyingyunzheng = yingYunZhengService.queryYingYunZhengChePaiHao(chepaihao);
 		request.setAttribute("singleyingyunzheng", singleyingyunzheng);
+		session.setAttribute("singleyingyunzheng", singleyingyunzheng);
 		
 		return "success";
 	}
@@ -398,6 +402,8 @@ public class YingYunZhengController extends ActionSupport{
 		
 //		得到传递的参数
 		Users users = (Users) session.getAttribute("users");
+		
+		singleyingyunzheng = (YingYunZheng) session.getAttribute("singleyingyunzheng");
 		
 		String caozuoyuan = users.getUsername();
 		Date   caozuoriqi = new Date();
@@ -535,6 +541,8 @@ public class YingYunZhengController extends ActionSupport{
 		request.setAttribute("yingyunzhenglist", yingyunzhenglist);
 		
 		XinCheController.sendXinChe(xinCheService);
+		
+		session.removeAttribute("singleyingyunzheng");
 		
 		return "success";
 	}

@@ -87,7 +87,7 @@ public class GouZhiShuiController extends ActionSupport{
 //	集合对象
 	private static List<GouZhiShui> gouzhishuilist;
 //	单一对象
-	private static GouZhiShui singlegouzhishui;
+	private  GouZhiShui singlegouzhishui;
 	
 	/**
 	 * 属性
@@ -248,6 +248,8 @@ public class GouZhiShuiController extends ActionSupport{
 		 singlegouzhishui = gouZhiShuiService.queryGouZhiShuiChePaiHao(chepaihao);
 		request.setAttribute("singlegouzhishui", singlegouzhishui);
 		
+		session.setAttribute("singlegouzhishui", singlegouzhishui);
+		
 		XinCheController.sendXinChe(xinCheService);
 		
 		return "success";
@@ -270,7 +272,7 @@ public class GouZhiShuiController extends ActionSupport{
 		FontFormat.setFontFormat(response);		
 		
 		
-		
+		singlegouzhishui = (GouZhiShui) session.getAttribute("singlegouzhishui");
 		
 		
 		Users users = (Users) session.getAttribute("users");
@@ -448,6 +450,8 @@ public class GouZhiShuiController extends ActionSupport{
 		
 		XinCheController.sendXinChe(xinCheService);
 		
+		session.removeAttribute("singlegouzhishui");
+		
 		return "success";
 	}
 	
@@ -471,6 +475,8 @@ public class GouZhiShuiController extends ActionSupport{
 		 singlegouzhishui = gouZhiShuiService.queryGouZhiShuiChePaiHao(chepaihao);
 		request.setAttribute("singlegouzhishui", singlegouzhishui);
 		
+		session.setAttribute("singlegouzhishui", singlegouzhishui);
+		
 		return "success";
 	}
 	
@@ -489,7 +495,7 @@ public class GouZhiShuiController extends ActionSupport{
 //		设置字符格式
 		FontFormat.setFontFormat(response);		
 
-		
+		singlegouzhishui = (GouZhiShui) session.getAttribute("singlegouzhishui");
 		
 		Users users = (Users) session.getAttribute("users");
 		
@@ -695,6 +701,8 @@ public class GouZhiShuiController extends ActionSupport{
 		request.setAttribute("gouzhishuilist", gouzhishuilist);
 		
 		XinCheController.sendXinChe(xinCheService);
+		
+		session.removeAttribute("singlegouzhishui");
 		
 		return "success";
 	}

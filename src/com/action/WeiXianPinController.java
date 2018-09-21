@@ -60,7 +60,7 @@ public class WeiXianPinController extends ActionSupport{
 //	集合对象
 	private static List<WeiXianPin> weixianpinlist ;
 //	单一对象
-	private static WeiXianPin singleweixianpin ;
+	private  WeiXianPin singleweixianpin ;
 	
 	/**
 	 *  发送-危险品
@@ -292,6 +292,7 @@ public class WeiXianPinController extends ActionSupport{
 		
 		 singleweixianpin = weiXianPinService.queryWeiXianPinId(Integer.valueOf(id));
 		request.setAttribute("singleweixianpin", singleweixianpin);
+		session.setAttribute("singleweixianpin", singleweixianpin);
 		
 		return "success";
 	}
@@ -311,7 +312,7 @@ public class WeiXianPinController extends ActionSupport{
 //		设置字符格式
 		FontFormat.setFontFormat(response);		
 
-		
+		singleweixianpin = (WeiXianPin) session.getAttribute("singleweixianpin");
 
 		Users users = (Users) session.getAttribute("users");
 		
@@ -339,6 +340,8 @@ public class WeiXianPinController extends ActionSupport{
 		
 		 weixianpinlist = weiXianPinService.queryWeiXianPinList();
 		request.setAttribute("weixianpinlist", weixianpinlist);
+		
+		session.removeAttribute("singleweixianpin");
 		
 		return "success";
 	}

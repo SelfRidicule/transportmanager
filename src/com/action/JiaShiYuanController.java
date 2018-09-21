@@ -76,15 +76,15 @@ public class JiaShiYuanController extends ActionSupport{
 	
 	
 //	单一对象
-	private static JiaShiYuan singlejiashiyuan;
+	private  JiaShiYuan singlejiashiyuan;
 //	集合对象
 	private static List<JiaShiYuan> jiashiyuanshenhelist;
 //	单一对象
-	private static JiaShiYuan singlejiashiyuanshenhe;
+	private  JiaShiYuan singlejiashiyuanshenhe;
 //	集合对象
 	private static List<JiaShiYuan> jiashiyuannianshenlist;
 //	单一对象
-	private static JiaShiYuan singlejiashiyuannianshen;
+	private  JiaShiYuan singlejiashiyuannianshen;
 //	年审状态
 	private static String nianshenzhuangtaiValue ;
 	
@@ -133,21 +133,104 @@ public class JiaShiYuanController extends ActionSupport{
 	private File shenfenzhengtupian[];	//身份证图片
 	private String shenfenzhengtupianFileName[];	//身份证图片名称
 	
-	private static List<String> jiashiyuantupianlist = new ArrayList<String>();	//驾驶员图片路径集合
-	private static List<String> jiashizhengtupianlist = new ArrayList<String>();	//驾驶证图片路径集合
-	private static List<String> congyezigezhengtupianlist = new ArrayList<String>();	//从业资格证图片路径集合
-	private static List<String> shenfenzhengtupianlist = new ArrayList<String>();	//身份证图片路径集合
+	private  List<String> jiashiyuantupianlist = new ArrayList<String>();	//驾驶员图片路径集合
+	private  List<String> jiashizhengtupianlist = new ArrayList<String>();	//驾驶证图片路径集合
+	private  List<String> congyezigezhengtupianlist = new ArrayList<String>();	//从业资格证图片路径集合
+	private  List<String> shenfenzhengtupianlist = new ArrayList<String>();	//身份证图片路径集合
 	
-	private static List<String> deletejiashiyuantupianlist = new ArrayList<String>();	//删除驾驶员图片路径集合
-	private static List<String> deletejiashizhengtupianlist = new ArrayList<String>();	//删除驾驶证图片路径集合
-	private static List<String> deletecongyezigezhengtupianlist = new ArrayList<String>();	//删除从业资格证图片路径集合
-	private static List<String> deleteshenfenzhengtupianlist = new ArrayList<String>();	//删除身份证图片路径集合
+	private  List<String> deletejiashiyuantupianlist = new ArrayList<String>();	//删除驾驶员图片路径集合
+	private  List<String> deletejiashizhengtupianlist = new ArrayList<String>();	//删除驾驶证图片路径集合
+	private  List<String> deletecongyezigezhengtupianlist = new ArrayList<String>();	//删除从业资格证图片路径集合
+	private  List<String> deleteshenfenzhengtupianlist = new ArrayList<String>();	//删除身份证图片路径集合
 	
 	private Date xiaoyuriqi;
 	private Date dayuriqi;
 	private String nianshenzhuangtai;
 	
 	
+	public void sessionRemovePicture() {
+		
+		session.removeAttribute("jiashiyuantupianlist");
+		session.removeAttribute("jiashizhengtupianlist");
+		session.removeAttribute("congyezigezhengtupianlist");
+		session.removeAttribute("shenfenzhengtupianlist");
+		
+		session.removeAttribute("deletejiashiyuantupianlist");
+		session.removeAttribute("deletejiashizhengtupianlist");
+		session.removeAttribute("deletecongyezigezhengtupianlist");
+		session.removeAttribute("deleteshenfenzhengtupianlist");
+		  
+	}
+	
+	public void sessionSetClearPicture() {
+		
+		if(jiashiyuantupianlist == null) {
+			jiashiyuantupianlist = new ArrayList<String>();
+		}
+		jiashiyuantupianlist.clear();
+		
+		if(jiashizhengtupianlist == null) {
+			jiashizhengtupianlist = new ArrayList<String>();
+		}
+		jiashizhengtupianlist.clear();
+		
+		if(congyezigezhengtupianlist == null) {
+			congyezigezhengtupianlist = new ArrayList<String>();
+		}
+		congyezigezhengtupianlist.clear();
+		
+		if(shenfenzhengtupianlist == null) {
+			shenfenzhengtupianlist = new ArrayList<String>();
+		}
+		shenfenzhengtupianlist.clear();
+		
+		 
+		if(deletejiashiyuantupianlist == null) {
+			deletejiashiyuantupianlist = new ArrayList<String>();
+		}
+		deletejiashiyuantupianlist.clear();
+		 
+		if(deletejiashizhengtupianlist == null) {
+			deletejiashizhengtupianlist = new ArrayList<String>();
+		}
+		deletejiashizhengtupianlist.clear();
+		
+		if(deletecongyezigezhengtupianlist == null) {
+			deletecongyezigezhengtupianlist = new ArrayList<String>();
+		}
+		deletecongyezigezhengtupianlist.clear();
+		
+		if(deleteshenfenzhengtupianlist == null) {
+			deleteshenfenzhengtupianlist = new ArrayList<String>();
+		}
+		deleteshenfenzhengtupianlist.clear();
+		  
+		
+		
+		session.setAttribute("jiashiyuantupianlist", jiashiyuantupianlist);
+		session.setAttribute("jiashizhengtupianlist", jiashizhengtupianlist);
+		session.setAttribute("congyezigezhengtupianlist",congyezigezhengtupianlist );
+		session.setAttribute("shenfenzhengtupianlist", shenfenzhengtupianlist);
+		
+		session.setAttribute("deletejiashiyuantupianlist",deletejiashiyuantupianlist );
+		session.setAttribute("deletejiashizhengtupianlist", deletejiashizhengtupianlist);
+		session.setAttribute("deletecongyezigezhengtupianlist", deletecongyezigezhengtupianlist);
+		session.setAttribute("deleteshenfenzhengtupianlist", deleteshenfenzhengtupianlist);
+		
+		
+	}
+	
+	public void sessionGetPicture() {
+		jiashiyuantupianlist = (List<String>) session.getAttribute("jiashiyuantupianlist");
+		jiashizhengtupianlist = (List<String>) session.getAttribute("jiashizhengtupianlist");
+		congyezigezhengtupianlist = (List<String>) session.getAttribute("congyezigezhengtupianlist");
+		shenfenzhengtupianlist = (List<String>) session.getAttribute("shenfenzhengtupianlist");
+		
+		deletejiashiyuantupianlist = (List<String>) session.getAttribute("deletejiashiyuantupianlist");
+		deletejiashizhengtupianlist = (List<String>) session.getAttribute("deletejiashizhengtupianlist");
+		deletecongyezigezhengtupianlist = (List<String>) session.getAttribute("deletecongyezigezhengtupianlist");
+		deleteshenfenzhengtupianlist = (List<String>) session.getAttribute("deleteshenfenzhengtupianlist");
+	}
 	
 	
 	/**
@@ -772,8 +855,8 @@ public class JiaShiYuanController extends ActionSupport{
 //		发送从业资格类别
 		CongYeZiGeController.sendCongYeZiGe(congYeZiGeService);	
 		
-//		清除图片集合对象的值
-		cleartupianlist();
+//		清空图片
+		sessionSetClearPicture();
 		
 		return "success";
 	}
@@ -794,7 +877,8 @@ public class JiaShiYuanController extends ActionSupport{
 		FontFormat.setFontFormat(response);		
 		
 //		得到驾驶员业务对象
-		
+//		得到图片
+		sessionGetPicture();
 		
 		Users users = (Users) session.getAttribute("users");
 		
@@ -844,6 +928,9 @@ public class JiaShiYuanController extends ActionSupport{
 		
 		CheLiangController.sendCheLiang(cheLiangService);
 		
+//		移除图片
+		sessionRemovePicture();
+		
 		return "success";
 	}
 	
@@ -857,6 +944,8 @@ public class JiaShiYuanController extends ActionSupport{
 		
 		String tupianleixing = request.getParameter("tupianleixing");
 		
+		jiashiyuantupianlist = (List<String>) session.getAttribute("jiashiyuantupianlist");
+		
 //		得到存放图片指定路径,chepaihao是前端传递的参数
 		String path = request.getRealPath("/uploads/jiashiyuan/"+jiashiyuanxingming+"/"+tupianleixing);
 //		TODO
@@ -868,6 +957,8 @@ public class JiaShiYuanController extends ActionSupport{
 				String tupianlujing =path+"\\"+filename+",";
 				
 				jiashiyuantupianlist.add(tupianlujing);
+				
+				session.setAttribute("jiashiyuantupianlist", jiashiyuantupianlist);
 				
 				FileUtils.copyFile( jiashiyuantupian[i], new File(path,filename) );
 				
@@ -902,6 +993,8 @@ public class JiaShiYuanController extends ActionSupport{
 		
 		String tupianleixing = request.getParameter("tupianleixing");
 		
+		jiashizhengtupianlist = (List<String>) session.getAttribute("jiashizhengtupianlist");
+		
 //		得到存放图片指定路径,chepaihao是前端传递的参数
 		String path = request.getRealPath("/uploads/jiashiyuan/"+jiashiyuanxingming+"/"+tupianleixing);
 		
@@ -913,6 +1006,8 @@ public class JiaShiYuanController extends ActionSupport{
 				String tupianlujing =path+"\\"+filename+",";
 				
 				jiashizhengtupianlist.add(tupianlujing);
+				
+				session.setAttribute("jiashizhengtupianlist", jiashizhengtupianlist);
 				
 				FileUtils.copyFile( jiashizhengtupian[i], new File(path,filename) );
 				
@@ -947,6 +1042,8 @@ public class JiaShiYuanController extends ActionSupport{
 		
 		String tupianleixing = request.getParameter("tupianleixing");
 		
+		congyezigezhengtupianlist = (List<String>) session.getAttribute("congyezigezhengtupianlist");
+		
 //		得到存放图片指定路径,chepaihao是前端传递的参数
 		String path = request.getRealPath("/uploads/jiashiyuan/"+jiashiyuanxingming+"/"+tupianleixing);
 		
@@ -958,6 +1055,8 @@ public class JiaShiYuanController extends ActionSupport{
 				String tupianlujing =path+"\\"+filename+",";
 				
 				congyezigezhengtupianlist.add(tupianlujing);
+				
+				session.setAttribute("congyezigezhengtupianlist", congyezigezhengtupianlist);
 				
 				FileUtils.copyFile( congyezigezhengtupian[i], new File(path,filename) );
 				
@@ -992,6 +1091,8 @@ public class JiaShiYuanController extends ActionSupport{
 		
 		String tupianleixing = request.getParameter("tupianleixing");
 		
+		shenfenzhengtupianlist = (List<String>) session.getAttribute("shenfenzhengtupianlist");
+		
 //		得到存放图片指定路径,chepaihao是前端传递的参数
 		String path = request.getRealPath("/uploads/jiashiyuan/"+jiashiyuanxingming+"/"+tupianleixing);
 		
@@ -1003,6 +1104,8 @@ public class JiaShiYuanController extends ActionSupport{
 				String tupianlujing =path+"\\"+filename+",";
 				
 				shenfenzhengtupianlist.add(tupianlujing);
+				
+				session.setAttribute("shenfenzhengtupianlist", shenfenzhengtupianlist);
 				
 				FileUtils.copyFile( shenfenzhengtupian[i], new File(path,filename) );
 				
@@ -1055,8 +1158,11 @@ public class JiaShiYuanController extends ActionSupport{
 		
 		 singlejiashiyuan = jiaShiYuanService.queryJiaShiYuanId(Integer.valueOf(id[0]));
 		 request.setAttribute("singlejiashiyuan",singlejiashiyuan);
-
+		 session.setAttribute("singlejiashiyuan",singlejiashiyuan);
 		
+//		 清空图片
+		 sessionSetClearPicture();
+		 
 //		发送从业资格
 		
 		List<CongYeZiGe> congyezigelist = congYeZiGeService.queryCongYeZiGeList();
@@ -1127,8 +1233,7 @@ public class JiaShiYuanController extends ActionSupport{
 //		发送车辆集合
 		CheLiangController.sendCheLiang(cheLiangService);
 		
-//		清空图片集合
-		cleartupianlist();
+
 		
 		return "success";
 	}
@@ -1149,7 +1254,10 @@ public class JiaShiYuanController extends ActionSupport{
 //		设置字符格式
 		FontFormat.setFontFormat(response);			
 		
+//		得到图片
+		sessionGetPicture();
 		
+		singlejiashiyuan = (JiaShiYuan) session.getAttribute("singlejiashiyuan");
 		
 		Users users = (Users) session.getAttribute("users");
 		String caozuoyuan = users.getUsersid().toString();
@@ -1195,6 +1303,9 @@ public class JiaShiYuanController extends ActionSupport{
 		
 		CheLiangController.sendCheLiang(cheLiangService);
 		
+//		移除
+		sessionRemovePicture();
+		
 		return "success";
 	}
 	
@@ -1207,6 +1318,8 @@ public class JiaShiYuanController extends ActionSupport{
 //		设置字符格式
 		FontFormat.setFontFormat(response);		
 
+		singlejiashiyuan = (JiaShiYuan) session.getAttribute("singlejiashiyuan");
+		
 //		得到图片的全部路径
 		String fujianstr = singlejiashiyuan.getJiashiyuantupian();
 //		创建证件json集合对象
@@ -1250,11 +1363,14 @@ public class JiaShiYuanController extends ActionSupport{
 //		设置字符格式
 		FontFormat.setFontFormat(response);
 		
+		deletejiashiyuantupianlist = (List<String>) session.getAttribute("deletejiashiyuantupianlist");
+		
 //		得到传递的额外参数
 		String fullpath = request.getParameter("fullpath");
 //		 把删除的图片全路径添加到该集合对象
 		deletejiashiyuantupianlist.add(fullpath);
 		
+		session.setAttribute("deletejiashiyuantupianlist", deletejiashiyuantupianlist);
 //		输出证件json模版对象
 		
 		Map<String, String> map = new HashMap<String, String>();
@@ -1280,6 +1396,8 @@ public class JiaShiYuanController extends ActionSupport{
 //		设置字符格式
 		FontFormat.setFontFormat(response);		
 
+		singlejiashiyuan = (JiaShiYuan) session.getAttribute("singlejiashiyuan");
+		
 //		得到图片的全部路径
 		String fujianstr = singlejiashiyuan.getJiashizhengtupian();
 //		创建证件json集合对象
@@ -1322,12 +1440,16 @@ public class JiaShiYuanController extends ActionSupport{
 //		设置字符格式
 		FontFormat.setFontFormat(response);
 		
+		deletejiashizhengtupianlist = (List<String>) session.getAttribute("deletejiashizhengtupianlist");
+		
 //		得到传递的额外参数
 		String fullpath = request.getParameter("fullpath");
 //		 把删除的图片全路径添加到该集合对象
 		deletejiashizhengtupianlist.add(fullpath);
 		
 //		输出证件json模版对象
+		
+		session.setAttribute("deletejiashizhengtupianlist", deletejiashizhengtupianlist);
 		
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("value", "success");
@@ -1353,6 +1475,7 @@ public class JiaShiYuanController extends ActionSupport{
 //		设置字符格式
 		FontFormat.setFontFormat(response);		
 
+		singlejiashiyuan =  (JiaShiYuan) session.getAttribute("singlejiashiyuan");
 //		得到图片的全部路径
 		String fujianstr = singlejiashiyuan.getCongyezigezhengtupian();
 //		创建证件json集合对象
@@ -1396,12 +1519,15 @@ public class JiaShiYuanController extends ActionSupport{
 //		设置字符格式
 		FontFormat.setFontFormat(response);
 		
+		deletecongyezigezhengtupianlist = (List<String>) session.getAttribute("deletecongyezigezhengtupianlist");
+		
 //		得到传递的额外参数
 		String fullpath = request.getParameter("fullpath");
 //		 把删除的图片全路径添加到该集合对象
 		deletecongyezigezhengtupianlist.add(fullpath);
 		
 //		输出证件json模版对象
+		session.setAttribute("deletecongyezigezhengtupianlist", deletecongyezigezhengtupianlist);
 		
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("value", "success");
@@ -1426,6 +1552,8 @@ public class JiaShiYuanController extends ActionSupport{
 //		设置字符格式
 		FontFormat.setFontFormat(response);		
 
+		singlejiashiyuan = (JiaShiYuan) session.getAttribute("singlejiashiyuan");
+		
 //		得到图片的全部路径
 		String fujianstr = singlejiashiyuan.getShenfenzhengtupian();
 //		创建证件json集合对象
@@ -1468,12 +1596,14 @@ public class JiaShiYuanController extends ActionSupport{
 //		设置字符格式
 		FontFormat.setFontFormat(response);
 		
+		deleteshenfenzhengtupianlist = (List<String>) session.getAttribute("deleteshenfenzhengtupianlist");
 //		得到传递的额外参数
 		String fullpath = request.getParameter("fullpath");
 //		 把删除的图片全路径添加到该集合对象
 		deleteshenfenzhengtupianlist.add(fullpath);
 		
 //		输出证件json模版对象
+		session.setAttribute("deleteshenfenzhengtupianlist", deleteshenfenzhengtupianlist);
 		
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("value", "success");
@@ -1490,20 +1620,7 @@ public class JiaShiYuanController extends ActionSupport{
 	}
 	
 	
-	/**
-	 *  清空图片集合
-	 */
-	public void cleartupianlist(){
-		jiashiyuantupianlist.clear();
-		jiashizhengtupianlist.clear();
-		congyezigezhengtupianlist.clear();
-		shenfenzhengtupianlist.clear();
-		
-		deletejiashiyuantupianlist.clear();
-		deletejiashizhengtupianlist.clear();
-		deletecongyezigezhengtupianlist.clear();
-		deleteshenfenzhengtupianlist.clear();
-	}
+	
 	
 	
 	public void exportJiaShiYuan(){
@@ -1695,6 +1812,7 @@ public class JiaShiYuanController extends ActionSupport{
 			jiashiyuanshenhelist = jiaShiYuanService.queryJiaShiYuan();
 			request.setAttribute("jiashiyuanshenhelist", jiashiyuanshenhelist);
 			
+			
 			CheLiangController.sendCheLiang(cheLiangService);
 			return "err";
 		}
@@ -1702,6 +1820,8 @@ public class JiaShiYuanController extends ActionSupport{
 		
 			
 		 singlejiashiyuanshenhe = jiaShiYuanService.queryJiaShiYuanId(Integer.valueOf(id[0]));
+		 
+		 
 		
 		String jiashiyuantupian = singlejiashiyuanshenhe.getJiashiyuantupian();
 		String jiashizhengtupian = singlejiashiyuanshenhe.getJiashizhengtupian();
@@ -1727,6 +1847,7 @@ public class JiaShiYuanController extends ActionSupport{
 
 		DeptController.sendDeptList(deptService);	
 		request.setAttribute("singlejiashiyuanshenhe", singlejiashiyuanshenhe);
+		session.setAttribute("singlejiashiyuanshenhe", singlejiashiyuanshenhe);
 		
 		request.setAttribute("jiashiyuantupianlist", jiashiyuantupianlist);
 		request.setAttribute("jiashizhengtupianlist",jiashizhengtupianlist );
@@ -1754,6 +1875,7 @@ public class JiaShiYuanController extends ActionSupport{
 		FontFormat.setFontFormat(response);		
 	
 		
+		singlejiashiyuanshenhe = (JiaShiYuan) session.getAttribute("singlejiashiyuanshenhe");
 		
 		Users users = (Users) session.getAttribute("users");		
 		
@@ -1767,6 +1889,8 @@ public class JiaShiYuanController extends ActionSupport{
 		request.setAttribute("jiashiyuanshenhelist", jiashiyuanshenhelist);
 		
 		CheLiangController.sendCheLiang(cheLiangService);
+		
+		session.removeAttribute("singlejiashiyuanshenhe");
 		
 		return "success";
 	}
@@ -1907,6 +2031,7 @@ public class JiaShiYuanController extends ActionSupport{
 			
 		singlejiashiyuannianshen = jiaShiYuanService.queryJiaShiYuanId(Integer.valueOf(id[0]));
 		request.setAttribute("singlejiashiyuannianshen", singlejiashiyuannianshen);
+		session.setAttribute("singlejiashiyuannianshen", singlejiashiyuannianshen);
 		 
 		return "success";
 	}
@@ -1919,7 +2044,7 @@ public class JiaShiYuanController extends ActionSupport{
 //		设置字符格式
 		FontFormat.setFontFormat(response);	
 		
-		
+		singlejiashiyuannianshen = (JiaShiYuan) session.getAttribute("singlejiashiyuannianshen");
 		
 		Users users = (Users) session.getAttribute("users");	
 		

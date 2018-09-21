@@ -59,7 +59,7 @@ public class ZeRenRenController extends ActionSupport{
 //	集合对象
 	private static List<ZeRenRen> zerenrenlist ;
 //	单一对象
-	private static ZeRenRen singlezerenren;
+	private  ZeRenRen singlezerenren;
 	
 	/**
 	 * 属性
@@ -165,6 +165,7 @@ public class ZeRenRenController extends ActionSupport{
 		
 		 singlezerenren = zeRenRenService.queryZeRenRenChePaiHao(chepaihao);
 		request.setAttribute("singlezerenren", singlezerenren);
+		session.setAttribute("singlezerenren", singlezerenren);
 		
 		return "success";
 	}
@@ -185,7 +186,7 @@ public class ZeRenRenController extends ActionSupport{
 		FontFormat.setFontFormat(response);		
 
 		
-		
+		singlezerenren = (ZeRenRen) session.getAttribute("singlezerenren");
 		
 //		得到传递的对象
 		Users users = (Users) session.getAttribute("users");
@@ -220,6 +221,9 @@ public class ZeRenRenController extends ActionSupport{
 		
 		XinCheController.sendXinChe(xinCheService);
 		
+		
+		session.removeAttribute("singlezerenren");
+		
 		return "success";
 	}
 	
@@ -242,6 +246,7 @@ public class ZeRenRenController extends ActionSupport{
 			
 		singlezerenren = zeRenRenService.queryZeRenRenChePaiHao(chepaihao);
 		request.setAttribute("singlezerenren", singlezerenren);
+		session.setAttribute("singlezerenren", singlezerenren);
 		
 		return "success";
 	}
@@ -261,7 +266,7 @@ public class ZeRenRenController extends ActionSupport{
 //		设置字符格式
 		FontFormat.setFontFormat(response);		
 
-		
+		singlezerenren = (ZeRenRen) session.getAttribute("singlezerenren");
 
 		Users users = (Users) session.getAttribute("users");
 //		初始化
@@ -277,6 +282,8 @@ public class ZeRenRenController extends ActionSupport{
 		request.setAttribute("zerenrenlist", zerenrenlist);
 		
 		XinCheController.sendXinChe(xinCheService);
+		
+		session.removeAttribute("singlezerenren");
 		
 		return "success";
 	}

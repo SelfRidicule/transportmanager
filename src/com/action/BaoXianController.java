@@ -69,9 +69,9 @@ public class BaoXianController extends ActionSupport{
 //	集合对象
 	private static List<BaoXian> baoxianlist;
 //	单一
-	private static BaoXian singlebaoxianchuli;
+	private  BaoXian singlebaoxianchuli;
 //	单一
-	private static BaoXian singlebaoxian;
+	private  BaoXian singlebaoxian;
 	
 	/**
 	 * 属性
@@ -595,6 +595,8 @@ public class BaoXianController extends ActionSupport{
 					
 		
 		singlebaoxianchuli = baoXianService.getSingleBaoXian(Integer.valueOf(id[0]));
+		
+		session.setAttribute("singlebaoxianchuli", singlebaoxianchuli);
 		request.setAttribute("singlebaoxianchuli", singlebaoxianchuli);
 		
 		return "success";
@@ -616,6 +618,7 @@ public class BaoXianController extends ActionSupport{
 		FontFormat.setFontFormat(response);				
 //		得到保险 业务对象
 					
+		singlebaoxianchuli = (BaoXian) session.getAttribute("singlebaoxianchuli");
 		
 		BaoXian baoxian = singlebaoxianchuli ;
 		baoxian.setBaodanhao(baodanhao);
@@ -633,6 +636,8 @@ public class BaoXianController extends ActionSupport{
 		request.setAttribute("baoxianlist", baoxianlist);
 		
 		CheLiangController.sendCheLiang(cheLiangService);
+		
+		session.removeAttribute("singlebaoxianchuli");
 		
 		return "success";
 	}
@@ -661,6 +666,8 @@ public class BaoXianController extends ActionSupport{
 			
 		
 		 singlebaoxian = baoXianService.getSingleBaoXian(Integer.valueOf(id[0]));
+		 
+		 session.setAttribute("singlebaoxian", singlebaoxian);
 		request.setAttribute("singlebaoxian", singlebaoxian);
 		
 		return "success";		
@@ -681,7 +688,7 @@ public class BaoXianController extends ActionSupport{
 //		设置字符格式
 		FontFormat.setFontFormat(response);					
 //		得到保险 业务对象
-					
+		singlebaoxian = (BaoXian) session.getAttribute("singlebaoxian");
 		
 		BaoXian baoxian = singlebaoxian;
 		
@@ -706,6 +713,8 @@ public class BaoXianController extends ActionSupport{
 		request.setAttribute("baoxianlist", baoxianlist);
 		
 		CheLiangController.sendCheLiang(cheLiangService);
+		
+		session.removeAttribute("singlebaoxian");
 		
 		return "success";
 	}

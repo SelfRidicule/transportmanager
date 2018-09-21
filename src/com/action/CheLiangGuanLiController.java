@@ -52,7 +52,7 @@ public class CheLiangGuanLiController  extends ActionSupport{
 //	集合对象
 	private static List<CheLiangGuanLi> cheliangguanlilist;
 //	单一对象
-	private static CheLiangGuanLi singlecheliangguanli;
+	private  CheLiangGuanLi singlecheliangguanli;
 	
 	/**
 	 *  发送车辆管理集合
@@ -277,6 +277,8 @@ public class CheLiangGuanLiController  extends ActionSupport{
 		
 		 singlecheliangguanli = cheLiangGuanLiService.queryCheLiangGuanLiId(Integer.valueOf(id[0]));
 		request.setAttribute("singlecheliangguanli", singlecheliangguanli);
+		session.setAttribute("singlecheliangguanli", singlecheliangguanli);
+		
 		return "success";
 	}
 	
@@ -296,7 +298,7 @@ public class CheLiangGuanLiController  extends ActionSupport{
 //		设置字符格式
 		FontFormat.setFontFormat(response);
 				
-			
+		singlecheliangguanli = (CheLiangGuanLi) session.getAttribute("singlecheliangguanli");	
 		
 		singlecheliangguanli.setName(name);
 		singlecheliangguanli.setShijileixing(shijileixing);

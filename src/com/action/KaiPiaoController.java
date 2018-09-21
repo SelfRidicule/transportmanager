@@ -62,7 +62,7 @@ public class KaiPiaoController extends ActionSupport{
 //	集合对象
 	private static List<KaiPiao> kaipiaolist ;
 //	单一对象
-	private static KaiPiao singlekaipiao;
+	private  KaiPiao singlekaipiao;
 	
 	/**
 	 *  跳转-开票

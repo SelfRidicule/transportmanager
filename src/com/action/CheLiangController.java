@@ -99,16 +99,16 @@ public class CheLiangController extends ActionSupport{
 	
 	
 //	得到车辆对象
-	private static CheLiang singlecheliang ;
+	private  CheLiang singlecheliang ;
 //	车辆备份
-	private static CheLiangBeiFen singlecheliangbeifen;
+	private  CheLiangBeiFen singlecheliangbeifen;
 //	查询指定车牌号和保险类型的对象
-	private static BaoXian singlejiaoqiangxian; 
-	private static BaoXian singleshangyexian ;
-	private static BaoXian singlechengyunrenzerenxian; 
-	private static BaoXian singleguzhuzerenxian ;
-	private static BaoXian singletuantiyiwaixian ;
-	private static BaoXian singlechechuanxian ;
+	private  BaoXian singlejiaoqiangxian; 
+	private  BaoXian singleshangyexian ;
+	private  BaoXian singlechengyunrenzerenxian; 
+	private  BaoXian singleguzhuzerenxian ;
+	private  BaoXian singletuantiyiwaixian ;
+	private  BaoXian singlechechuanxian ;
 	
 	/**
 	 *  属性
@@ -203,8 +203,8 @@ public class CheLiangController extends ActionSupport{
 	private Date   chechuanxiandaoqishijian;	//车船险到期时间
 	private String chechuanxiangongsi;	//车船险公司
 	
-	private static ArrayList<String> picturepathlist = new ArrayList<String>();	//添加图片集合对象
-	private static ArrayList<String> deletezhengjianlist = new ArrayList<String>(); //删除图片集合对象
+	private  ArrayList<String> picturepathlist = new ArrayList<String>();	//添加图片集合对象
+	private  ArrayList<String> deletezhengjianlist = new ArrayList<String>(); //删除图片集合对象
 	
 	
 	/**
@@ -364,7 +364,11 @@ public class CheLiangController extends ActionSupport{
 				
 				String fujianpath =path+"\\"+filename+",";
 				
+				picturepathlist = (ArrayList<String>) session.getAttribute("picturepathlist");
+				
 				picturepathlist.add(fujianpath);
+				
+				session.setAttribute("picturepathlist", picturepathlist);
 				
 				FileUtils.copyFile( picture[i], new File(path,filename) );
 				
@@ -399,7 +403,11 @@ public class CheLiangController extends ActionSupport{
 //		得到传递的额外参数
 		String fullpath = request.getParameter("fullpath");
 //		 把删除的图片全路径添加到该集合对象
+		deletezhengjianlist = (ArrayList<String>) session.getAttribute("deletezhengjianlist");
+		
 		deletezhengjianlist.add(fullpath);
+		
+		session.setAttribute("deletezhengjianlist", deletezhengjianlist);
 		
 //		输出证件json模版对象		
 		Map<String, String> map = new HashMap<String, String>();
@@ -423,6 +431,8 @@ public class CheLiangController extends ActionSupport{
 //		设置字符格式
 		FontFormat.setFontFormat(response);		
 
+		singlecheliang = (CheLiang) session.getAttribute("singlecheliang");
+		
 //		得到图片的全部路径
 		String fujianstr = singlecheliang.getShenfenzhengtupian();
 //		创建证件json集合对象
@@ -463,6 +473,8 @@ public class CheLiangController extends ActionSupport{
 //		设置字符格式
 		FontFormat.setFontFormat(response);		
 
+		singlecheliangbeifen = (CheLiangBeiFen) session.getAttribute("singlecheliangbeifen");
+		
 //		得到图片的全部路径
 		if(singlecheliangbeifen==null){
 			return ;
@@ -1397,7 +1409,7 @@ public class CheLiangController extends ActionSupport{
 				}
 		 }
 		 
-		
+		session.setAttribute("singlecheliangbeifen", singlecheliangbeifen);
 		request.setAttribute("singlecheliangbeifen", singlecheliangbeifen);
 		
 		
@@ -1434,8 +1446,19 @@ public class CheLiangController extends ActionSupport{
 		request.setAttribute("jingyinglist", jingyinglist);
 		request.setAttribute("selectjingyinglist", selectjingyinglist);
 		
+		picturepathlist = (ArrayList<String>) session.getAttribute("picturepathlist");
+		if(picturepathlist == null) {
+			picturepathlist = new ArrayList<String>();
+		}
 		picturepathlist.clear();	//清空图片路径 
+		session.setAttribute("picturepathlist", picturepathlist);
+		
+		deletezhengjianlist = (ArrayList<String>) session.getAttribute("deletezhengjianlist");
+		if(deletezhengjianlist == null) {
+			deletezhengjianlist = new ArrayList<String>();
+		}
 		deletezhengjianlist.clear(); //清空删除图片路径
+		session.setAttribute("deletezhengjianlist", deletezhengjianlist);
 		
 //		发送车辆管理集合对象
 		CheLiangGuanLiController.sendCheLiangGuanLi(cheLiangGuanLiService);
@@ -1473,6 +1496,9 @@ public class CheLiangController extends ActionSupport{
 		
 //		得到附件
 		String fujianstr = "";
+		
+		singlecheliangbeifen = (CheLiangBeiFen) session.getAttribute("singlecheliangbeifen");
+		
 		if(singlecheliangbeifen!=null){
 			fujianstr = singlecheliangbeifen.getShenfenzhengtupian();
 			if(fujianstr == null){
@@ -1480,6 +1506,8 @@ public class CheLiangController extends ActionSupport{
 			}
 		}
 
+		deletezhengjianlist = (ArrayList<String>) session.getAttribute("deletezhengjianlist");
+		
 //		拆分附件
 		String fujianarr[] = fujianstr.split(",");
 //		设置删除相同的文件路径
@@ -1506,6 +1534,8 @@ public class CheLiangController extends ActionSupport{
 //			注意最后要添加逗号
 			addfujianpath=addfujianpath+fujianarr[i]+",";
 		}
+		
+		picturepathlist = (ArrayList<String>) session.getAttribute("picturepathlist");
 		
 		for (int i = 0; i < picturepathlist.size(); i++) {
 //			因为该集合里已经添加逗号所以不用添加
@@ -1760,6 +1790,11 @@ public class CheLiangController extends ActionSupport{
 //		发送用户集合对象
 		UsersController.sendUsers(usersService);
 		
+		picturepathlist.clear();  
+		deletezhengjianlist.clear();
+		session.setAttribute("picturepathlist",picturepathlist );
+		session.setAttribute("deletezhengjianlist", deletezhengjianlist);
+		  
 		return "success";
 	}
 	
@@ -1771,6 +1806,9 @@ public class CheLiangController extends ActionSupport{
 //		设置字符格式
 		FontFormat.setFontFormat(response);	
 //		车辆暂存
+		
+		picturepathlist = (ArrayList<String>) session.getAttribute("picturepathlist");  
+		deletezhengjianlist = (ArrayList<String>) session.getAttribute("deletezhengjianlist");  
 		
 //		得到用户对象
 		Users users = (Users) session.getAttribute("users");
@@ -1864,6 +1902,11 @@ public class CheLiangController extends ActionSupport{
 		cheliangbeifen.setGouchefei(gouchefei);
 		
 		cheLiangBeiFenService.saveAndUpdate(cheliangbeifen);
+		
+		picturepathlist.clear();  
+		deletezhengjianlist.clear();
+		session.setAttribute("picturepathlist",picturepathlist );
+		session.setAttribute("deletezhengjianlist", deletezhengjianlist);
 		
 		return "success";
 	}
@@ -2111,13 +2154,36 @@ public class CheLiangController extends ActionSupport{
 		request.setAttribute("singletuantiyiwaixian", singletuantiyiwaixian);
 		request.setAttribute("singlechechuanxian", singlechechuanxian);
 		
+		
+		session.setAttribute("singlecheliang", singlecheliang);
+		
+		session.setAttribute("singlejiaoqiangxian", singlejiaoqiangxian);
+		session.setAttribute("singleshangyexian", singleshangyexian);
+		session.setAttribute("singlechengyunrenzerenxian", singlechengyunrenzerenxian);
+		session.setAttribute("singleguzhuzerenxian", singleguzhuzerenxian);
+		session.setAttribute("singletuantiyiwaixian", singletuantiyiwaixian);
+		session.setAttribute("singlechechuanxian", singlechechuanxian);
+		
 //		发送审核通过的驾驶员
 		JiaShiYuanController.sendJiaShiYuanShenHeTongGuo(jiaShiYuanService);
 //		发送车辆管理集合对象
 		CheLiangGuanLiController.sendCheLiangGuanLi(cheLiangGuanLiService);
 		
+		
+		picturepathlist = (ArrayList<String>) session.getAttribute("picturepathlist");
+		deletezhengjianlist = (ArrayList<String>) session.getAttribute("deletezhengjianlist");
+		
+		if(picturepathlist == null) {
+			picturepathlist = new ArrayList<String>();
+		}
+		if(deletezhengjianlist == null) {
+			deletezhengjianlist = new ArrayList<String>();
+		}
 		picturepathlist.clear();	//清空图片路径 
 		deletezhengjianlist.clear(); //清空删除图片路径
+		
+		session.setAttribute("picturepathlist", picturepathlist);
+		session.setAttribute("deletezhengjianlist", deletezhengjianlist);
 		
 		return "success";
 	}
@@ -2142,10 +2208,17 @@ public class CheLiangController extends ActionSupport{
 		
 //		得到年审业务对象
 		
+		  singlejiaoqiangxian = (BaoXian) session.getAttribute("singlejiaoqiangxian");
+		  singleshangyexian = (BaoXian) session.getAttribute("singleshangyexian");
+		  singlechengyunrenzerenxian = (BaoXian) session.getAttribute("singlechengyunrenzerenxian");
+		 singleguzhuzerenxian = (BaoXian) session.getAttribute("singleguzhuzerenxian");
+		  singletuantiyiwaixian = (BaoXian) session.getAttribute("singletuantiyiwaixian");
+		  singlechechuanxian = (BaoXian) session.getAttribute("singlechechuanxian");
+		
 		
 		Users users =  (Users) session.getAttribute("users");
 		
-		
+		singlecheliang = (CheLiang) session.getAttribute("singlecheliang");
 		
 //		判断是否有驾驶员 
 		String jiashiyuan1xm =singlecheliang.getJiayayuan1();
@@ -2261,6 +2334,10 @@ public class CheLiangController extends ActionSupport{
 			fujianstr = "";
 		}
 
+		deletezhengjianlist = (ArrayList<String>) session.getAttribute("deletezhengjianlist");
+		
+		picturepathlist = (ArrayList<String>) session.getAttribute("picturepathlist");
+		
 //		拆分附件
 		String fujianarr[] = fujianstr.split(",");
 //		设置删除相同的文件路径
@@ -2480,6 +2557,8 @@ public class CheLiangController extends ActionSupport{
 		
 		singlecheliang = cheLiangService.queryIdCheLiang(Integer.valueOf(id[0]));
 		
+		session.setAttribute("singlecheliang", singlecheliang);
+		
 		request.setAttribute("singlecheliang", singlecheliang);
 		
 		return "success";
@@ -2500,7 +2579,7 @@ public class CheLiangController extends ActionSupport{
 //		设置字符格式
 		FontFormat.setFontFormat(response);
 			
-					
+		singlecheliang = (CheLiang) session.getAttribute("singlecheliang");
 		
 		CheLiang cheliang = singlecheliang;
 		Users users = (Users) session.getAttribute("users");
@@ -2518,6 +2597,9 @@ public class CheLiangController extends ActionSupport{
 		
 //		发送驾驶员集合对象
 		JiaShiYuanController.sendJiaShiYuan(jiaShiYuanService);
+		
+//		发送用户集合对象
+		UsersController.sendUsers(usersService);
 		
 		return "success";
 	}
@@ -2548,6 +2630,7 @@ public class CheLiangController extends ActionSupport{
 		
 		 singlecheliang = cheLiangService.queryIdCheLiang(Integer.valueOf(id[0]));
 		
+		 session.setAttribute("singlecheliang", singlecheliang);
 		request.setAttribute("singlecheliang", singlecheliang);
 		
 		return "success";
@@ -2568,7 +2651,7 @@ public class CheLiangController extends ActionSupport{
 //		设置字符格式
 		FontFormat.setFontFormat(response);
 			
-					
+		singlecheliang = (CheLiang) session.getAttribute("singlecheliang");			
 		
 		CheLiang cheliang = singlecheliang;
 		Users users = (Users) session.getAttribute("users");
@@ -2587,6 +2670,9 @@ public class CheLiangController extends ActionSupport{
 		
 //		发送驾驶员集合对象
 		JiaShiYuanController.sendJiaShiYuan(jiaShiYuanService);
+		
+//		发送用户集合对象
+		UsersController.sendUsers(usersService);
 		
 		return "success";
 	}

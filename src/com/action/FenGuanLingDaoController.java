@@ -59,7 +59,7 @@ public class FenGuanLingDaoController extends ActionSupport{
 //	集合对象
 	private static List<FenGuanLingDao> fenguanlingdaolist;
 //	单一对象
-	private static FenGuanLingDao singlefenguanlingdao;
+	private  FenGuanLingDao singlefenguanlingdao;
 	
 	
 	/**
@@ -170,6 +170,8 @@ public class FenGuanLingDaoController extends ActionSupport{
 		 singlefenguanlingdao = fenGuanLingDaoService.queryFenGuanLingDaoChePaiHao(chepaihao);
 		request.setAttribute("singlefenguanlingdao", singlefenguanlingdao);
 		
+		session.setAttribute("singlefenguanlingdao", singlefenguanlingdao);
+		
 		return "success";
 	}
 	
@@ -190,7 +192,7 @@ public class FenGuanLingDaoController extends ActionSupport{
 
 		
 		
-				
+		singlefenguanlingdao = (FenGuanLingDao) session.getAttribute("singlefenguanlingdao");		
 		
 //		得到传递的对象
 		Users users = (Users) session.getAttribute("users");
@@ -245,6 +247,8 @@ public class FenGuanLingDaoController extends ActionSupport{
 		
 		XinCheController.sendXinChe(xinCheService);
 		
+		session.removeAttribute("singlefenguanlingdao");
+		
 		return "success";
 	}
 	
@@ -268,6 +272,8 @@ public class FenGuanLingDaoController extends ActionSupport{
 		 singlefenguanlingdao =  fenGuanLingDaoService.queryFenGuanLingDaoChePaiHao(chepaihao);
 		request.setAttribute("singlefenguanlingdao", singlefenguanlingdao);
 		
+		session.setAttribute("singlefenguanlingdao", singlefenguanlingdao);
+		
 		XinCheController.sendXinChe(xinCheService);
 		
 		return "success";
@@ -288,6 +294,7 @@ public class FenGuanLingDaoController extends ActionSupport{
 //		设置字符格式
 		FontFormat.setFontFormat(response);		
 
+		singlefenguanlingdao = (FenGuanLingDao) session.getAttribute("singlefenguanlingdao");
 		
 //		得到传递的对象
 		Users users = (Users) session.getAttribute("users");
@@ -303,6 +310,8 @@ public class FenGuanLingDaoController extends ActionSupport{
 		request.setAttribute("fenguanlingdaolist", fenguanlingdaolist);
 		
 		XinCheController.sendXinChe(xinCheService);
+		
+		session.removeAttribute("singlefenguanlingdao");
 		
 		return "success";
 	}

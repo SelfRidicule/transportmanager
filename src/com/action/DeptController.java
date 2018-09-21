@@ -41,7 +41,7 @@ public class DeptController extends ActionSupport{
 //	部门集合对象
 	private static  List<Dept> deptlist;
 //	单一对象
-	private static Dept singledept;
+	private  Dept singledept;
 	/**
 	 * 属性
 	 */
@@ -224,6 +224,7 @@ public class DeptController extends ActionSupport{
 	
 			  singledept = deptService.getDeptId(Integer.valueOf(deptid[0]));
 			
+			  session.setAttribute("singledept", singledept);
 			request.setAttribute("singledept", singledept);
 			return "success";
 		}
@@ -245,7 +246,7 @@ public class DeptController extends ActionSupport{
 //		设置字符格式
 		FontFormat.setFontFormat(response);		
 		
-
+		singledept = (Dept) session.getAttribute("singledept");
 		
 		Dept dept = singledept;
 		dept.setDeptname(deptname);
@@ -255,6 +256,8 @@ public class DeptController extends ActionSupport{
 		deptService.updateDept(dept);
 		
 		deptlist = deptService.queryDept();
+		
+		session.removeAttribute("singledept");
 		
 		return "success";
 	}
@@ -327,6 +330,22 @@ public class DeptController extends ActionSupport{
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	public static List<Dept> getDeptlist() {
+		return deptlist;
+	}
+
+	public static void setDeptlist(List<Dept> deptlist) {
+		DeptController.deptlist = deptlist;
+	}
+
+	public Dept getSingledept() {
+		return singledept;
+	}
+
+	public void setSingledept(Dept singledept) {
+		this.singledept = singledept;
 	}
 	
 	

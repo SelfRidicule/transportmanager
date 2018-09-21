@@ -58,7 +58,7 @@ public class FeiYongJieSuanController extends ActionSupport{
 //	集合对象
 	private static List<FeiYongJieSuan> feiyongjiesuanlist;	
 //	单一对象
-	private static FeiYongJieSuan singlefeiyongjiesuan;
+	private  FeiYongJieSuan singlefeiyongjiesuan;
 	
 	/**
 	 * 属性
@@ -190,6 +190,8 @@ public class FeiYongJieSuanController extends ActionSupport{
 		singlefeiyongjiesuan = feiYongJieSuanService.queryFeiYongJieSuanChePaiHao(chepaihao);
 		request.setAttribute("singlefeiyongjiesuan", singlefeiyongjiesuan);
 		
+		session.setAttribute("singlefeiyongjiesuan", singlefeiyongjiesuan);
+		
 		return "success";
 	}
 	
@@ -210,7 +212,7 @@ public class FeiYongJieSuanController extends ActionSupport{
 
 		
 		
-		
+		singlefeiyongjiesuan = (FeiYongJieSuan) session.getAttribute("singlefeiyongjiesuan");
 		
 		Users users = (Users) session.getAttribute("users");
 		
@@ -250,6 +252,8 @@ public class FeiYongJieSuanController extends ActionSupport{
 		
 		XinCheController.sendXinChe(xinCheService);
 		
+		session.removeAttribute("singlefeiyongjiesuan");
+		
 		return "success";
 	}
 	
@@ -273,6 +277,8 @@ public class FeiYongJieSuanController extends ActionSupport{
 		singlefeiyongjiesuan = feiYongJieSuanService.queryFeiYongJieSuanChePaiHao(chepaihao);
 		request.setAttribute("singlefeiyongjiesuan", singlefeiyongjiesuan);
 		
+		session.setAttribute("singlefeiyongjiesuan", singlefeiyongjiesuan);
+		
 		return "success";
 	}
 	
@@ -291,7 +297,7 @@ public class FeiYongJieSuanController extends ActionSupport{
 //		设置字符格式
 		FontFormat.setFontFormat(response);		
 
-		
+		singlefeiyongjiesuan = (FeiYongJieSuan) session.getAttribute("singlefeiyongjiesuan");
 		
 		Users users = (Users) session.getAttribute("users");
 		
