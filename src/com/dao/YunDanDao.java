@@ -93,7 +93,7 @@ public class YunDanDao extends Dao<YunDan>{
 	 */
 	public void updateYunDanColumnNameValue( String value, String dingdanhao , String columnName ){
 		
-		StringBuffer sf = new StringBuffer(" update yundan set " +columnName+ " = '"+value+"' where dingdanhao = "+dingdanhao);
+		StringBuffer sf = new StringBuffer(" update yundan set " +columnName+ " = '"+value+"' where dingdanhao = '"+dingdanhao+"'");
 		Query query = getSessionFactory().getCurrentSession().createSQLQuery(sf.toString());
 		query.executeUpdate();
 		

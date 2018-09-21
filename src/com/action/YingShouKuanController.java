@@ -1583,9 +1583,20 @@ public class YingShouKuanController extends ActionSupport{
 		for (int i = 2; i <= rowNum; i++) {
 //			得到一行的对象
 			Row row = sheet.getRow(i);
-//			订单号
+			
+			if(row == null) {
+				continue;
+			}
+			
+//			订单号			
+			String dingdanhao = null;
+			
 			Cell dingdanhaoCell = row.getCell(0);
-			String dingdanhao = MyPoi.getMyCellFormula(dingdanhaoCell);
+			if(dingdanhaoCell == null) {
+				continue;
+			}
+			dingdanhao = MyPoi.getMyCellFormula(dingdanhaoCell);
+			
 //			发票号
 			Cell fapiaohaoCell = row.getCell(15);
 			String fapiaohao = MyPoi.getMyCellFormula(fapiaohaoCell);
