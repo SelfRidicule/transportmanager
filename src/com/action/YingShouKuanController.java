@@ -1363,7 +1363,7 @@ public class YingShouKuanController extends ActionSupport{
 		
 //		开始填写数据
 
-		MyPoi.setParaExcelValue(sheet,wb);
+		MyPoi.setParaExcelValue(sheet,wb , customerService ,cheLiangService);
 		
 		
 //		-------------------------------------

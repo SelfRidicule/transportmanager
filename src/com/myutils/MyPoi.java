@@ -19,9 +19,11 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.entity.CheLiang;
+import com.entity.Customer;
 import com.entity.YingShouKuan;
 import com.entity.YunDan;
 import com.service.CheLiangService;
+import com.service.CustomerService;
 import com.service.YingShouKuanService;
 import com.service.YunDanService;
 
@@ -143,7 +145,7 @@ public class MyPoi {
 	/**
 	 *  设置参数值
 	 */
-	public static void setParaExcelValue( HSSFSheet sheet, HSSFWorkbook wb){
+	public static void setParaExcelValue( HSSFSheet sheet, HSSFWorkbook wb , CustomerService customerService ,CheLiangService cheLiangService){
 //		设置Excel单元格格式样式（居中，字体，边框等）对象
 		HSSFCellStyle cellStyle = wb.createCellStyle();
 //		设置字体
@@ -190,9 +192,23 @@ public class MyPoi {
 					yunshushijian = sdf.format( yundan.getYunshushijian() ); 
 				}
 	//			属地
-				String shudi = yundan.getKehudanwei();
+				String shudi = "";
+				
+				CheLiang cheliang = cheLiangService.queryChePaiHaoCheLiang(chepaihao);	
+				if(cheliang != null){
+					shudi = cheliang.getChezhuxingming();	//车主姓名
+				}
+				
 	//			发货单位
-				String fahuodanwei = yundan.getKehudanwei();
+				String fahuodanwei ="";
+				try {
+					 Customer customer = customerService.queryKehudanwei(FormatValueClass.getFormatValueClass(yundan.getKehudanwei()));
+					 if(customer != null){
+						 fahuodanwei = customer.getShortname();
+					 }
+				} catch (Exception e) {
+				}
+				
 	//			货物名称
 				String huowumingcheng = yundan.getHuowumingcheng();
 	//			实收吨位
