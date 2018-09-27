@@ -497,6 +497,48 @@ public class YingShouKuanController extends ActionSupport{
 		}
 		
 		
+//		如果只有一个开票
+		if(yingshoukuaninkaipiaolist.size() == 1){
+			YingShouKuanInKaiPiao inkaipiaoI = yingshoukuaninkaipiaolist.get(0);
+			
+			Double myYingShou = inkaipiaoI.getYingshou() ;
+			myYingShou = StringTfmDouble( formatDoubleTwo(myYingShou) );
+			inkaipiaoI.setKaipiaojine( myYingShou );
+			
+			Double myShuiJin = inkaipiaoI.getShuijin() ;
+			myShuiJin = StringTfmDouble( formatDoubleTwo(myShuiJin) );
+			inkaipiaoI.setShuijin( myShuiJin );
+			
+			Double myGuanLiFei = inkaipiaoI.getGuanlifei()  ;
+			myGuanLiFei = StringTfmDouble( formatDoubleTwo(myGuanLiFei) );
+			inkaipiaoI.setGuanlifei( myGuanLiFei );
+			
+			Double myShiFuYunFei = inkaipiaoI.getShifuyunfei() ;
+			myShiFuYunFei = StringTfmDouble( formatDoubleTwo(myShiFuYunFei) );
+			inkaipiaoI.setShifuyunfei( myShiFuYunFei );
+			
+			Double myDaiDianFei = inkaipiaoI.getDaidianfei() ;
+			myDaiDianFei = StringTfmDouble( formatDoubleTwo(myDaiDianFei) );
+			inkaipiaoI.setDaidianfei( myDaiDianFei );
+			
+			Double myShiShouYunFei = inkaipiaoI.getShishouyunfei() ;
+			myShiShouYunFei = StringTfmDouble( formatDoubleTwo(myShiShouYunFei) );
+			inkaipiaoI.setShishouyunfei( myShiShouYunFei );
+			
+			Double myZunCheFei = inkaipiaoI.getZuchefei() ;
+			myZunCheFei = StringTfmDouble( formatDoubleTwo(myZunCheFei) );
+			inkaipiaoI.setZuchefei( myZunCheFei );
+			
+			Double myYeWuFei = inkaipiaoI.getYewufei() ;
+			myYeWuFei = StringTfmDouble( formatDoubleTwo(myYeWuFei) );
+			inkaipiaoI.setYewufei( myYeWuFei );
+			
+//			替换掉i的位置
+			yingshoukuaninkaipiaolist.set(0, inkaipiaoI);
+			
+		}
+		
+		
 		for (int i = 0; i < yingshoukuaninkaipiaolist.size()-1; i++) {
 			
 			for (int j = i+1; j < yingshoukuaninkaipiaolist.size(); j++) {
@@ -554,46 +596,7 @@ public class YingShouKuanController extends ActionSupport{
 			
 		}
 		
-//		如果只有一个开票
-		if(yingshoukuaninkaipiaolist.size() == 1){
-			YingShouKuanInKaiPiao inkaipiaoI = yingshoukuaninkaipiaolist.get(0);
-			
-			Double myYingShou = inkaipiaoI.getYingshou() ;
-			myYingShou = StringTfmDouble( formatDoubleTwo(myYingShou) );
-			inkaipiaoI.setKaipiaojine( myYingShou );
-			
-			Double myShuiJin = inkaipiaoI.getShuijin() ;
-			myShuiJin = StringTfmDouble( formatDoubleTwo(myShuiJin) );
-			inkaipiaoI.setShuijin( myShuiJin );
-			
-			Double myGuanLiFei = inkaipiaoI.getGuanlifei()  ;
-			myGuanLiFei = StringTfmDouble( formatDoubleTwo(myGuanLiFei) );
-			inkaipiaoI.setGuanlifei( myGuanLiFei );
-			
-			Double myShiFuYunFei = inkaipiaoI.getShifuyunfei() ;
-			myShiFuYunFei = StringTfmDouble( formatDoubleTwo(myShiFuYunFei) );
-			inkaipiaoI.setShifuyunfei( myShiFuYunFei );
-			
-			Double myDaiDianFei = inkaipiaoI.getDaidianfei() ;
-			myDaiDianFei = StringTfmDouble( formatDoubleTwo(myDaiDianFei) );
-			inkaipiaoI.setDaidianfei( myDaiDianFei );
-			
-			Double myShiShouYunFei = inkaipiaoI.getShishouyunfei() ;
-			myShiShouYunFei = StringTfmDouble( formatDoubleTwo(myShiShouYunFei) );
-			inkaipiaoI.setShishouyunfei( myShiShouYunFei );
-			
-			Double myZunCheFei = inkaipiaoI.getZuchefei() ;
-			myZunCheFei = StringTfmDouble( formatDoubleTwo(myZunCheFei) );
-			inkaipiaoI.setZuchefei( myZunCheFei );
-			
-			Double myYeWuFei = inkaipiaoI.getYewufei() ;
-			myYeWuFei = StringTfmDouble( formatDoubleTwo(myYeWuFei) );
-			inkaipiaoI.setYewufei( myYeWuFei );
-			
-//			替换掉i的位置
-			yingshoukuaninkaipiaolist.set(0, inkaipiaoI);
-			
-		}
+
 		
 		
 //		合计
@@ -751,6 +754,48 @@ public class YingShouKuanController extends ActionSupport{
 		}
 		
 		
+//		如果只有一个开票
+		if(yingshoukuaninkaipiaolist.size() == 1){
+			YingShouKuanInKaiPiao inkaipiaoI = yingshoukuaninkaipiaolist.get(0);
+			
+			Double myYingShou = inkaipiaoI.getYingshou() ;
+			myYingShou = StringTfmDouble( formatDoubleTwo(myYingShou) );
+			inkaipiaoI.setKaipiaojine( myYingShou );
+			
+			Double myShuiJin = inkaipiaoI.getShuijin() ;
+			myShuiJin = StringTfmDouble( formatDoubleTwo(myShuiJin) );
+			inkaipiaoI.setShuijin( myShuiJin );
+			
+			Double myGuanLiFei = inkaipiaoI.getGuanlifei()  ;
+			myGuanLiFei = StringTfmDouble( formatDoubleTwo(myGuanLiFei) );
+			inkaipiaoI.setGuanlifei( myGuanLiFei );
+			
+			Double myShiFuYunFei = inkaipiaoI.getShifuyunfei() ;
+			myShiFuYunFei = StringTfmDouble( formatDoubleTwo(myShiFuYunFei) );
+			inkaipiaoI.setShifuyunfei( myShiFuYunFei );
+			
+			Double myDaiDianFei = inkaipiaoI.getDaidianfei() ;
+			myDaiDianFei = StringTfmDouble( formatDoubleTwo(myDaiDianFei) );
+			inkaipiaoI.setDaidianfei( myDaiDianFei );
+			
+			Double myShiShouYunFei = inkaipiaoI.getShishouyunfei() ;
+			myShiShouYunFei = StringTfmDouble( formatDoubleTwo(myShiShouYunFei) );
+			inkaipiaoI.setShishouyunfei( myShiShouYunFei );
+			
+			Double myZunCheFei = inkaipiaoI.getZuchefei() ;
+			myZunCheFei = StringTfmDouble( formatDoubleTwo(myZunCheFei) );
+			inkaipiaoI.setZuchefei( myZunCheFei );
+			
+			Double myYeWuFei = inkaipiaoI.getYewufei() ;
+			myYeWuFei = StringTfmDouble( formatDoubleTwo(myYeWuFei) );
+			inkaipiaoI.setYewufei( myYeWuFei );
+			
+//			替换掉i的位置
+			yingshoukuaninkaipiaolist.set(0, inkaipiaoI);
+			
+		}
+		
+		
 		for (int i = 0; i < yingshoukuaninkaipiaolist.size()-1; i++) {
 			
 			for (int j = i+1; j < yingshoukuaninkaipiaolist.size(); j++) {
@@ -808,46 +853,7 @@ public class YingShouKuanController extends ActionSupport{
 			
 		}
 		
-//		如果只有一个开票
-		if(yingshoukuaninkaipiaolist.size() == 1){
-			YingShouKuanInKaiPiao inkaipiaoI = yingshoukuaninkaipiaolist.get(0);
-			
-			Double myYingShou = inkaipiaoI.getYingshou() ;
-			myYingShou = StringTfmDouble( formatDoubleTwo(myYingShou) );
-			inkaipiaoI.setKaipiaojine( myYingShou );
-			
-			Double myShuiJin = inkaipiaoI.getShuijin() ;
-			myShuiJin = StringTfmDouble( formatDoubleTwo(myShuiJin) );
-			inkaipiaoI.setShuijin( myShuiJin );
-			
-			Double myGuanLiFei = inkaipiaoI.getGuanlifei()  ;
-			myGuanLiFei = StringTfmDouble( formatDoubleTwo(myGuanLiFei) );
-			inkaipiaoI.setGuanlifei( myGuanLiFei );
-			
-			Double myShiFuYunFei = inkaipiaoI.getShifuyunfei() ;
-			myShiFuYunFei = StringTfmDouble( formatDoubleTwo(myShiFuYunFei) );
-			inkaipiaoI.setShifuyunfei( myShiFuYunFei );
-			
-			Double myDaiDianFei = inkaipiaoI.getDaidianfei() ;
-			myDaiDianFei = StringTfmDouble( formatDoubleTwo(myDaiDianFei) );
-			inkaipiaoI.setDaidianfei( myDaiDianFei );
-			
-			Double myShiShouYunFei = inkaipiaoI.getShishouyunfei() ;
-			myShiShouYunFei = StringTfmDouble( formatDoubleTwo(myShiShouYunFei) );
-			inkaipiaoI.setShishouyunfei( myShiShouYunFei );
-			
-			Double myZunCheFei = inkaipiaoI.getZuchefei() ;
-			myZunCheFei = StringTfmDouble( formatDoubleTwo(myZunCheFei) );
-			inkaipiaoI.setZuchefei( myZunCheFei );
-			
-			Double myYeWuFei = inkaipiaoI.getYewufei() ;
-			myYeWuFei = StringTfmDouble( formatDoubleTwo(myYeWuFei) );
-			inkaipiaoI.setYewufei( myYeWuFei );
-			
-//			替换掉i的位置
-			yingshoukuaninkaipiaolist.set(0, inkaipiaoI);
-			
-		}
+
 		
 //		合计
 		Double sumkaipiaojine = 0.0;
