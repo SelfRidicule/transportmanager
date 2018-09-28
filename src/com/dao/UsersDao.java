@@ -3,6 +3,7 @@ package com.dao;
 import java.util.List;
 
 import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 
 import com.entity.Users;
 
@@ -100,9 +101,11 @@ public class UsersDao extends Dao<Users> {
 		hql.append(" where u.deptid = d.deptid ");
 		hql.append(" and d.deptname = :deptname ");
 		
-		Query query = getSessionFactory().getCurrentSession().createQuery(hql.toString());
+		SQLQuery query = getSessionFactory().getCurrentSession().createSQLQuery(hql.toString());
 		
 		query.setString("deptname", deptname);
+		
+		query.addEntity(Users.class);
 		
 		return query.list();
 	}
