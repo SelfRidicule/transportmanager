@@ -284,7 +284,7 @@ public class CheLiangController extends ActionSupport{
 		JiaShiYuanController.sendJiaShiYuan(jiaShiYuanService);
 		
 //		发送用户集合对象
-		UsersController.sendUsers(usersService);
+		UsersController.sendUsersByDeptName(usersService,"安全科");
 		
 		return "success";
 	}
@@ -312,7 +312,7 @@ public class CheLiangController extends ActionSupport{
 		JiaShiYuanController.sendJiaShiYuan(jiaShiYuanService);
 		
 //		发送用户集合对象
-		UsersController.sendUsers(usersService);
+		UsersController.sendUsersByDeptName(usersService,"安全科");
 		
 		return "success";
 	}

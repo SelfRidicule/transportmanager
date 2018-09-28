@@ -90,4 +90,21 @@ public class UsersDao extends Dao<Users> {
 		query.executeUpdate();
 	}
 	
+	
+	/**
+	 *  查询指定部门名称的用户
+	 */
+	public List<Users> queryUsersInDeptName(String deptname) {
+		StringBuffer hql = new StringBuffer();
+		hql.append(" select u.* from Users u , Dept d ");
+		hql.append(" where u.deptid = d.deptid ");
+		hql.append(" and d.deptname = :deptname ");
+		
+		Query query = getSessionFactory().getCurrentSession().createQuery(hql.toString());
+		
+		query.setString("deptname", deptname);
+		
+		return query.list();
+	}
+	
 }

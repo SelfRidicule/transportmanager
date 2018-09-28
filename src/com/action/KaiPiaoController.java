@@ -317,7 +317,7 @@ public class KaiPiaoController extends ActionSupport{
 		}
 		
 //		所有实付运费合计除以0.875
-		sumshifuyunfei = sumshifuyunfei / 0.875 ;
+//		sumshifuyunfei = sumshifuyunfei / 0.875 ;
 		
 //		发送数据
 		request.setAttribute( "sumkaipiaojine" , formatDoubleTwo(sumkaipiaojine) );

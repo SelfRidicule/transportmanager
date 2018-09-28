@@ -164,6 +164,14 @@ public class UsersService {
 		usersDao.updateUsersQuanXianMingCheng(quanxianmingcheng);
 	}
 	
+	
+	/**
+	 *  查询指定部门名称的用户
+	 */
+	public List<Users> queryUsersInDeptName(String deptname) {
+		return usersDao.queryUsersInDeptName( deptname );
+	}
+	
 	/**
 	 *  get set
 	 */
